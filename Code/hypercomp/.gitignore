@@ -1,5 +1,5 @@
 # Custom for this project
-data/
+data/mat-data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
