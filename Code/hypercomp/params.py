@@ -1,3 +1,5 @@
+# Input Channels
+CHANNELS = 369
 # Shuffle Data loaders? Should be false for debugging
 SHUFFLE_DATA_LOADER = False
 # Number of workers for data loaders
