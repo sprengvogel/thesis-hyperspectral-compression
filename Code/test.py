@@ -4,6 +4,7 @@ import pytorch_lightning as pl
 from hypercomp import params as p
 from torchinfo import summary
 from pytorch_lightning.loggers import WandbLogger
+import torch
 
 if __name__ == "__main__":
     model = models.LitSimpleModel()
@@ -15,6 +16,7 @@ if __name__ == "__main__":
         print(el.shape)
 
     wandb_logger = WandbLogger(project="MastersThesis")
+    accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     trainer = pl.Trainer(
-        accelerator="gpu", max_epochs=p.EPOCHS, logger=wandb_logger)
+        accelerator=accelerator, max_epochs=p.EPOCHS, logger=wandb_logger, log_every_n_steps=1)
     trainer.fit(model, dataloader)
