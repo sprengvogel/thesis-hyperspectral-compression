@@ -7,6 +7,9 @@ from pytorch_lightning.loggers import WandbLogger
 import torch
 
 if __name__ == "__main__":
+    test_model = models.Conv1DModel(nChannels=369)
+    summary(test_model, input_size=(1000, 369))
+    exit(0)
     model = models.LitSimpleModel()
     summary(model.autoencoder, input_size=(16, 369, 96, 96))
 
