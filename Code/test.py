@@ -7,16 +7,11 @@ from pytorch_lightning.loggers import WandbLogger
 import torch
 
 if __name__ == "__main__":
-    test_model = models.Conv1DModel(nChannels=369)
-    summary(test_model, input_size=(1000, 369))
-    exit(0)
-    model = models.LitSimpleModel()
-    summary(model.autoencoder, input_size=(16, 369, 96, 96))
+    model = models.LitAutoEncoder(models.Conv1DModel(nChannels=369), lr=p.LR)
+    summary(model.autoencoder, input_size=(1000, 1, 369))
 
-    dataset = data.MatDataset("hypercomp/data/mat-data/")
+    dataset = data.MatDataset("hypercomp/data/mat-data/", spacial_flatten=True)
     dataloader = data.dataLoader(dataset)
-    for el in dataloader:
-        print(el.shape)
 
     wandb_logger = WandbLogger(project="MastersThesis")
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"

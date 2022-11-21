@@ -10,18 +10,31 @@ class MatDataset(Dataset):
     """
     Dataset reading all .mat files from a single directory.
     All files are read on init, so that __getitem__ is as fast as possible.
-    Returns shape (channels, x_dim, y_dim)
+    Returns shape (batch_size, channels, x_dim, y_dim)
+    If spacial_flatten=True returns (batch_size, channels)
     """
 
-    def __init__(self, source_dir, transform=None):
-        self.mats = []
+    def __init__(self, source_dir, spacial_flatten=True, transform=None):
+        if spacial_flatten:
+            self.mats = None
+        else:
+            self.mats = []
         # Read all .mat files in the source directory
         for file in os.listdir(source_dir):
             if file.endswith(".mat"):
                 file_path = os.path.join(source_dir, file)
                 mat = scipy.io.loadmat(file_path)['img']
-                # We want the shape (369,96,96) instead of (96,96,369)
-                self.mats.append(np.moveaxis(mat, -1, 0))
+                if spacial_flatten:
+                    if self.mats == None:
+                        self.mats = np.empty((0, mat.shape[-1]))
+                    # Transform shape from (96,96,369) to (96*96,369)
+                    mat = mat.reshape(-1, mat.shape[-1])
+                    # Extend mats array by the new pixels
+                    self.mats = np.vstack((self.mats, mat))
+                else:
+                    # We want the shape (369,96,96) instead of (96,96,369)
+                    self.mats.append(np.moveaxis(mat, -1, 0))
+        self.mats = np.float32(np.expand_dims(self.mats, 1))
         self.transform = transform
 
     def __len__(self):

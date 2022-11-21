@@ -1,5 +1,4 @@
 import torch
-
 from .. import params as p
 
 
@@ -26,26 +25,22 @@ class Conv1DEncoder(torch.nn.Module):
         print(self.padded_channels)
         self.relu = torch.nn.LeakyReLU()
         self.conv1 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=11)
+            in_channels=1, out_channels=self.padded_channels//2, kernel_size=11, padding='same')
         self.maxpool1 = torch.nn.MaxPool1d(kernel_size=2)
         self.conv2 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=11)
+            in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same')
         self.maxpool2 = torch.nn.MaxPool1d(kernel_size=2)
         self.conv3 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=9)
+            in_channels=self.padded_channels//4, out_channels=self.padded_channels//8, kernel_size=9, padding='same')
         self.conv4 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=7)
+            in_channels=self.padded_channels//8, out_channels=1, kernel_size=7, padding='same')
 
-    def forward(self, x):
-        if not x.dim() == 2:
+    def forward(self, x: torch.Tensor):
+        if not x.dim() == 3:
             raise ValueError(
-                "Input is expected in format (Batch, Channels). Spatial dimensions should be flattened into the batch dimension")
-        print(x.shape)
+                "Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension")
         out = torch.nn.functional.pad(
             x, pad=(0, self.padded_channels-self.input_channels), value=0)
-        # Necessary for convolution layers to work correctly
-        out = torch.unsqueeze(out, dim=1)
-        print(out.shape)
         out = self.maxpool1((self.conv1(out)))
         out = self.maxpool2(self.relu(self.conv2(out)))
         out = self.relu(self.conv3(out))
@@ -61,17 +56,17 @@ class Conv1DDecoder(torch.nn.Module):
             paddingToBeDivisibleByN(output_channels, 4)
         self.relu = torch.nn.LeakyReLU()
         self.conv1 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=7)
+            in_channels=1, out_channels=self.padded_channels//8, kernel_size=7, padding='same')
         self.conv2 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=9)
+            in_channels=self.padded_channels//8, out_channels=self.padded_channels//4, kernel_size=9, padding='same')
         self.upsampling1 = torch.nn.Upsample(scale_factor=2)
         self.conv3 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=11)
+            in_channels=self.padded_channels//4, out_channels=self.padded_channels//2, kernel_size=11, padding='same')
         self.upsampling2 = torch.nn.Upsample(scale_factor=2)
         self.conv4 = torch.nn.Conv1d(
-            in_channels=1, out_channels=1, kernel_size=11)
+            in_channels=self.padded_channels//2, out_channels=1, kernel_size=11, padding='same')
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor):
         if not x.dim() == 3 and x.shape[1] == 1:
             raise ValueError(
                 "Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension")
