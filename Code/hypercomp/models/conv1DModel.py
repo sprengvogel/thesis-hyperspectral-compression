@@ -73,9 +73,9 @@ class Conv1DDecoder(torch.nn.Module):
         out = self.upsampling1(self.relu(self.conv1(x)))
         out = self.upsampling2(self.relu(self.conv2(out)))
         out = self.relu(self.conv3(out))
-        out = torch.squeeze(torch.nn.functional.sigmoid(self.conv4(out)))
+        out = torch.sigmoid(self.conv4(out))
         # Remove padding channels
-        return out[:, :self.output_channels]
+        return out[:, :, :self.output_channels]
 
 
 """

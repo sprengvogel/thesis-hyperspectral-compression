@@ -4,6 +4,7 @@ import scipy.io
 import os
 import numpy as np
 from .utils import dataLoader
+from tqdm import tqdm
 
 
 class MatDataset(Dataset):
@@ -20,12 +21,12 @@ class MatDataset(Dataset):
         else:
             self.mats = []
         # Read all .mat files in the source directory
-        for file in os.listdir(source_dir):
+        for file in tqdm(os.listdir(source_dir)):
             if file.endswith(".mat"):
                 file_path = os.path.join(source_dir, file)
                 mat = scipy.io.loadmat(file_path)['img']
                 if spacial_flatten:
-                    if self.mats == None:
+                    if self.mats is None:
                         self.mats = np.empty((0, mat.shape[-1]))
                     # Transform shape from (96,96,369) to (96*96,369)
                     mat = mat.reshape(-1, mat.shape[-1])
