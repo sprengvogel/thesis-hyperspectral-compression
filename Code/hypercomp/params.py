@@ -7,6 +7,9 @@ SHUFFLE_DATA_LOADER = False
 # Number of workers for data loaders
 NUM_WORKERS = 4
 # Batch size for all data loaders
-BATCH_SIZE = 48
+BATCH_SIZE = 512
 # Number of epochs for training
 EPOCHS = 10
+# Folders for data
+#DATA_FOLDER = "/media/storagecube/data/datasets/hyperspectral/fatih/data"
+DATA_FOLDER = "/home/niklassp/data"
