@@ -1,7 +1,7 @@
 # Input Channels
 CHANNELS = 369
 # Learning rate
-LR = 0.02
+LR = 0.01
 # Shuffle Data loaders? Should be false for debugging
 SHUFFLE_DATA_LOADER = False
 # Number of workers for data loaders
@@ -9,7 +9,8 @@ NUM_WORKERS = 4
 # Batch size for all data loaders
 BATCH_SIZE = 512
 # Number of epochs for training
-EPOCHS = 10
+EPOCHS = 50
 # Folders for data
 #DATA_FOLDER = "/media/storagecube/data/datasets/hyperspectral/fatih/data"
-DATA_FOLDER = "/home/niklassp/data"
+#DATA_FOLDER = "/home/niklassp/data"
+DATA_FOLDER = "/faststorage/fatih-dataset/data"
