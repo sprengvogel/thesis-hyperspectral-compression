@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "mat_to_squirrel"
+version = "0.1.0"
+description = "Convert a `.mat` dataset to an optimized Squirrel Messagepack Dataset."
+authors = ["Kai Norman Clasen <k.clasen@protonmail.com>"]
+license = "MIT license"
+readme = "README.md"
+homepage = "https://github.com/kai-tub/mat_to_squirrel/"
+repository = "https://github.com/kai-tub/mat_to_squirrel/"
+documentation = "https://github.com/kai-tub.github.io/mat_to_squirrel"
+include = [
+    "LICENSE",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8, <3.11"
+squirrel-core = "^0.14"
+numpy = "^1"
+scipy = "^1"
+msgpack-numpy = "^0.4.8"
+pydantic = "^1.9.1"
+rich = "^12.4.4"
+pipe = "^2.0"
+fnc = "^0.5.3"
+rich-click = {extras = ["typer"], version = "^1.5"}
+
+[tool.poetry.dev-dependencies]
+black = "*"
+isort = "*"
+pytest = "*"
+Sphinx = "^4.5"
+furo = "*"
+sphinx-autobuild = "*"
+sphinx-external-toc = "*"
+pre-commit = "*"
+myst-nb = "*"
+ipykernel = "*"
+linkify-it-py = "*"
+jupyter = "*"
+notebook = "*"
+# torch = "^1.11.0"
+# torchvision = "^0.12.0"
+ax-platform = "^0.2.5"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
