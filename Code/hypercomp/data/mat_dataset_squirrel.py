@@ -5,12 +5,12 @@ from scipy.io import loadmat
 
 from squirrel.iterstream.torch_composables import TorchIterable
 
-from torch.utils.data import Dataset
+from torch.utils.data import IterableDataset
 
 from mat_to_squirrel.squirrel_ext import ConfigurableMessagePackDriver
 
 
-class MatDatasetSquirrel(Dataset):
+class MatDatasetSquirrel(IterableDataset):
     """
     - root_dir/
         - test_2T3QHFKTCNUJFPWZ.gz
@@ -21,7 +21,7 @@ class MatDatasetSquirrel(Dataset):
         - ...
         """
 
-    def __init__(self, root_dir, num_channels='all', transform=None, split='train'):
+    def __init__(self, root_dir, transform=None, split='train'):
         assert split == 'train' or split == 'val' or split == 'test', 'Invalid split'
         self.root_dir = root_dir
         self.split = split
@@ -33,11 +33,6 @@ class MatDatasetSquirrel(Dataset):
 
         if transform:
             map_func = self.manipulate
-        elif num_channels != 'all' or num_channels != 369:
-            self.num_channels = num_channels
-            self.channels = np.linspace(
-                start=0, stop=368, num=num_channels).astype(int)
-            map_func = self.select_channels
         else:
             map_func = self.forward
 
@@ -52,16 +47,8 @@ class MatDatasetSquirrel(Dataset):
     def __getitem__(self, index):
         return NotImplementedError()
 
-    @staticmethod
-    def forward(arr):
-        return arr.copy()
-
-    def select_channels(self, arr):
-        arr = arr[self.channels, :]
-        return arr.copy()
-
-    def manipulate(self, arr):
-        return self.transform(arr.copy())
+    def __iter__(self):
+        return self.iter.__iter__()
 
 
 # class MatDataset(Dataset):

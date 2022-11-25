@@ -38,7 +38,8 @@ class Conv1DEncoder(torch.nn.Module):
     def forward(self, x: torch.Tensor):
         if not x.dim() == 3:
             raise ValueError(
-                "Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension")
+                """Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension.\n
+                Shape was instead: """ + str(x.shape))
         out = torch.nn.functional.pad(
             x, pad=(0, self.padded_channels-self.input_channels), value=0)
         out = self.maxpool1((self.conv1(out)))
@@ -69,7 +70,8 @@ class Conv1DDecoder(torch.nn.Module):
     def forward(self, x: torch.Tensor):
         if not x.dim() == 3 and x.shape[1] == 1:
             raise ValueError(
-                "Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension")
+                """Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension.\n
+                Shape was instead: """ + str(x.shape))
         out = self.upsampling1(self.relu(self.conv1(x)))
         out = self.upsampling2(self.relu(self.conv2(out)))
         out = self.relu(self.conv3(out))

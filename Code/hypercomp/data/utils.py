@@ -3,4 +3,4 @@ from .. import params as p
 
 
 def dataLoader(dataset: Dataset) -> DataLoader:
-    return DataLoader(dataset, batch_size=p.BATCH_SIZE, shuffle=p.SHUFFLE_DATA_LOADER, num_workers=p.NUM_WORKERS)
+    return DataLoader(dataset, batch_size=p.BATCH_SIZE, shuffle=p.SHUFFLE_DATA_LOADER, num_workers=p.NUM_WORKERS, pin_memory=True, drop_last=True)
