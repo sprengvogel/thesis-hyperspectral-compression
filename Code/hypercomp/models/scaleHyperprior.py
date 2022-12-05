@@ -20,11 +20,11 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
             encoder and last layer of the hyperprior decoder)
     """
 
-    def __init__(self, N, M, **kwargs):
+    def __init__(self, channel_number, N, M, **kwargs):
         super().__init__(entropy_bottleneck_channels=N, **kwargs)
 
         self.g_a = nn.Sequential(
-            conv(3, N),
+            conv(channel_number, N),
             GDN(N),
             conv(N, N),
             GDN(N),
@@ -40,7 +40,7 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
             GDN(N, inverse=True),
             deconv(N, N),
             GDN(N, inverse=True),
-            deconv(N, 3),
+            deconv(N, channel_number),
         )
 
         self.h_a = nn.Sequential(
@@ -76,10 +76,7 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
         y_hat, y_likelihoods = self.gaussian_conditional(y, scales_hat)
         x_hat = self.g_s(y_hat)
 
-        return {
-            "x_hat": x_hat,
-            "likelihoods": {"y": y_likelihoods, "z": z_likelihoods},
-        }
+        return x_hat, y_likelihoods, z_likelihoods
 
     def load_state_dict(self, state_dict):
         update_registered_buffers(
@@ -127,7 +124,7 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
         y_hat = self.gaussian_conditional.decompress(
             strings[0], indexes, z_hat.dtype)
         x_hat = self.g_s(y_hat).clamp_(0, 1)
-        return {"x_hat": x_hat}
+        return x_hat
 
 
 # From Balle's tensorflow compression examples

@@ -36,6 +36,7 @@ class Conv1DEncoder(torch.nn.Module):
             in_channels=self.padded_channels//8, out_channels=1, kernel_size=7, padding='same')
 
     def forward(self, x: torch.Tensor):
+        x = reshape_for_squirrel_loader(x)
         if not x.dim() == 3:
             raise ValueError(
                 """Input is expected in format (Batch, 1, Channels). Spatial dimensions should be flattened into the batch dimension.\n
@@ -77,7 +78,8 @@ class Conv1DDecoder(torch.nn.Module):
         out = self.relu(self.conv3(out))
         out = torch.sigmoid(self.conv4(out))
         # Remove padding channels
-        return out[:, :, :self.output_channels]
+        out = out[:, :, :self.output_channels]
+        return split_apart_batches(out)
 
 
 """
@@ -89,3 +91,20 @@ def paddingToBeDivisibleByN(input_size: int, divisor: int) -> int:
     if input_size % divisor == 0:
         return 0
     return divisor - input_size % divisor
+
+
+def reshape_for_squirrel_loader(x: torch.Tensor) -> torch.Tensor:
+    if x.dim() == 3 and x.shape[1] != 1:
+        # Squirrel dataloader gives dimensions (Batch, Height*Width, Channels). We want to transform this to (Batch*H*W, 1, Channels)
+        x = x.reshape(-1, x.shape[-1])
+        return x.unsqueeze(1)
+    return x
+
+
+"""
+Transforms output of decoder which is in format (Batch*H*W,1,Channels) to (Batch, H*W, Channels)
+"""
+
+
+def split_apart_batches(x: torch.Tensor) -> torch.Tensor:
+    return x.reshape((p.BATCH_SIZE, -1, x.shape[-1]))
