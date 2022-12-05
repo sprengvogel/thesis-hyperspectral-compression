@@ -46,7 +46,7 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
         self.h_a = nn.Sequential(
             conv(M, N, stride=1, kernel_size=3),
             nn.ReLU(inplace=True),
-            conv(N, N),
+            conv(N, N, stride=1),
             nn.ReLU(inplace=True),
             conv(N, N),
         )
@@ -54,7 +54,7 @@ class ScaleHyperprior(EntropyBottleneckCompressionModel):
         self.h_s = nn.Sequential(
             deconv(N, N),
             nn.ReLU(inplace=True),
-            deconv(N, N),
+            deconv(N, N, stride=1),
             nn.ReLU(inplace=True),
             conv(N, M, stride=1, kernel_size=3),
             nn.ReLU(inplace=True),

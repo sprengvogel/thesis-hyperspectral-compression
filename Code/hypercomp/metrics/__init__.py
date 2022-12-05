@@ -1,1 +1,1 @@
-from .metrics import psnr
+from .metrics import psnr, ssim, spectral_angle
