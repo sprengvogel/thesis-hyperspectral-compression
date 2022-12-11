@@ -7,19 +7,18 @@ from pytorch_lightning.loggers import WandbLogger
 import torch
 from torch.utils.data import random_split
 import math
-from hypercomp.data import flatten_spacial_dims
 import numpy as np
 
 if __name__ == "__main__":
     model = models.LitAutoEncoder(models.Conv1DModel(nChannels=369), lr=p.LR)
-    summary(model.autoencoder, input_size=(p.BATCH_SIZE, 96*96, 369))
+    summary(model.autoencoder, input_size=(p.BATCH_SIZE,369,96,96))
 
     train_dataset = data.MatDatasetSquirrel(
-        p.DATA_FOLDER_SQUIRREL, split="train", transform=flatten_spacial_dims)
+        p.DATA_FOLDER_SQUIRREL, split="train")
     val_dataset = data.MatDatasetSquirrel(
-        p.DATA_FOLDER_SQUIRREL, split="val", transform=flatten_spacial_dims)
+        p.DATA_FOLDER_SQUIRREL, split="val")
     test_dataset = data.MatDatasetSquirrel(
-        p.DATA_FOLDER_SQUIRREL, split="test", transform=flatten_spacial_dims)
+        p.DATA_FOLDER_SQUIRREL, split="test")
 
     train_dataloader = data.dataLoader(train_dataset)
     val_dataloader = data.dataLoader(val_dataset)

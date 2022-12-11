@@ -7,12 +7,12 @@ from pytorch_lightning.loggers import WandbLogger
 import torch
 from torch.utils.data import random_split
 import math
-from hypercomp.data import flatten_spacial_dims
 import numpy as np
+from hypercomp import metrics
 
 if __name__ == "__main__":
     model = models.LitAutoEncoder(models.ScaleHyperprior(
-        channel_number=369, N=128, M=192), lr=p.LR)
+        channel_number=369, N=128, M=192), lr=p.LR_HYPERPRIOR, loss=metrics.RateDistortionLoss(lmbda=1), hyperprior=True)
     summary(model.autoencoder, input_size=(p.BATCH_SIZE, 369, 96, 96))
 
     train_dataset = data.MatDatasetSquirrel(
@@ -22,9 +22,12 @@ if __name__ == "__main__":
     test_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="test")
 
-    train_dataloader = data.dataLoader(train_dataset)
-    val_dataloader = data.dataLoader(val_dataset)
-    test_dataloader = data.dataLoader(test_dataset)
+    train_dataloader = data.dataLoader(
+        train_dataset, batch_size=p.BATCH_SIZE_HYPERPRIOR)
+    val_dataloader = data.dataLoader(
+        val_dataset, batch_size=p.BATCH_SIZE_HYPERPRIOR)
+    test_dataloader = data.dataLoader(
+        test_dataset, batch_size=p.BATCH_SIZE_HYPERPRIOR)
 
     wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"

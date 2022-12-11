@@ -1,1 +1,1 @@
-from .metrics import psnr, ssim, spectral_angle
+from .metrics import psnr, ssim, spectral_angle, RateDistortionLoss

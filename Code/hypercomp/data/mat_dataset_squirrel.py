@@ -37,7 +37,7 @@ class MatDatasetSquirrel(IterableDataset):
             map_func = self.forward
 
         self.iter = self.msg_pack_driver.get_iter(split=split).tqdm().async_map(
-            map_func, buffer=100).compose(TorchIterable)
+            map_func, buffer=5).compose(TorchIterable)
 
     def __len__(self):
         return NotImplementedError()

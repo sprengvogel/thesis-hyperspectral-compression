@@ -1,6 +1,33 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import math
+import numpy as np
+from .. import params as p
+
+
+def unflatten_and_split_apart_batches(x: torch.Tensor) -> torch.Tensor:
+    """
+    Transforms output of decoder which is in format (Batch*H*W,1,Channels) to (Batch,Channels,H,W)
+    """
+    H = int(math.sqrt(x.shape[0]/p.BATCH_SIZE))
+    x = x.reshape((p.BATCH_SIZE, H, H, -1))
+    return x.moveaxis(-1, 1)
+
+def flatten_spacial_dims(x: torch.Tensor) -> torch.Tensor:
+    """
+    Flattens a numpy array from dimensions (batch, channels, height, width) to (batch*height*width, 1, channels)
+    """
+    if not len(x.shape) == 4:
+        raise ValueError(
+            """Input is expected in format (Batch, Channels, Height, Width).\n
+                Shape was instead: """ + str(x.shape))
+    # Move channel dimension in the back
+    x=x.moveaxis(1, -1)
+    # Then flatten front three dimension together
+    x=x.reshape(-1, x.shape[-1])
+    # To make conv layers work, we need a dimension of size 1 in the middle
+    return x.unsqueeze(1)
 
 
 def find_named_buffer(module, query):
@@ -22,8 +49,8 @@ def _update_registered_buffer(
     policy="resize_if_empty",
     dtype=torch.int,
 ):
-    new_size = state_dict[state_dict_key].size()
-    registered_buf = find_named_buffer(module, buffer_name)
+    new_size=state_dict[state_dict_key].size()
+    registered_buf=find_named_buffer(module, buffer_name)
 
     if policy in ("resize_if_empty", "resize"):
         if registered_buf is None:
@@ -64,7 +91,7 @@ def update_registered_buffers(
             ('resize_if_empty', 'resize', 'register')
         dtype (dtype): Type of buffer to be registered (when policy is 'register')
     """
-    valid_buffer_names = [n for n, _ in module.named_buffers()]
+    valid_buffer_names=[n for n, _ in module.named_buffers()]
     for buffer_name in buffer_names:
         if buffer_name not in valid_buffer_names:
             raise ValueError(f'Invalid buffer name "{buffer_name}"')

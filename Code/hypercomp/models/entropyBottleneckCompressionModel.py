@@ -16,7 +16,7 @@ class EntropyBottleneckCompressionModel(nn.Module):
     def __init__(self, entropy_bottleneck_channels, init_weights=None):
         super().__init__()
         self.entropy_bottleneck = EntropyBottleneck(
-            entropy_bottleneck_channels)
+            entropy_bottleneck_channels, entropy_coder_precision=32)
 
         if init_weights is not None:
             warnings.warn(
