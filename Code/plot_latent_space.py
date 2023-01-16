@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 @torch.no_grad()
 def encodeWithConvModel(x: torch.Tensor, conv_model: models.LitAutoEncoder, scale=False):
-    x = x.to(torch.device("cuda:3"))
+    x = x.to(torch.device("cuda:"+str(p.GPU_ID)))
     out = unflatten_and_split_apart_batches(
         conv_model(x)).squeeze()
     if scale:
@@ -52,7 +52,7 @@ if __name__ == "__main__":
     conv_model.load_from_checkpoint(artifact_dir+"/model.ckpt")
     conv_model.eval()
     conv_model.freeze()
-    conv_model.to(torch.device("cuda:3"))
+    conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
 
     test_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="test", transform=None)

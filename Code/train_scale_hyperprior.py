@@ -9,10 +9,11 @@ from torch.utils.data import random_split
 import math
 import numpy as np
 from hypercomp import metrics
+from hypercomp import models
 
 if __name__ == "__main__":
     model = models.LitAutoEncoder(models.ScaleHyperprior(
-        channel_number=369, N=128, M=192), lr=p.LR_HYPERPRIOR, loss=metrics.RateDistortionLoss(lmbda=1), hyperprior=True)
+        channel_number=369, N=128, M=192), lr=p.LR_HYPERPRIOR, loss=metrics.RateDistortionLoss(lmbda=1), model_type=models.ModelType.HYPERPRIOR)
     summary(model.autoencoder, input_size=(p.BATCH_SIZE, 369, 96, 96))
 
     train_dataset = data.MatDatasetSquirrel(
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     print("Accelerator: " + accelerator)
     trainer = pl.Trainer(
-        accelerator=accelerator, max_epochs=p.EPOCHS, logger=wandb_logger, log_every_n_steps=50, val_check_interval=1.0, devices=[3])
+        accelerator=accelerator, max_epochs=p.EPOCHS, logger=wandb_logger, log_every_n_steps=50, val_check_interval=1.0, devices=[p.GPU_ID])
     trainer.fit(model, train_dataloaders=train_dataloader,
                 val_dataloaders=val_dataloader)
     trainer.test(model, dataloaders=test_dataloader)

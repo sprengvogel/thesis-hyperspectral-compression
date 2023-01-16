@@ -29,9 +29,9 @@ class Conv2DEncoder(nn.Module):
             nn.PReLU(256),
             nn.MaxPool2d(2, 2),
             nn.Conv2d(
-                in_channels=256, out_channels=512, kernel_size=3, padding=1),
-            nn.PReLU(512),
-            nn.MaxPool2d(2, 2))  # ,
+                in_channels=256, out_channels=202, kernel_size=3, padding=1))  # ,
+        # nn.PReLU(512) ,
+        # nn.MaxPool2d(2, 2))  # ,
         # nn.Conv2d(
         #    in_channels=512, out_channels=512, kernel_size=3, padding=1),
         # nn.PReLU(512),
@@ -48,14 +48,14 @@ class Conv2DDecoder(nn.Module):
     def __init__(self, output_channels: int, H: int, W: int) -> None:
         super().__init__()
         self.H, self.W = H, W
-        #self.linear = nn.Linear(128*H*W, 512*H*W)
+        # self.linear = nn.Linear(128*H*W, 512*H*W)
         self.decoder = nn.Sequential(
             # nn.PReLU(512*H*W),
-            #nn.ConvTranspose2d(512, 512, kernel_size=2, stride=2),
+            # nn.ConvTranspose2d(512, 512, kernel_size=2, stride=2),
             # nn.PReLU(512),
-            nn.ConvTranspose2d(512, 512, kernel_size=2, stride=2),
-            nn.PReLU(512),
-            nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2),
+            # nn.ConvTranspose2d(512, 512, kernel_size=2, stride=2),
+            nn.PReLU(202),
+            nn.ConvTranspose2d(202, 256, kernel_size=2, stride=2),
             nn.PReLU(256),
             nn.ConvTranspose2d(256, 256, kernel_size=2, stride=2),
             nn.PReLU(256),
@@ -64,7 +64,7 @@ class Conv2DDecoder(nn.Module):
             nn.Sigmoid())
 
     def forward(self, x):
-        #out = self.linear(x)
-        #out = out.reshape((x.shape[0], 512, self.H, self.W))
+        # out = self.linear(x)
+        # out = out.reshape((x.shape[0], 512, self.H, self.W))
         out = self.decoder(x)
         return out

@@ -3,6 +3,7 @@ import math
 from torch.nn.functional import mse_loss
 from torchmetrics import SpectralAngleMapper
 import pytorch_msssim as mss
+from math import degrees
 
 
 def psnr(img_batch1, img_batch2, max_val=1):
@@ -23,7 +24,26 @@ def ssim(img_batch1, img_batch2):
 
 def spectral_angle(img_batch1, img_batch2):
     sam = SpectralAngleMapper(reduction="elementwise_mean")
-    return sam(img_batch1, img_batch2)
+    return degrees(sam(img_batch1, img_batch2))
+
+
+class DualMSELoss(torch.nn.Module):
+    """Custom mse loss that calculates the mse loss for an outer and an inner compression network as lambda * mse(outer_net) + (1-lambda) * mse(inner_net)."""
+
+    def __init__(self, lmbda=0.5):
+        super().__init__()
+        self.mse = torch.nn.MSELoss()
+        self.lmbda = lmbda
+
+    def forward(self, output, target):
+        x_hat_outer, x_hat_inner, x_inner = output
+
+        mse_loss_outer = self.mse(x_hat_outer, target)
+        mse_loss_inner = self.mse(x_hat_inner, x_inner)
+        dual_mse_loss = self.lmbda * mse_loss_outer + \
+            (1-self.lmbda) * mse_loss_inner
+
+        return dual_mse_loss, mse_loss_inner, mse_loss_outer
 
 
 class RateDistortionLoss(torch.nn.Module):

@@ -14,7 +14,7 @@ import wandb
 def encodeWithConvModel(x: np.ndarray, conv_model: models.LitAutoEncoder):
     # Model expects batch dimension
     x = np.expand_dims(x, 0)
-    x = torch.tensor(x).to(torch.device("cuda:3"))
+    x = torch.tensor(x).to(torch.device("cuda:"+str(p.GPU_ID)))
     out = unflatten_and_split_apart_batches(
         conv_model(x)).squeeze()
     # Scale tensor to [0,1]
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     conv_model.load_from_checkpoint(artifact_dir+"/model.ckpt")
     conv_model.eval()
     conv_model.freeze()
-    conv_model.to(torch.device("cuda:3"))
+    conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
 
     model = models.LitAutoEncoder(models.Conv2DModel(
         nChannels=93, H=96, W=96), lr=p.LR)
@@ -54,11 +54,11 @@ if __name__ == "__main__":
     test_dataloader = data.dataLoader(
         test_dataset, batch_size=p.BATCH_SIZE_CONV2D)
 
-    wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
+    wandb_logger = WandbLogger(project="MastersThesis", log_model="all")
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     print("Accelerator: " + accelerator)
     trainer = pl.Trainer(
-        accelerator=accelerator, max_epochs=p.EPOCHS, logger=wandb_logger, log_every_n_steps=50, val_check_interval=1.0, devices=[3])
+        accelerator=accelerator, max_epochs=p.EPOCHS, logger=wandb_logger, log_every_n_steps=50, val_check_interval=1.0, devices=[p.GPU_ID])
     trainer.fit(model, train_dataloaders=train_dataloader,
                 val_dataloaders=val_dataloader)
     trainer.test(model, dataloaders=test_dataloader)
