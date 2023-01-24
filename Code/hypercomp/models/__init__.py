@@ -5,4 +5,5 @@ from .scaleHyperprior import ScaleHyperprior
 from .combinedModel import CombinedModel
 from .factorizedPrior import FactorizedPrior
 from .conv2DModel import  Conv2DModel
+from .vae1DModel import VAE1DModel
 from .modelType import ModelType

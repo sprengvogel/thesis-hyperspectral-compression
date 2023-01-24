@@ -11,8 +11,9 @@ import numpy as np
 
 if __name__ == "__main__":
     model = models.LitAutoEncoder(models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=True), lr=p.LR)
-    summary(model.autoencoder, input_size=(p.BATCH_SIZE, p.CHANNELS, 96, 96))
+        nChannels=p.CHANNELS, bpp_2=False), lr=p.LR)
+    summary(model.autoencoder, input_size=(p.BATCH_SIZE,
+            p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 
     """train_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="train")

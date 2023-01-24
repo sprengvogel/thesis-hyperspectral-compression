@@ -2,39 +2,19 @@ import hypercomp.data as data
 import hypercomp.models as models
 import pytorch_lightning as pl
 from hypercomp import params as p
+from hypercomp import metrics
 from torchinfo import summary
 from pytorch_lightning.loggers import WandbLogger
 import torch
+from torch.utils.data import random_split
+import math
 import numpy as np
-from hypercomp import models
-from hypercomp import metrics
-import wandb
-
-
-def load_outer_model(artifact_id):
-    run = wandb.init(project="MastersThesis")
-    artifact = run.use_artifact(
-        artifact_id, type='model')
-    artifact_dir = artifact.download()
-    inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=False)
-    conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
-    conv_model.load_from_checkpoint(
-        artifact_dir+"/model.ckpt", model=inner_model)
-    conv_model.train()
-    conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
-    return conv_model.autoencoder
-
 
 if __name__ == "__main__":
-    outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-aa338ws3:v0")
-
-    model = models.LitAutoEncoder(models.CombinedModel(
-        nChannels=p.CHANNELS, innerChannels=26, H=128, W=128, outerModel=outer_model),
-        lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    summary(model.autoencoder, input_size=(
-        p.BATCH_SIZE, p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
+    model = models.LitAutoEncoder(models.VAE1DModel(
+        nChannels=p.CHANNELS, latent_dim=26), lr=p.LR, loss=metrics.VAELoss(), model_type=models.ModelType.VAE)
+    summary(model.autoencoder, input_size=(p.BATCH_SIZE,
+            p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 
     """train_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="train")
@@ -50,12 +30,9 @@ if __name__ == "__main__":
     test_dataset = data.HySpecNet11k(
         p.DATA_FOLDER_HYSPECNET, mode="easy", split="test")
 
-    train_dataloader = data.dataLoader(
-        train_dataset, batch_size=p.BATCH_SIZE)
-    val_dataloader = data.dataLoader(
-        val_dataset, batch_size=p.BATCH_SIZE)
-    test_dataloader = data.dataLoader(
-        test_dataset, batch_size=p.BATCH_SIZE)
+    train_dataloader = data.dataLoader(train_dataset)
+    val_dataloader = data.dataLoader(val_dataset)
+    test_dataloader = data.dataLoader(test_dataset)
 
     wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"

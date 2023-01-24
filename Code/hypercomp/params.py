@@ -3,6 +3,9 @@ CHANNELS = 202
 # Learning rate
 LR = 1e-5
 LR_HYPERPRIOR = 1e-6
+# Specific optimizer parameters
+WEIGHT_DECAY = 0
+DUAL_MSE_LOSS_LMBDA = 1.0
 # Shuffle Data loaders? Should be false for debugging
 SHUFFLE_DATA_LOADER = False
 # Number of workers for data loaders

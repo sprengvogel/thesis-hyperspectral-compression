@@ -36,6 +36,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log("train_loss/dual_mse", loss, prog_bar=True)
             self.log("train_loss/inner_mse", inner_loss, prog_bar=True)
             self.log("train_loss/outer_mse", outer_loss, prog_bar=True)
+        elif self.model_type == ModelType.VAE:
+            loss, mse, kld = loss
+            self.log("train_loss/mse", mse, prog_bar=True)
+            self.log("train_loss/kld", kld, prog_bar=True)
+            x_hat = x_hat[0]
         psnr_val = psnr(x_hat, x)
         #ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
@@ -67,6 +72,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log(f"{prefix}_loss/dual_mse", loss, prog_bar=True)
             self.log(f"{prefix}_loss/inner_mse", inner_loss, prog_bar=True)
             self.log(f"{prefix}_loss/outer_mse", outer_loss, prog_bar=True)
+        elif self.model_type == ModelType.VAE:
+            loss, mse, kld = loss
+            self.log(f"{prefix}_loss/mse", mse, prog_bar=True)
+            self.log(f"{prefix}_loss/kld", kld, prog_bar=True)
+            x_hat = x_hat[0]
         psnr_val = psnr(x_hat, x)
         #ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
@@ -84,7 +94,7 @@ class LitAutoEncoder(pl.LightningModule):
                 convertVNIRImageToRGB(img), convertVNIRImageToRGB(img_hat)])
 
     def configure_optimizers(self):
-        return torch.optim.Adam(self.parameters(), lr=self.lr)
+        return torch.optim.Adam(self.parameters(), lr=self.lr, weight_decay=p.WEIGHT_DECAY)
 
 
 def convertVNIRImageToRGB(hyperspectral_image: torch.Tensor):

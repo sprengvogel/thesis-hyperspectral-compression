@@ -27,6 +27,21 @@ def spectral_angle(img_batch1, img_batch2):
     return degrees(sam(img_batch1, img_batch2))
 
 
+class VAELoss(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.mse = torch.nn.MSELoss()
+
+    def forward(self, output, target):
+        x_hat, mean, log_variance = output
+        recon_loss = self.mse(x_hat, target)
+        KLD = 0.01*torch.mean(-0.5 * torch.sum(1 + log_variance -
+                                               mean.pow(2) - log_variance.exp(), dim=1), dim=0)
+        print(recon_loss.shape)
+        print(KLD.shape)
+        return recon_loss+KLD, recon_loss, KLD
+
+
 class DualMSELoss(torch.nn.Module):
     """Custom mse loss that calculates the mse loss for an outer and an inner compression network as lambda * mse(outer_net) + (1-lambda) * mse(inner_net)."""
 
