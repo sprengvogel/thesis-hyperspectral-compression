@@ -28,11 +28,10 @@ class VAE1DEncoder(torch.nn.Module):
         divisor = 8
         self.padded_channels = input_channels + paddingToBeDivisibleByN(
             input_size=input_channels, divisor=divisor)
-        print(self.input_channels)
-        print(self.padded_channels)
         self.encoder = nn.Sequential(
             nn.Conv1d(in_channels=1, out_channels=self.padded_channels //
                       2, kernel_size=11, padding='same'),
+            nn.LeakyReLU(),
             nn.MaxPool1d(kernel_size=2),
             nn.Conv1d(
                 in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
@@ -45,12 +44,13 @@ class VAE1DEncoder(torch.nn.Module):
             nn.Conv1d(
                 in_channels=self.padded_channels//8, out_channels=self.padded_channels//16, kernel_size=9, padding='same'),
             nn.LeakyReLU(),
-            nn.Flatten()
+            nn.Conv1d(
+                in_channels=self.padded_channels//16, out_channels=1, kernel_size=7, padding='same'),
+            nn.LeakyReLU(),
+            # nn.Flatten()
         )
-        self.linear_mean = nn.Linear(self.padded_channels//16 *
-                                     self.padded_channels//8, latent_dim)
-        self.linear_variance = nn.Linear(self.padded_channels//16 *
-                                         self.padded_channels//8, latent_dim)
+        self.linear_mean = nn.Linear(self.padded_channels//8, latent_dim)
+        self.linear_variance = nn.Linear(self.padded_channels//8, latent_dim)
         self.tanh = nn.Tanh()
 
     def forward(self, x: torch.Tensor):
@@ -64,7 +64,8 @@ class VAE1DEncoder(torch.nn.Module):
 
         out = self.encoder(out)
         mean = self.tanh(self.linear_mean(out))
-        log_variance = self.tanh(self.linear_variance(out))
+        log_variance = nn.functional.softplus(
+            self.tanh(self.linear_variance(out)))
         z = self._sample_latent(mean, log_variance)
         return [mean, log_variance, z]
 
@@ -84,10 +85,10 @@ class VAE1DDecoder(torch.nn.Module):
         self.padded_channels = output_channels + \
             paddingToBeDivisibleByN(output_channels, divisor=divisor)
         self.decoder = nn.Sequential(
-            nn.Linear(latent_dim, self.padded_channels//16 *
-                      self.padded_channels//8),
-            nn.Unflatten(1, (self.padded_channels//16,
-                         self.padded_channels//8)),
+            nn.Linear(latent_dim, self.padded_channels//8),
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                in_channels=1, out_channels=self.padded_channels//16, kernel_size=7, padding='same'),
             nn.LeakyReLU(),
             nn.Conv1d(
                 in_channels=self.padded_channels//16, out_channels=self.padded_channels//8, kernel_size=9, padding='same'),

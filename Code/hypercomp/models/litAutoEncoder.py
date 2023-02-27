@@ -41,6 +41,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log("train_loss/mse", mse, prog_bar=True)
             self.log("train_loss/kld", kld, prog_bar=True)
             x_hat = x_hat[0]
+        elif self.model_type == ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR:
+            loss, mse, bpp = loss
+            x_hat = x_hat[0]
+            self.log("train_loss/bpp", bpp, prog_bar=True)
+            self.log("train_loss/mse", mse, prog_bar=False)
         psnr_val = psnr(x_hat, x)
         #ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
@@ -77,6 +82,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log(f"{prefix}_loss/mse", mse, prog_bar=True)
             self.log(f"{prefix}_loss/kld", kld, prog_bar=True)
             x_hat = x_hat[0]
+        elif self.model_type == ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR:
+            loss, mse_loss, bpp = loss
+            x_hat = x_hat[0]
+            self.log(f"{prefix}_loss/bpp", bpp, prog_bar=True)
+            self.log(f"{prefix}_loss/mse", mse_loss, prog_bar=False)
         psnr_val = psnr(x_hat, x)
         #ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
@@ -107,9 +117,9 @@ def convertVNIRImageToRGB(hyperspectral_image: torch.Tensor):
         green_channel = hyperspectral_image[74, :, :]
         blue_channel = hyperspectral_image[34, :, :]
     elif hyperspectral_image.shape[0] == 202:
-        red_channel = hyperspectral_image[100, :, :]
-        green_channel = hyperspectral_image[50, :, :]
-        blue_channel = hyperspectral_image[20, :, :]
+        red_channel = hyperspectral_image[44, :, :]
+        green_channel = hyperspectral_image[29, :, :]
+        blue_channel = hyperspectral_image[11, :, :]
     else:
         raise ValueError("Not a known number of channels.")
     return np.uint8((torch.stack([red_channel, green_channel, blue_channel], dim=-1)*255).cpu().numpy())

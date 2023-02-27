@@ -34,9 +34,15 @@ class VAELoss(torch.nn.Module):
 
     def forward(self, output, target):
         x_hat, mean, log_variance = output
+        # print(f"x_hat:{x_hat.shape}")
+        # print(f"mean:{mean.shape}")
+        # print(f"log_variance:{log_variance.shape}")
+        # print(f"target:{target.shape}")
         recon_loss = self.mse(x_hat, target)
-        KLD = 0.01*torch.mean(-0.5 * torch.sum(1 + log_variance -
-                                               mean.pow(2) - log_variance.exp(), dim=1), dim=0)
+        mean = mean.squeeze()
+        log_variance = log_variance.squeeze()
+        KLD = torch.mean(-0.5 * torch.sum(1 + log_variance -
+                                          mean.pow(2) - log_variance.exp(), dim=1), dim=0)
         print(recon_loss.shape)
         print(KLD.shape)
         return recon_loss+KLD, recon_loss, KLD
@@ -73,6 +79,9 @@ class RateDistortionLoss(torch.nn.Module):
         if len(output) == 3:
             x_hat, y_likelihoods, z_likelihoods = output
             likelihoods = [y_likelihoods, z_likelihoods]
+        elif len(output) == 5:
+            x_hat, _, _, y_likelihoods, z_likelihoods = output
+            likelihoods = [y_likelihoods, z_likelihoods]
         else:
             x_hat, likelihoods = output
         N, _, H, W = target.size()
@@ -86,3 +95,24 @@ class RateDistortionLoss(torch.nn.Module):
         rate_distortion = self.lmbda * 255**2 * mse_loss + bpp_loss
 
         return rate_distortion, mse_loss, bpp_loss
+
+
+class MSELossWithBPPEstimation(torch.nn.Module):
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.mse = torch.nn.MSELoss()
+
+    def forward(self, output, target):
+        x_hat, x_hat_inner, latent_image, y_likelihoods, z_likelihoods = output
+        likelihoods = [y_likelihoods, z_likelihoods]
+        N, _, H, W = target.size()
+        num_pixels = N * H * W
+
+        bpp_loss = sum(
+            (torch.log(likelihood).sum() / (-math.log(2) * num_pixels))
+            for likelihood in likelihoods
+        )
+
+        mse_loss = self.mse(x_hat, target)
+        return mse_loss, mse_loss, bpp_loss

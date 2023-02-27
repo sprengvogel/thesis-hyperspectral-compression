@@ -35,22 +35,28 @@ class Conv1DEncoder(torch.nn.Module):
             self.encoder = nn.Sequential(
                 nn.Conv1d(in_channels=1, out_channels=self.padded_channels //
                           2, kernel_size=11, padding='same'),
+                nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//4, out_channels=self.padded_channels//8, kernel_size=11, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//8, out_channels=self.padded_channels//16, kernel_size=11, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//16, out_channels=self.padded_channels//32, kernel_size=9, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.Conv1d(
                     in_channels=self.padded_channels//32, out_channels=1, kernel_size=7, padding='same'),
                 nn.Sigmoid())
@@ -58,18 +64,23 @@ class Conv1DEncoder(torch.nn.Module):
             self.encoder = nn.Sequential(
                 nn.Conv1d(in_channels=1, out_channels=self.padded_channels //
                           2, kernel_size=11, padding='same'),
+                nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//4, out_channels=self.padded_channels//8, kernel_size=11, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.MaxPool1d(kernel_size=2),
                 nn.Conv1d(
                     in_channels=self.padded_channels//8, out_channels=self.padded_channels//16, kernel_size=9, padding='same'),
                 nn.LeakyReLU(),
+                # nn.Dropout1d(p=0.1),
                 nn.Conv1d(
                     in_channels=self.padded_channels//16, out_channels=1, kernel_size=7, padding='same'),
                 nn.Sigmoid()

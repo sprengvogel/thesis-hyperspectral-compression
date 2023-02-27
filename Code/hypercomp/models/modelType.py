@@ -6,3 +6,4 @@ class ModelType(Enum):
     CONV1D_AND_2D = 2
     OTHER = 3
     VAE = 4
+    CONV_1D_AND_2D_WITH_HYPERPRIOR = 5
