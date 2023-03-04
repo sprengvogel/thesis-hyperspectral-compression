@@ -9,13 +9,12 @@ import torch
 from torch.utils.data import random_split
 import math
 import numpy as np
-from hypercomp import metrics
 
 if __name__ == "__main__":
-    model = models.LitAutoEncoder(models.Conv2DModel(
-        nChannels=p.CHANNELS, H=128, W=128), lr=p.LR)
-    summary(model.autoencoder, input_size=(
-        p.BATCH_SIZE_CONV2D, p.CHANNELS, 128, 128))
+    model = models.LitAutoEncoder(models.Fast1DConvModel(
+        nChannels=202, H=128, W=128, bottleneck_size=13), lr=p.LR)
+    summary(model.autoencoder, input_size=(p.BATCH_SIZE,
+            p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 
     """train_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="train")
@@ -31,12 +30,9 @@ if __name__ == "__main__":
     test_dataset = data.HySpecNet11k(
         p.DATA_FOLDER_HYSPECNET, mode="easy", split="test")
 
-    train_dataloader = data.dataLoader(
-        train_dataset, batch_size=p.BATCH_SIZE_CONV2D)
-    val_dataloader = data.dataLoader(
-        val_dataset, batch_size=p.BATCH_SIZE_CONV2D)
-    test_dataloader = data.dataLoader(
-        test_dataset, batch_size=p.BATCH_SIZE_CONV2D)
+    train_dataloader = data.dataLoader(train_dataset)
+    val_dataloader = data.dataLoader(val_dataset)
+    test_dataloader = data.dataLoader(test_dataset)
 
     wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
     checkpoint_callback = ModelCheckpoint(

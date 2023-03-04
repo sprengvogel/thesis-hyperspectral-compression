@@ -8,8 +8,10 @@ class CombinedModel(torch.nn.Module):
     def __init__(self, nChannels: int, innerChannels: int, H: int = 96, W: int = 96, outerModel: Conv1DModel = None) -> None:
         super().__init__()
         if outerModel == None:
-            self.outer_encoder = Conv1DEncoder(input_channels=nChannels)
-            self.outer_decoder = Conv1DDecoder(output_channels=nChannels)
+            self.outer_encoder = Conv1DEncoder(
+                input_channels=nChannels, bpp_2=True)
+            self.outer_decoder = Conv1DDecoder(
+                output_channels=nChannels, bpp_2=True)
         else:
             self.outer_encoder = outerModel.encoder
             self.outer_decoder = outerModel.decoder

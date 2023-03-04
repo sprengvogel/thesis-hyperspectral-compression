@@ -1,8 +1,8 @@
-X PretrainedConv1D + Conv2D | Decoder frozen | Dual MSE lambda = 0.5 
-X PretrainedConv1D + Conv2D | Decoder frozen | Dual MSE lambda = 0.7 
-X PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.5 
-X PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.7
-X PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.9 
+PretrainedConv1D + Conv2D | Decoder frozen | Dual MSE lambda = 0.5 
+PretrainedConv1D + Conv2D | Decoder frozen | Dual MSE lambda = 0.7 
+PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.5 
+PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.7
+PretrainedConv1D + Conv2D | Encoder+Decoder frozen | Dual MSE lambda = 0.9 
 Best model of the 4: Without Layer Norm | Without weight decay
 Best model of the 4: Without Layer Norm | With weight decay
 Best model of the 4: With Layer Norm | With weight decay

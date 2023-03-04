@@ -35,7 +35,7 @@ if __name__ == "__main__":
         "niklas-sprengel/MastersThesis/model-12bfh33j:v0")
 
     model = models.LitAutoEncoder(models.CombinedModel(
-        nChannels=p.CHANNELS, innerChannels=26, H=128, W=128, outerModel=outer_model),
+        nChannels=p.CHANNELS, innerChannels=13, H=128, W=128, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
     summary(model.autoencoder, input_size=(
         p.BATCH_SIZE, p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))

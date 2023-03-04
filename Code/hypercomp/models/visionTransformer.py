@@ -58,7 +58,7 @@ class VisionTransformer(nn.Module):
         num_channels,
         num_heads,
         num_layers,
-        num_classes,
+        #num_classes,
         patch_size,
         num_patches,
         dropout=0.0,
@@ -86,8 +86,8 @@ class VisionTransformer(nn.Module):
         self.transformer = nn.Sequential(
             *(AttentionBlock(embed_dim, hidden_dim, num_heads, dropout=dropout) for _ in range(num_layers))
         )
-        self.mlp_head = nn.Sequential(nn.LayerNorm(
-            embed_dim), nn.Linear(embed_dim, num_classes))
+        #self.mlp_head = nn.Sequential(nn.LayerNorm(
+        #    embed_dim), nn.Linear(embed_dim, num_classes))
         self.dropout = nn.Dropout(dropout)
 
         # Parameters/Embeddings
@@ -111,7 +111,8 @@ class VisionTransformer(nn.Module):
         x = x.transpose(0, 1)
         x = self.transformer(x)
 
+        print(x.shape)
         # Perform classification prediction
-        cls = x[0]
-        out = self.mlp_head(cls)
-        return out
+        #cls = x[0]
+        #out = self.mlp_head(cls)
+        return x

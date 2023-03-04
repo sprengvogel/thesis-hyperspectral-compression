@@ -26,6 +26,6 @@ DATA_FOLDER = "/home/niklassp/data"
 DATA_FOLDER_SQUIRREL = "/media/storagecube/data/datasets/fatih/squirrel/full/"
 DATA_FOLDER_HYSPECNET = "/media/storagecube/data/datasets/enmap/dataset"
 # ID of gpu to train on (taken from nivida-smi)
-GPU_ID = 2
+GPU_ID = 1
 
 KEYWORDS = "spatial, spectral, learned hyperspectral image compression, analyzing latent space, (transformer, cnn)"
