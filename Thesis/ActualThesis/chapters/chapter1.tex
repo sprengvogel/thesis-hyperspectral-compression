@@ -1,0 +1,41 @@
+\chapter{Introduction\label{cha:chapter1}}
+\section{Motivation\label{sec:moti}}
+
+Hyperspectral imaging, the technique of capturing images with a camera that has a spectrometer for every pixel of the image, is a quickly growing field. There are many applications for the use of these images as much information can be extracted from the combination of spatial and spectral data in them.
+
+One such application is in agriculture where it is used to detect the presence of the toxic metal cadmium in soil, lessening the need for chemical methods that require the plant to be harvested to test for cadmium stress. Using hyperspectral imaging the detection of cadmium can be performed on living plants \citep{zea_leveraging_2022}.\\
+Hyperspectral imaging is also being used to separate plastic waste where a machine learning model based on hyperspectral images can separate twelve kinds of plastics better than previously used methods such as near-infrared technology\citep{henriksen_plastic_2022}.
+
+Another field where the use of hyperspectral imaging is rising in importance is in geology and environmental sciences. An example of this is the EnMAP mission which launched a satellite into earths orbit in 2022 that takes images of the surface of the earth with a comparatively high spatial resolution, allowing for regional geographic analysis \citep{guanter_enmap_2015}.\\
+This has already lead to many interesting studies including of glacier ice surface properties of the Ice Sheet in South-West Greenland, moisture content of soil below grassland and identification of specific crop traits such as the chlorophyll content or the leaf water content \citep{bohn_glacier_2022}\citep{pascual-venteo_prototyping_2022}\citep{dopper_estimating_2022}.\\
+A dataset created from the images produced by the EnMAP mission is also the main dataset studied in this thesis.
+
+The increasing usage of hyperspectral imaging makes it essential to address the disadvantes of the technology. One major disadvantage of this type of imaging is the size of the resulting images. Because there are much more spectral bands compared to the three bands of red, green and blue in traditional photography the resulting file size rises accordingly. A hyperspectral image might for example have 300 bands resulting in an image that is a hundred times larger than an RGB image with the same pixel density. In addition to this it is important to notice that even RGB images are too large for many use cases which is why there are many compression standards for RGB images in wide usage.\\
+Furthermore, compression of hyperspectral images is a complex problem. This arises from the combination of normal image compression complexities and the added challenge of encoding information in the spectral dimension which RGB compression algorithms rarely address. The latter is one of the reasons why many RGB compression algorithms do not perform well on hyperspectral data. In addition to this there are more technical reasons for the difficulty of adapting algorithms for RGB compression that will be explored in this thesis.\\
+For these reasons it is clear that it is important to find good compression algorithms for hyperspectral images.\\
+
+\section{Objective\label{sec:objective}}
+
+This thesis addresses the problem of hyperspectral image compression using machine learning models consisting of two parts, an encoder and a decoder.\\
+The encoder learns to map the original image to a smaller latent dimension. Analogously, the decoder is trained to map elements from this latent dimension to full-size images that are as close as possible to the original image.\\
+These models, called learned autoencoders, have shown compression results outperforming traditional models for RGB images. Compression for hyperspectral images is in the early stages of research, however even in this domain there are promising results showing the capabilities of learned autoencoders for this task.
+
+Contributions to the research in on learned hyperspectral image compression are made in this thesis by introducing a new architecture that enables the use of spatial compression algorithms such as models that might be used for RGB image compression by combining them with a model that performs compression in the spectral domain while keeping spatial relationships intact. In this way, it is possible to compress the spatial information in hyperspectral images using models that are not ordinarily applicable to these images.
+
+Using this architecture, multiple model combinations are designed and compared with each other as well as with the base versions of these models.\\
+These models include models based on convolutional neural networks (CNNs) as well as transformer-based architectures.\\
+A model using a hyperprior architecture is also used for the spatial compression. This architecture yields much higher compression ratios than other models by using an arithmetic encoder in the bottleneck. With this model compression ratios much higher than the current state of the art for hyperspectral image compression are achieved while distortion is only reduced by a comparatively small amount. TODO besser formulieren, bzw. überlegen wie viel hier erklärt werden sollte zu hyperprior etc.
+
+Additionally, the latent spaces of both the encoder in the spectral domain as well as the latent space of the spatial encoder will be analysed.
+
+\section{Outline\label{sec:outline}}
+
+The 'structure' or 'outline' section gives a brief introduction into the main chapters of your work. Write 2-5 lines about each chapter.\\
+This example thesis is separated into 5 chapters.
+\textbf{Chapter \ref{cha:chapter2}} is usually termed 'Related Work', 'State of the Art' or 'Fundamentals'. Here you will describe relevant technologies and standards related to your topic. What did other scientists propose regarding your topic? This chapter makes about 20-30 percent of the complete thesis.
+\\
+\textbf{Chapter \ref{cha:chapter3}} describes the implementation part of your work. Don't explain every code detail but emphasize important aspects of your implementation. This chapter will have a volume of 15-20 percent of your thesis.
+\\
+\textbf{Chapter \ref{cha:chapter4}} is usually termed 'Evaluation' or 'Validation'. How did you test it? In which environment? How does it scale? Measurements, tests, screenshots. This chapter will have a volume of 10-15 percent of your thesis.
+\\
+\textbf{Chapter \ref{cha:chapter5}} summarizes the thesis, describes the problems that occurred and gives an outlook about future work. Should have about 4-6 pages.
