@@ -12,4 +12,5 @@ from .combinedModelWithHyperprior import CombinedModelWithHyperprior
 from .visionTransformer import VisionTransformer
 from .combinedModelInnerTransformer import CombinedModelInnerTransformer
 from .fast1DconvModel import Fast1DConvModel
-from .weng_attention import WengAttentionModel
+from .cheng_attention import ChengAttentionModel
+from .combinedModelWithAttention import CombinedModelWithAttention

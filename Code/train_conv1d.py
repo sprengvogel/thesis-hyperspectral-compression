@@ -11,8 +11,12 @@ import math
 import numpy as np
 
 if __name__ == "__main__":
+    torch.manual_seed(0)
+    np.random.seed(0)
     model = models.LitAutoEncoder(models.Conv1DModel(
         nChannels=p.CHANNELS, bpp_2=True), lr=p.LR)
+    model.load_from_checkpoint(
+        "MastersThesis/1oj2tot0/checkpoints/last.ckpt", model=model.autoencoder)
     summary(model.autoencoder, input_size=(p.BATCH_SIZE,
             p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 
@@ -36,7 +40,7 @@ if __name__ == "__main__":
 
     wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
     checkpoint_callback = ModelCheckpoint(
-        save_last=True, save_top_k=5, monitor="val_metrics/psnr", mode="max")
+        save_last=True, save_top_k=1, monitor="val_metrics/psnr", mode="max")
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     print("Accelerator: " + accelerator)
     trainer = pl.Trainer(

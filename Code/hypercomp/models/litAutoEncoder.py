@@ -12,7 +12,7 @@ class LitAutoEncoder(pl.LightningModule):
 
     def __init__(self, model: torch.nn.Module, lr: float, loss=torch.nn.MSELoss(), model_type: ModelType = ModelType.OTHER, weight_decay=p.WEIGHT_DECAY, dual_mse_loss_lambda=p.DUAL_MSE_LOSS_LMBDA, rate_distortion_ldmba=p.RATE_DISTORTION_LDMBA) -> None:
         super().__init__()
-        self.save_hyperparameters(ignore=['model','loss'])
+        self.save_hyperparameters(ignore=['model', 'loss'])
         self.autoencoder = model
         self.loss = loss
         self.lr = lr
@@ -34,9 +34,9 @@ class LitAutoEncoder(pl.LightningModule):
             self.log("train_loss/mse", mse, prog_bar=True)
         elif self.model_type == ModelType.CONV1D_AND_2D:
             loss, inner_loss, outer_loss = loss
-            x_hat = x_hat[0]
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
+            x_hat = x_hat[0]
             self.log("train_loss/dual_mse", loss, prog_bar=True)
             self.log("train_loss/inner_mse", inner_loss, prog_bar=True)
             self.log("train_loss/outer_mse", outer_loss, prog_bar=True)
@@ -47,9 +47,9 @@ class LitAutoEncoder(pl.LightningModule):
             x_hat = x_hat[0]
         elif self.model_type == ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR:
             loss, mse, bpp = loss
-            x_hat = x_hat[0]
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
+            x_hat = x_hat[0]
             self.log("train_loss/bpp", bpp, prog_bar=True)
             self.log("train_loss/mse", mse, prog_bar=False)
         psnr_val = psnr(x_hat, x)
@@ -71,7 +71,8 @@ class LitAutoEncoder(pl.LightningModule):
                 inner_img = latent_image[0]
                 inner_img_hat = x_hat_inner[0]
                 self.logger.log_image(key=f"train_latentimages/sample_{batch_idx}", images=[
-                    convertVNIRImageToRGB(inner_img), convertVNIRImageToRGB(inner_img_hat)])
+                    inner_img[0, :, :], inner_img_hat[0, :, :], inner_img[1, :, :],
+                      inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -93,9 +94,9 @@ class LitAutoEncoder(pl.LightningModule):
             self.log(f"{prefix}_loss/mse", mse, prog_bar=False)
         elif self.model_type == ModelType.CONV1D_AND_2D:
             loss, inner_loss, outer_loss = loss
-            x_hat = x_hat[0]
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
+            x_hat = x_hat[0]
             self.log(f"{prefix}_loss/dual_mse", loss, prog_bar=True)
             self.log(f"{prefix}_loss/inner_mse", inner_loss, prog_bar=True)
             self.log(f"{prefix}_loss/outer_mse", outer_loss, prog_bar=True)
@@ -106,9 +107,9 @@ class LitAutoEncoder(pl.LightningModule):
             x_hat = x_hat[0]
         elif self.model_type == ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR:
             loss, mse_loss, bpp = loss
-            x_hat = x_hat[0]
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
+            x_hat = x_hat[0]
             self.log(f"{prefix}_loss/bpp", bpp, prog_bar=True)
             self.log(f"{prefix}_loss/mse", mse_loss, prog_bar=False)
         psnr_val = psnr(x_hat, x)
@@ -130,7 +131,8 @@ class LitAutoEncoder(pl.LightningModule):
                 inner_img = latent_image[0]
                 inner_img_hat = x_hat_inner[0]
                 self.logger.log_image(key=f"{prefix}_latentimages/sample_{batch_idx}", images=[
-                    convertVNIRImageToRGB(inner_img), convertVNIRImageToRGB(inner_img_hat)])
+                    inner_img[0, :, :], inner_img_hat[0, :, :], inner_img[1, :, :],
+                      inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.lr, weight_decay=p.WEIGHT_DECAY)

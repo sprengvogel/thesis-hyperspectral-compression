@@ -11,6 +11,8 @@ import math
 import numpy as np
 
 if __name__ == "__main__":
+    torch.manual_seed(0)
+    np.random.seed(0)
     model = models.LitAutoEncoder(models.VAE1DModel(
         nChannels=p.CHANNELS, latent_dim=26), lr=p.LR, loss=metrics.VAELoss(), model_type=models.ModelType.VAE)
     summary(model.autoencoder, input_size=(p.BATCH_SIZE,

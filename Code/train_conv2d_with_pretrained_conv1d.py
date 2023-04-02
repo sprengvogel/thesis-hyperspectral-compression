@@ -24,6 +24,8 @@ def encodeWithConvModel(x: np.ndarray, conv_model: models.LitAutoEncoder):
 
 
 if __name__ == "__main__":
+    torch.manual_seed(0)
+    np.random.seed(0)
     run = wandb.init(project="MastersThesis",
                      job_type="Train_With_Pretrained_Conv")
     artifact = run.use_artifact(

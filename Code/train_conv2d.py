@@ -12,6 +12,8 @@ import numpy as np
 from hypercomp import metrics
 
 if __name__ == "__main__":
+    torch.manual_seed(0)
+    np.random.seed(0)
     model = models.LitAutoEncoder(models.Conv2DModel(
         nChannels=p.CHANNELS, H=128, W=128), lr=p.LR)
     summary(model.autoencoder, input_size=(
@@ -40,7 +42,7 @@ if __name__ == "__main__":
 
     wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
     checkpoint_callback = ModelCheckpoint(
-        save_last=True, save_top_k=5, monitor="val_metrics/psnr", mode="max")
+        save_last=True, save_top_k=1, monitor="val_metrics/psnr", mode="max")
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     print("Accelerator: " + accelerator)
     trainer = pl.Trainer(

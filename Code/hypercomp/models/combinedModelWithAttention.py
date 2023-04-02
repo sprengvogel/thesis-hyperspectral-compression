@@ -1,11 +1,11 @@
 import torch
 from .conv1DModel import Conv1DModel, Conv1DEncoder, Conv1DDecoder
-from .conv2DWithHyperprior import Conv2DWithHyperprior
+from .cheng_attention import ChengAttentionModel
 from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 
-class CombinedModelWithHyperprior(torch.nn.Module):
-    def __init__(self, nChannels: int, innerChannels: int, H: int = 128, W: int = 128, outerModel: Conv1DModel = None) -> None:
+class CombinedModelWithAttention(torch.nn.Module):
+    def __init__(self, nChannels: int, innerChannels: int, outerModel: Conv1DModel = None) -> None:
         super().__init__()
         if outerModel == None:
             self.outer_encoder = Conv1DEncoder(
@@ -15,8 +15,8 @@ class CombinedModelWithHyperprior(torch.nn.Module):
         else:
             self.outer_encoder = outerModel.encoder
             self.outer_decoder = outerModel.decoder
-        self.inner_autoencoder = Conv2DWithHyperprior(
-            input_channels=innerChannels, H=H, W=W)
+        self.inner_autoencoder = ChengAttentionModel(
+            in_channels=innerChannels)
 
     def forward(self, x):
         latent_image = unflatten_and_split_apart_batches(self.outer_encoder(x))
@@ -24,3 +24,15 @@ class CombinedModelWithHyperprior(torch.nn.Module):
             latent_image)
         x_hat = self.outer_decoder(flatten_spacial_dims(x_hat_inner))
         return x_hat, x_hat_inner, latent_image, y_likelihoods, z_likelihoods
+
+    def compress(self, x):
+        x_inner = unflatten_and_split_apart_batches(self.outer_encoder(x))
+        return self.inner_autoencoder.compress(x_inner)
+
+    def decompress(self, strings, shape):
+        x_hat_inner = self.inner_autoencoder.decompress(strings, shape)[
+            "x_hat"]
+        return self.outer_decoder(flatten_spacial_dims(x_hat_inner))
+
+    def update(self):
+        return self.inner_autoencoder.update()

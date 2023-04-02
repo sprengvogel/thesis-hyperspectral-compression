@@ -12,6 +12,8 @@ from hypercomp import metrics
 from hypercomp import models
 
 if __name__ == "__main__":
+    torch.manual_seed(0)
+    np.random.seed(0)
     model = models.LitAutoEncoder(models.ScaleHyperprior(
         channel_number=369, N=128, M=192), lr=p.LR_HYPERPRIOR, loss=metrics.RateDistortionLoss(lmbda=1), model_type=models.ModelType.HYPERPRIOR)
     summary(model.autoencoder, input_size=(p.BATCH_SIZE, 369, 96, 96))

@@ -18,7 +18,7 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=False)
+        nChannels=p.CHANNELS, bpp_2=True)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)
@@ -35,13 +35,13 @@ if __name__ == "__main__":
     torch.manual_seed(0)
     np.random.seed(0)
     outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-12bfh33j:v0")
+        "niklas-sprengel/MastersThesis/model-3gm16mbp:v1")
 
-    model = models.LitAutoEncoder(models.CombinedModelInnerTransformer(
+    model = models.LitAutoEncoder(models.CombinedModelWithAttention(
         nChannels=p.CHANNELS, innerChannels=13, outerModel=outer_model),
-        lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    summary(model.autoencoder, input_size=(
-        p.BATCH_SIZE, p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
+        lr=p.LR, loss=metrics.RateDistortionLoss(lmbda=p.RATE_DISTORTION_LDMBA), model_type=models.ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR)
+    # summary(model.autoencoder, input_size=(
+    #    p.BATCH_SIZE, p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 
     """train_dataset = data.MatDatasetSquirrel(
         p.DATA_FOLDER_SQUIRREL, split="train")
