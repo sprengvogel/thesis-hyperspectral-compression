@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.22)  2 APR 2023 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.22)  4 APR 2023 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,6 +1023,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
  [4
 
 
@@ -1051,8 +1054,9 @@ chapter without number
 (./chapters/chapter1.tex
 chapter 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--16
-
+Overfull \hbox (6.92612pt too wide) in paragraph at lines 13--17
+\OT1/ptm/m/n/12 Possible al-go-rithms for im-age com-pres-sion can be cat-e-go-
+rized into mul-ti-ple broad groups.
  []
 
 
@@ -1062,41 +1066,54 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 
+l.17 
       [1
 
 
 
 
 ]
-Underfull \vbox (badness 2401) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2])
-(./chapters/chapter2.tex [3]
+(./chapters/chapter2.tex [3] [4]
 chapter 2.
-) (./chapters/chapter3.tex [4
+) (./chapters/chapter3.tex [5
 
 ]
 chapter 3.
-) (./chapters/chapter4.tex [5
+) (./chapters/chapter4.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6
 
 ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Overfull \vbox (137.54967pt too high) has occurred while \output is active []
+
+
+[8]
 chapter 4.
-<./img//screenshot_2_projects.png, id=140, 401.5pt x 172.645pt>
+<./img//screenshot_2_projects.png, id=189, 401.5pt x 172.645pt>
 File: ./img//screenshot_2_projects.png Graphic file (type png)
 <use ./img//screenshot_2_projects.png>
 Package pdftex.def Info: ./img//screenshot_2_projects.png  used on input line 9
 .
 (pdftex.def)             Requested size: 284.52756pt x 122.35487pt.
-) (./chapters/chapter5.tex [6
+) (./chapters/chapter5.tex [9
 
  <./img//screenshot_2_projects.png>]
 chapter 5.
-) (./chapters/chapter6.tex [7
+) (./chapters/chapter6.tex [10
 
 ]
 chapter 6.
-) [8
+) [11
+
+] [12
+
 
 ]
 chapter without number
@@ -1112,13 +1129,11 @@ Overfull \hbox (15.47153pt too wide) in paragraph at lines 99--99
  pii / S156984322200019X$[]
  []
 
-(./misc/annex.tex [9
-
-
+(./misc/annex.tex [13
 
 ]
 chapter without number
-) [10
+) [14
 
 ] (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
@@ -1128,11 +1143,11 @@ Package logreq Info: Writing requests to 'DiplomarbeitLaTex.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20599 strings out of 479485
- 378873 string characters out of 5875915
- 1275548 words of memory out of 5000000
- 37230 multiletter control sequences out of 15000+600000
- 560665 words of font info for 72 fonts, out of 8000000 for 9000
+ 20665 strings out of 479485
+ 380262 string characters out of 5875915
+ 1276729 words of memory out of 5000000
+ 37270 multiletter control sequences out of 15000+600000
+ 560959 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  106i,11n,111p,10612b,2096s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texm
@@ -1140,10 +1155,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2020/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2020/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DiplomarbeitLaTex.pdf (19 pages, 278555 bytes).
+Output written on DiplomarbeitLaTex.pdf (23 pages, 284552 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 262 compressed objects within 3 object streams
- 54 named destinations out of 1000 (max. 500000)
- 219 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 401 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 347 words of extra memory for PDF output out of 10000 (max. 10000000)
 
