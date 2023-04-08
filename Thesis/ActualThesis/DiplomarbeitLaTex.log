@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.22)  4 APR 2023 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.22)  8 APR 2023 12:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -309,7 +309,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2020/08/23 v3.15a biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count298
@@ -449,11 +449,11 @@ File: blx-natbib.def 2020/08/23 v3.15a biblatex compatibility (PK/MW)
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined,
  overwriting.
 )
-Package biblatex Info: Trying to load bibliography style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.bbx' found.
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
 
-(d:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
-File: authoryear.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
+(d:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
 
@@ -462,18 +462,22 @@ File: standard.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count376
 \c@bbx:relatedtotal=\count377
 ))
-Package biblatex Info: Trying to load citation style 'authoryear'...
-Package biblatex Info: ... file 'authoryear.cbx' found.
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
 
-(d:/texlive/2020/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
-File: authoryear.cbx 2020/08/23 v3.15a biblatex citation style (PK/MW)
+(d:/texlive/2020/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2020/08/23 v3.15a biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -493,7 +497,7 @@ Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              `\addtokomafont' for the page style elements need
 (scrbook)              explicite user intervention to work.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 12.
+(scrbook)              package `fancyhdr' on input line 14.
 
 (d:/texlive/2020/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -818,7 +822,7 @@ Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
-7.
+9.
 
 (d:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -826,25 +830,25 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 \openout1 = `DiplomarbeitLaTex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-Package scrbase Info: activating english \contentsname on input line 37.
-Package scrbase Info: activating english \listfigurename on input line 37.
-Package scrbase Info: activating english \listtablename on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+Package scrbase Info: activating english \contentsname on input line 39.
+Package scrbase Info: activating english \listfigurename on input line 39.
+Package scrbase Info: activating english \listtablename on input line 39.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -860,8 +864,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'DiplomarbeitLaTex.bbl' found.
 
 (./DiplomarbeitLaTex.bbl)
-Package biblatex Info: Reference section=0 on input line 37.
-Package biblatex Info: Reference segment=0 on input line 37.
+Package biblatex Info: Reference section=0 on input line 39.
+Package biblatex Info: Reference segment=0 on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -920,7 +924,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 37.
+Package hyperref Info: Link coloring OFF on input line 39.
 
 (d:/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -933,9 +937,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count422
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
 
 (./DiplomarbeitLaTex.out) (./DiplomarbeitLaTex.out)
 \@outlinefile=\write4
@@ -948,7 +952,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 37.
+(scrbook)           before \begin{document} on input line 39.
 
 (d:/texlive/2020/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
@@ -961,7 +965,7 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package scrhack Info: undefining \float@addtolists on input line 37.
+Package scrhack Info: undefining \float@addtolists on input line 39.
 \openout2 = `./misc/titlepage.aux'.
 
 
@@ -986,7 +990,7 @@ s-beh[]orde vorgelegt.
 
 
 ]) [2] (./misc/abstract.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 10--54
+Underfull \hbox (badness 10000) in paragraph at lines 10--56
 
  []
 
@@ -1023,9 +1027,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 12.
-
-Underfull \vbox (badness 1308) has occurred while \output is active []
-
  [4
 
 
@@ -1054,62 +1055,57 @@ chapter without number
 (./chapters/chapter1.tex
 chapter 1.
 
-Overfull \hbox (6.92612pt too wide) in paragraph at lines 13--17
-\OT1/ptm/m/n/12 Possible al-go-rithms for im-age com-pres-sion can be cat-e-go-
-rized into mul-ti-ple broad groups.
- []
-
-
 Underfull \vbox (badness 1831) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17 
+l.13 
       [1
 
 
 
 
 ]
+Overfull \hbox (6.92612pt too wide) in paragraph at lines 17--18
+[]\OT1/ptm/m/n/12 Possible al-go-rithms for im-age com-pres-sion can be cat-e-g
+o-rized into mul-ti-ple broad groups.
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2])
-(./chapters/chapter2.tex [3] [4]
+ [2]
+[3]) (./chapters/chapter2.tex [4]
 chapter 2.
 ) (./chapters/chapter3.tex [5
 
 ]
 chapter 3.
-) (./chapters/chapter4.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6
+) (./chapters/chapter4.tex [6
 
 ]
+chapter 4.
+) (./chapters/chapter5.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [7]
-Overfull \vbox (137.54967pt too high) has occurred while \output is active []
+ [7
+
+]
+Overfull \vbox (9.05608pt too high) has occurred while \output is active []
 
 
 [8]
-chapter 4.
-<./img//screenshot_2_projects.png, id=189, 401.5pt x 172.645pt>
-File: ./img//screenshot_2_projects.png Graphic file (type png)
-<use ./img//screenshot_2_projects.png>
-Package pdftex.def Info: ./img//screenshot_2_projects.png  used on input line 9
-.
-(pdftex.def)             Requested size: 284.52756pt x 122.35487pt.
-) (./chapters/chapter5.tex [9
-
- <./img//screenshot_2_projects.png>]
 chapter 5.
-) (./chapters/chapter6.tex [10
+) (./chapters/chapter6.tex [9
 
 ]
 chapter 6.
+) (./chapters/chapter7.tex [10
+
+]
+chapter 7.
 ) [11
 
 ] [12
@@ -1118,22 +1114,35 @@ chapter 6.
 ]
 chapter without number
 
-Overfull \hbox (167.49306pt too wide) in paragraph at lines 99--99
+Overfull \hbox (207.50679pt too wide) in paragraph at lines 103--103
 \OT1/ptm/m/it/12 Geo-phys-i-cal Re-search: Bio-geo-sciences \OT1/ptm/m/n/12 127
-.3. []eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1029/2021JG006718,
+.3 (2022). []eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1029/2021JG0067
+18,
  []
 
 
-Overfull \hbox (15.47153pt too wide) in paragraph at lines 99--99
+Overfull \hbox (6.6579pt too wide) in paragraph at lines 103--103
+[]\OT1/ptm/m/n/12 Ana B. Pascual-Venteo et al. \  Pro-to-typ-ing Crop Traits Re
+-trieval Mod-els for CHIME:
+ []
+
+
+Overfull \hbox (1.64897pt too wide) in paragraph at lines 103--103
+\OT1/ptm/m/it/12 ter-na-tional Jour-nal of Ap-plied Earth Ob-ser-va-tion and Ge
+oin-for-ma-tion \OT1/ptm/m/n/12 110 (June 1,
+ []
+
+
+Overfull \hbox (21.21332pt too wide) in paragraph at lines 103--103
 []$\OT1/cmtt/m/n/12 https : / / www . sciencedirect . com / science / article /
  pii / S156984322200019X$[]
  []
 
-(./misc/annex.tex [13
+[13
 
-]
+] (./misc/annex.tex [14]
 chapter without number
-) [14
+) [15
 
 ] (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
@@ -1143,22 +1152,22 @@ Package logreq Info: Writing requests to 'DiplomarbeitLaTex.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 20665 strings out of 479485
- 380262 string characters out of 5875915
- 1276729 words of memory out of 5000000
- 37270 multiletter control sequences out of 15000+600000
+ 20629 strings out of 479485
+ 379152 string characters out of 5875915
+ 1274151 words of memory out of 5000000
+ 37233 multiletter control sequences out of 15000+600000
  560959 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,11n,111p,10612b,2096s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 106i,11n,111p,10612b,2094s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2020/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><d:/texlive/2020/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt12.pfb><d:/texlive/2020/texmf-dist/fonts/typ
 e1/urw/times/utmb8a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8
 a.pfb><d:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on DiplomarbeitLaTex.pdf (23 pages, 284552 bytes).
+Output written on DiplomarbeitLaTex.pdf (24 pages, 282441 bytes).
 PDF statistics:
- 401 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
+ 432 PDF objects out of 1000 (max. 8388607)
+ 396 compressed objects within 4 object streams
  80 named destinations out of 1000 (max. 500000)
- 347 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 words of extra memory for PDF output out of 10000 (max. 10000000)
 

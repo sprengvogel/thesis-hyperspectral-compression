@@ -18,477 +18,103 @@
 
 
 \refsection{0}
-  \datalist[entry]{nyt/global//global/global}
-    \entry{bohn_glacier_2022}{article}{}
-      \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=d39e5555b6fa18a9eb9ab15e47d738df}{%
-           family={Bohn},
-           familyi={B\bibinitperiod},
-           given={Niklas},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e46a1b8bdd7244be932853787a244d29}{%
-           family={Di\bibnamedelima Mauro},
-           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
-           given={Biagio},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d6a09d317e0f8aa2b6acf7fedd92a90c}{%
-           family={Colombo},
-           familyi={C\bibinitperiod},
-           given={Roberto},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5cc4669dcd9bd2879717632245bf3b86}{%
-           family={Thompson},
-           familyi={T\bibinitperiod},
-           given={David\bibnamedelima R.},
-           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=feb70c6ece580b9f05a191d5ab1ca78d}{%
-           family={Susiluoto},
+  \datalist[entry]{none/global//global/global}
+    \entry{zea_leveraging_2022}{article}{}
+      \name{author}{6}{}{%
+        {{hash=7637a6024ecc04ba31762d79fa1f43d5}{%
+           family={Zea},
+           familyi={Z\bibinitperiod},
+           given={Maria},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0b090f9545af4ee52376736eac863fd4}{%
+           family={Souza},
            familyi={S\bibinitperiod},
-           given={Jouni},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7b9bd1d6afa658e3e6791c71aea518d6}{%
-           family={Carmon},
-           familyi={C\bibinitperiod},
-           given={Nimrod},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ea92ae2046fc4aaeccd4b2c6349f3bf8}{%
-           family={Turmon},
-           familyi={T\bibinitperiod},
-           given={Michael\bibnamedelima J.},
-           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b1a0aa2ddbf724cd05730dac701b4583}{%
-           family={Guanter},
-           familyi={G\bibinitperiod},
-           given={Luis},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
+           given={Augusto},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d9da4a23ca804cbf6aff5760349ec643}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b2f76df1e4fbbda968c7534981dabe51}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Linda},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5ca8f6f2ac4f6d199651ca7aaf026814}{%
+           family={Nemali},
+           familyi={N\bibinitperiod},
+           given={Krishna},
+           giveni={K\bibinitperiod}}}%
+        {{hash=e10c332f12fd09db952ee3b71846530c}{%
+           family={Hoagland},
+           familyi={H\bibinitperiod},
+           given={Lori},
+           giveni={L\bibinitperiod}}}%
       }
-      \strng{namehash}{3b39d42471e1be1ff6fb9641a9b26998}
-      \strng{fullhash}{f23794cc274f4dec0f7a1f6de29f7955}
-      \strng{bibnamehash}{3b39d42471e1be1ff6fb9641a9b26998}
-      \strng{authorbibnamehash}{3b39d42471e1be1ff6fb9641a9b26998}
-      \strng{authornamehash}{3b39d42471e1be1ff6fb9641a9b26998}
-      \strng{authorfullhash}{f23794cc274f4dec0f7a1f6de29f7955}
-      \field{sortinit}{B}
-      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{shorttitle}
-      \field{abstract}{Snow and ice melt processes on the Greenland Ice Sheet are a key in Earth's energy balance and are acutely sensitive to climate change. Melting dynamics are directly related to a decrease in surface albedo, amongst others caused by the accumulation of light-absorbing particles ({LAPs}). Featuring unique spectral patterns, these accumulations can be mapped and quantified by imaging spectroscopy. We present first results for the retrieval of glacier ice properties from the spaceborne {PRISMA} imaging spectrometer by applying a recently developed simultaneous inversion of atmospheric and surface state using optimal estimation. The image analyzed in this study was acquired over the South-West margin of the Greenland Ice Sheet in late August 2020. The area is characterized by patterns of both clean and dark ice associated with a high amount of {LAPs} deposited on the surface. We present retrieval maps and uncertainties for grain size, liquid water, and algae concentration, as well as estimated reflectance spectra for different surface properties. We then show the feasibility of using imaging spectroscopy to interpret multiband sensor data to achieve high accuracy, frequently repeated observations of changing snow and ice conditions. For example, the impurity index calculated from multiband Sentinel-3 Ocean and Land Colour Instrument measurements is dependent on dust particles, but we show that algae concentration alone can be predicted from this data with less than 20\% uncertainty. Our study evidences that present and upcoming orbital imaging spectroscopy missions such as {PRISMA}, Environmental Mapping and Analysis Program, Copernicus Hyperspectral Imaging Mission, and the Surface Biology and Geology designated observable, can significantly support research of melting ice sheets.}
-      \field{issn}{2169-8961}
-      \field{journaltitle}{Journal of Geophysical Research: Biogeosciences}
-      \field{langid}{english}
-      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1029/2021JG006718}
-      \field{number}{3}
-      \field{shorttitle}{Glacier Ice Surface Properties in South-West Greenland Ice Sheet}
-      \field{title}{Glacier Ice Surface Properties in South-West Greenland Ice Sheet: First Estimates From {PRISMA} Imaging Spectroscopy Data}
-      \field{urlday}{2}
-      \field{urlmonth}{4}
-      \field{urlyear}{2023}
-      \field{volume}{127}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{e2021JG006718}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1029/2021JG006718
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\CDTGX9TP\\Bohn et al. - 2022 - Glacier Ice Surface Properties in South-West Green.pdf:application/pdf;Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\SCAA9U65\\2021JG006718.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006718
-      \endverb
-      \verb{url}
-      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006718
-      \endverb
-      \keyw{Greenland Ice Sheet,imaging spectroscopy,mapping glacier algae,optimal estimation,{PRISMA},snow and ice surface properties}
-    \endentry
-    \entry{dopper_estimating_2022}{article}{}
-      \name{author}{7}{}{%
-        {{un=0,uniquepart=base,hash=708ad334e5a81387edd16a19848d8bb7}{%
-           family={Döpper},
-           familyi={D\bibinitperiod},
-           given={Veronika},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=be66c7855ea83915f64a02829c4fe855}{%
-           family={Rocha},
-           familyi={R\bibinitperiod},
-           given={Alby\bibnamedelima Duarte},
-           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2e17f6f4f83bdbea02098517018037f9}{%
-           family={Berger},
-           familyi={B\bibinitperiod},
-           given={Katja},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=232c24b2eec1ff29d9cc549cd35e16a8}{%
-           family={Gränzig},
-           familyi={G\bibinitperiod},
-           given={Tobias},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eaafac414dd048c82c7b6acbefab97fe}{%
-           family={Verrelst},
-           familyi={V\bibinitperiod},
-           given={Jochem},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c0aa180fb2e9396e759f3db03292b8d6}{%
-           family={Kleinschmit},
-           familyi={K\bibinitperiod},
-           given={Birgit},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=90912b3550fbb6635fc7a05e48ec015f}{%
-           family={Förster},
-           familyi={F\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{32c51740b7a165bac0cac952c5506145}
-      \strng{fullhash}{4429bdb25ef1bb11760604ca5725863e}
-      \strng{bibnamehash}{32c51740b7a165bac0cac952c5506145}
-      \strng{authorbibnamehash}{32c51740b7a165bac0cac952c5506145}
-      \strng{authornamehash}{32c51740b7a165bac0cac952c5506145}
-      \strng{authorfullhash}{4429bdb25ef1bb11760604ca5725863e}
-      \field{sortinit}{D}
-      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \strng{namehash}{fc28ebfd5f06fe775ee61739e973baf9}
+      \strng{fullhash}{601ab616665463ae2e9b4ad3bf3c6169}
+      \strng{bibnamehash}{fc28ebfd5f06fe775ee61739e973baf9}
+      \strng{authorbibnamehash}{fc28ebfd5f06fe775ee61739e973baf9}
+      \strng{authornamehash}{fc28ebfd5f06fe775ee61739e973baf9}
+      \strng{authorfullhash}{601ab616665463ae2e9b4ad3bf3c6169}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The monitoring of soil moisture content ({SMC}) at very high spatial resolution ({<}10m) using unmanned aerial systems ({UAS}) is of high interest for precision agriculture and the validation of large scale {SMC} products. Data-driven approaches are the most common method to retrieve {SMC} with {UAS}-borne data at water limited sites over non-disturbed agricultural crops. A major disadvantage of data-driven algorithms is the limited transferability in space and time and the need of a high number of ground reference samples. Physically-based approaches are less dependent on the amount of samples and are transferable in space and time. This study explores the potential of (1) a hybrid method targeting the soil brightness factor of the {PROSAIL} model using a variational heteroscedastic Gaussian Processes regression ({VHGPR}) algorithm, and (2) a data-driven method employing {VHGPR} for the retrieval of {SMC} over three grassland sites based on {UAS}-borne {VIS}–{NIR} (399–1001nm) hyperspectral data. The sites were managed by mowing (Fendt), grazing (Grosses Bruch) and irrigation (Marquardt). With these distinct local pre-conditions we aimed to identify factors that favor and limit the retrieval of {SMC}. The hybrid approach presented encouraging results in Marquardt ({RMSE} = 1.5Vol\_\%, R2 = 0.2). At the permanent grassland sites (Fendt, Grosses Bruch) the thatch layer jeopardized the application of the hybrid model. We identified the complex canopy structure of grassland as the main factor impacting the hybrid {SMC} retrieval. The data-driven approach showed high accuracy for Fendt (R2 = 0.84, {RMSE} = 8.66) and Marquardt (R2 = 0.4, {RMSE} = 10.52). All data-driven models build on the {LAI}-{SMC} relationship. However, this relationship was hampered by mowing (Fendt), leading to a lack of transferability in time. The alteration of plant traits by grazing prevents finding a relationship with {SMC} in Grosses Bruch. In Marquardt, we identified the timelag between changes in {SMC} and plant response as the main reason of decrease in model accuracy. Yet, the model performance is accurate in undisturbed and water-limited areas (Marquardt). The analysis points to challenges that need to be tackled in future research and opens the discussion for the development of robust models to retrieve high resolution {SMC} from {UAS}-borne remote sensing observations.}
+      \field{abstract}{Cadmium (Cd) is a toxic metal that can accumulate in soils and negatively impact crop as well as human health. Amendments like biochar have potential to address these challenges by reducing Cd bioavailability in soil, though reliance on post-harvest wet chemical methods to quantify Cd uptake have slowed efforts to identify the most effective amendments. Hyperspectral imaging ({HSI}) is a novel technology that could overcome this limitation by quantifying symptoms of Cd stress while plants are still growing. The goals of this study were to: 1) determine whether {HSI} can detect Cd stress in two distinct leafy green crops, 2) quantify whether a locally sourced biochar derived from hardwoods can reduce Cd stress and uptake in these crops, and 3) identify vegetative indices ({VIs}) that best quantify changes in plant stress responses. Experiments were conducted in a tightly controlled automated phenotyping facility that allowed all environmental factors to be kept constant except Cd concentration (0, 5 10 and 15 mg kg−1). Symptoms of Cd stress were stronger in basil (Ocimum basilicum) than kale (Brassica oleracea), and were easier to detect using {HSI}. Several {VIs} detected Cd stress in basil, but only the anthocyanin reflectance index ({ARI}) detected all levels of Cd stress in both crop species. The biochar amendment did reduce Cd uptake, especially at low Cd concentrations in kale which took up more Cd than basil. Again, the {ARI} index was the most effective in quantifying changes in plant stress mediated by the biochar. These results indicate that the biochar evaluated in this study has potential to reduce Cd bioavailability in soil, and {HSI} could be further developed to identify rates that can best achieve this benefit. The technology also may be helping in elucidating mechanisms mediating how biochar can influence plant growth and stress responses.}
       \field{day}{1}
-      \field{issn}{1569-8432}
-      \field{journaltitle}{International Journal of Applied Earth Observation and Geoinformation}
+      \field{issn}{0269-7491}
+      \field{journaltitle}{Environmental Pollution}
       \field{langid}{english}
-      \field{month}{6}
-      \field{shortjournal}{International Journal of Applied Earth Observation and Geoinformation}
-      \field{title}{Estimating soil moisture content under grassland with hyperspectral data using radiative transfer modelling and machine learning}
+      \field{month}{1}
+      \field{shortjournal}{Environmental Pollution}
+      \field{title}{Leveraging high-throughput hyperspectral imaging technology to detect cadmium stress in two leafy green crops and accelerate soil remediation efforts}
       \field{urlday}{2}
       \field{urlmonth}{4}
       \field{urlyear}{2023}
-      \field{volume}{110}
+      \field{volume}{292}
       \field{year}{2022}
       \field{dateera}{ce}
       \field{urldateera}{ce}
-      \field{pages}{102817}
+      \field{pages}{118405}
       \range{pages}{1}
       \verb{doi}
-      \verb 10.1016/j.jag.2022.102817
+      \verb 10.1016/j.envpol.2021.118405
       \endverb
       \verb{file}
-      \verb ScienceDirect Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\3VRYB6K3\\Döpper et al. - 2022 - Estimating soil moisture content under grassland w.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\RQGGM7CR\\S156984322200019X.html:text/html
+      \verb ScienceDirect Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\X62SJCS7\\Zea et al. - 2022 - Leveraging high-throughput hyperspectral imaging t.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\YH7GWHK7\\S0269749121019874.html:text/html
       \endverb
       \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
+      \verb https://www.sciencedirect.com/science/article/pii/S0269749121019874
       \endverb
       \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
+      \verb https://www.sciencedirect.com/science/article/pii/S0269749121019874
       \endverb
-      \keyw{Anthropogenic Influence,Gaussian Processes,Grazing,Irrigation,{LAI},Leaf Area Index,Mowing,{PROSAIL},Time Lag,Unmanned Aerial Systems}
-    \endentry
-    \entry{guanter_enmap_2015}{article}{}
-      \name{author}{36}{}{%
-        {{un=0,uniquepart=base,hash=b1a0aa2ddbf724cd05730dac701b4583}{%
-           family={Guanter},
-           familyi={G\bibinitperiod},
-           given={Luis},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f037586aeb4248c45a7b90277627b8f2}{%
-           family={Kaufmann},
-           familyi={K\bibinitperiod},
-           given={Hermann},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c3d93a0bd5440d3285fb9bfb416cba33}{%
-           family={Segl},
-           familyi={S\bibinitperiod},
-           given={Karl},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=839f9c4a88c3e6c41fa8221264d44c16}{%
-           family={Foerster},
-           familyi={F\bibinitperiod},
-           given={Saskia},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8a16f1a931ba21d7c11419bb2a1ea89f}{%
-           family={Rogass},
-           familyi={R\bibinitperiod},
-           given={Christian},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0c2daba248d3e02b65555943327fede2}{%
-           family={Chabrillat},
-           familyi={C\bibinitperiod},
-           given={Sabine},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fe871a1a89e3d7b0efd49caa67a43d4c}{%
-           family={Kuester},
-           familyi={K\bibinitperiod},
-           given={Theres},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=88463e10c33849e5d26916eac0f8d1e7}{%
-           family={Hollstein},
-           familyi={H\bibinitperiod},
-           given={André},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9d33b37bc3544b5bc45943219cbca216}{%
-           family={Rossner},
-           familyi={R\bibinitperiod},
-           given={Godela},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=188d0f2b49862d013b40ed31b085ec53}{%
-           family={Chlebek},
-           familyi={C\bibinitperiod},
-           given={Christian},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=72feb99a35bd4dc033b3106c23aa417c}{%
-           family={Straif},
-           familyi={S\bibinitperiod},
-           given={Christoph},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b3fe44eb80d971589c64fbfac5ebf0a2}{%
-           family={Fischer},
-           familyi={F\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=21f1fb4cdbbab490c4d374aaf98bc988}{%
-           family={Schrader},
-           familyi={S\bibinitperiod},
-           given={Stefanie},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b5b787a08d47bcf24ec5dab0c45da982}{%
-           family={Storch},
-           familyi={S\bibinitperiod},
-           given={Tobias},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1e334e93f66367225a957cbefff4e85b}{%
-           family={Heiden},
-           familyi={H\bibinitperiod},
-           given={Uta},
-           giveni={U\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8a6c9c0890b96766b8cc7c152d7b86a8}{%
-           family={Mueller},
-           familyi={M\bibinitperiod},
-           given={Andreas},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2ab3e68a1bb61afe4461c82ff6501df5}{%
-           family={Bachmann},
-           familyi={B\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=375724045d624122348021829bc19087}{%
-           family={Mühle},
-           familyi={M\bibinitperiod},
-           given={Helmut},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=78a8a9de9601141d382c6712f99bf9e0}{%
-           family={Müller},
-           familyi={M\bibinitperiod},
-           given={Rupert},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=57b26bab10ecf28b8c064c6311f0eada}{%
-           family={Habermeyer},
-           familyi={H\bibinitperiod},
-           given={Martin},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fb5e3db6aeecdaf011dd84bbee432552}{%
-           family={Ohndorf},
-           familyi={O\bibinitperiod},
-           given={Andreas},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e529c4c969b849bb9938d3dde816cfeb}{%
-           family={Hill},
-           familyi={H\bibinitperiod},
-           given={Joachim},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=72a75a9ce3f2b8e7158eca50c85f4009}{%
-           family={Buddenbaum},
-           familyi={B\bibinitperiod},
-           given={Henning},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bd79c6e03cbd2f250f1c52b1d596abd0}{%
-           family={Hostert},
-           familyi={H\bibinitperiod},
-           given={Patrick},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bf677bf75b4b3a396d48c5825855043a}{%
-           family={Van\bibnamedelimb der\bibnamedelima Linden},
-           familyi={V\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim L\bibinitperiod},
-           given={Sebastian},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=13d0f0fd6f1c4854fb5cbed0b8228944}{%
-           family={Leitão},
-           familyi={L\bibinitperiod},
-           given={Pedro\bibnamedelima J.},
-           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8a1664bf6ea999b31bde1898be342f3e}{%
-           family={Rabe},
-           familyi={R\bibinitperiod},
-           given={Andreas},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0260e7c5e15cda3964f2273273e45a18}{%
-           family={Doerffer},
-           familyi={D\bibinitperiod},
-           given={Roland},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=beee382c1639582097c05a14a34d4c22}{%
-           family={Krasemann},
-           familyi={K\bibinitperiod},
-           given={Hajo},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d09a9adc83673dfde8a299329c8f3a48}{%
-           family={Xi},
-           familyi={X\bibinitperiod},
-           given={Hongyan},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d76069d04a7292433e2b0472d1a9c9c0}{%
-           family={Mauser},
-           familyi={M\bibinitperiod},
-           given={Wolfram},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f1a55d46ffd102ad531b18ddbeb69adb}{%
-           family={Hank},
-           familyi={H\bibinitperiod},
-           given={Tobias},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f824a02e86e6bbf3450fb0944b2c3045}{%
-           family={Locherer},
-           familyi={L\bibinitperiod},
-           given={Matthias},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=638d60ec2468d2e42b92f735caa0737d}{%
-           family={Rast},
-           familyi={R\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=cbcc9c03ce5040b10b31a415a975b1a4}{%
-           family={Staenz},
-           familyi={S\bibinitperiod},
-           given={Karl},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ef02de801b226564367de0d98fa64cde}{%
-           family={Sang},
-           familyi={S\bibinitperiod},
-           given={Bernhard},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{4303e792a9203bdb32c40d09a7cd1ed4}
-      \strng{fullhash}{a846bb62623dabc5bb1cbba7fe3602ea}
-      \strng{bibnamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
-      \strng{authorbibnamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
-      \strng{authornamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
-      \strng{authorfullhash}{a846bb62623dabc5bb1cbba7fe3602ea}
-      \field{sortinit}{G}
-      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Imaging spectroscopy, also known as hyperspectral remote sensing, is based on the characterization of Earth surface materials and processes through spectrally-resolved measurements of the light interacting with matter. The potential of imaging spectroscopy for Earth remote sensing has been demonstrated since the 1980s. However, most of the developments and applications in imaging spectroscopy have largely relied on airborne spectrometers, as the amount and quality of space-based imaging spectroscopy data remain relatively low to date. The upcoming Environmental Mapping and Analysis Program ({EnMAP}) German imaging spectroscopy mission is intended to fill this gap. An overview of the main characteristics and current status of the mission is provided in this contribution. The core payload of {EnMAP} consists of a dual-spectrometer instrument measuring in the optical spectral range between 420 and 2450 nm with a spectral sampling distance varying between 5 and 12 nm and a reference signal-to-noise ratio of 400:1 in the visible and near-infrared and 180:1 in the shortwave-infrared parts of the spectrum. {EnMAP} images will cover a 30 km-wide area in the across-track direction with a ground sampling distance of 30 m. An across-track tilted observation capability will enable a target revisit time of up to four days at the Equator and better at high latitudes. {EnMAP} will contribute to the development and exploitation of spaceborne imaging spectroscopy applications by making high-quality data freely available to scientific users worldwide.}
-      \field{issn}{2072-4292}
-      \field{journaltitle}{Remote Sensing}
-      \field{langid}{english}
-      \field{month}{7}
-      \field{note}{Number: 7 Publisher: Multidisciplinary Digital Publishing Institute}
-      \field{number}{7}
-      \field{title}{The {EnMAP} Spaceborne Imaging Spectroscopy Mission for Earth Observation}
-      \field{urlday}{2}
-      \field{urlmonth}{4}
-      \field{urlyear}{2023}
-      \field{volume}{7}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{8830\bibrangedash 8857}
-      \range{pages}{28}
-      \verb{doi}
-      \verb 10.3390/rs70708830
-      \endverb
-      \verb{file}
-      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\ZX7JQPUP\\Guanter et al. - 2015 - The EnMAP Spaceborne Imaging Spectroscopy Mission .pdf:application/pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.mdpi.com/2072-4292/7/7/8830
-      \endverb
-      \verb{url}
-      \verb https://www.mdpi.com/2072-4292/7/7/8830
-      \endverb
-      \keyw{Earth observation,{EnMAP},environmental applications,hyperspectral remote sensing,imaging spectroscopy}
+      \keyw{Basil,Biochar,Hormesis,Kale,Plant uptake,Vegetative indices}
     \endentry
     \entry{henriksen_plastic_2022}{article}{}
       \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=f64d999dbd3abdbe534dd4cf2bef16ea}{%
+        {{hash=f64d999dbd3abdbe534dd4cf2bef16ea}{%
            family={Henriksen},
            familyi={H\bibinitperiod},
            given={Martin\bibnamedelima L.},
-           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4ebb4e7a04f7124da1396dbab6b75a90}{%
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4ebb4e7a04f7124da1396dbab6b75a90}{%
            family={Karlsen},
            familyi={K\bibinitperiod},
            given={Celine\bibnamedelima B.},
-           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=7dcab29304c053ce8a99af1f9392517d}{%
+           giveni={C\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=7dcab29304c053ce8a99af1f9392517d}{%
            family={Klarskov},
            familyi={K\bibinitperiod},
            given={Pernille},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=85a6ba2428a0b417a5b47f51a9b16a30}{%
+           giveni={P\bibinitperiod}}}%
+        {{hash=85a6ba2428a0b417a5b47f51a9b16a30}{%
            family={Hinge},
            familyi={H\bibinitperiod},
            given={Mogens},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod}}}%
       }
       \strng{namehash}{d4899da5a514de99378c5536e2a1c4d6}
       \strng{fullhash}{3a27ae0a0781c95e2da81b473fa0bbb2}
@@ -496,10 +122,8 @@
       \strng{authorbibnamehash}{d4899da5a514de99378c5536e2a1c4d6}
       \strng{authornamehash}{d4899da5a514de99378c5536e2a1c4d6}
       \strng{authorfullhash}{3a27ae0a0781c95e2da81b473fa0bbb2}
-      \field{sortinit}{H}
-      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{An increase in the quality of recycled plastic is paramount to address the global plastic challenge and applicability of recycled plastics. A potent approach is mechanical plastic sorting but sufficient analytical techniques are needed. This study applies unsupervised machine learning on short wave infrared hyperspectral data to build a model for classification of plastics. The model can successfully distinguish between twelve plastics ({PE}, {PP}, {PET}, {PS}, {PVC}, {PVDF}, {POM}, {PEEK}, {ABS}, {PMMA}, {PC}, and {PA}12) and the utility is further proven by recognizing three unknown samples ({PS}, {PMMA}, {PC}). The experimental setup is constructed similar to an in-line industrial setup, and the machine learning is optimized for minimal data processing. This ensures the industrial relevance and is a stepping-stone to solve the global plastic challenge.}
@@ -533,56 +157,356 @@
       \endverb
       \keyw{Hyperspectral imaging,Plastic identification,Plastic recycling,Principal component analysis}
     \endentry
+    \entry{guanter_enmap_2015}{article}{}
+      \name{author}{36}{}{%
+        {{hash=b1a0aa2ddbf724cd05730dac701b4583}{%
+           family={Guanter},
+           familyi={G\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod}}}%
+        {{hash=f037586aeb4248c45a7b90277627b8f2}{%
+           family={Kaufmann},
+           familyi={K\bibinitperiod},
+           given={Hermann},
+           giveni={H\bibinitperiod}}}%
+        {{hash=c3d93a0bd5440d3285fb9bfb416cba33}{%
+           family={Segl},
+           familyi={S\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+        {{hash=839f9c4a88c3e6c41fa8221264d44c16}{%
+           family={Foerster},
+           familyi={F\bibinitperiod},
+           given={Saskia},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8a16f1a931ba21d7c11419bb2a1ea89f}{%
+           family={Rogass},
+           familyi={R\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0c2daba248d3e02b65555943327fede2}{%
+           family={Chabrillat},
+           familyi={C\bibinitperiod},
+           given={Sabine},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fe871a1a89e3d7b0efd49caa67a43d4c}{%
+           family={Kuester},
+           familyi={K\bibinitperiod},
+           given={Theres},
+           giveni={T\bibinitperiod}}}%
+        {{hash=88463e10c33849e5d26916eac0f8d1e7}{%
+           family={Hollstein},
+           familyi={H\bibinitperiod},
+           given={André},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9d33b37bc3544b5bc45943219cbca216}{%
+           family={Rossner},
+           familyi={R\bibinitperiod},
+           given={Godela},
+           giveni={G\bibinitperiod}}}%
+        {{hash=188d0f2b49862d013b40ed31b085ec53}{%
+           family={Chlebek},
+           familyi={C\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=72feb99a35bd4dc033b3106c23aa417c}{%
+           family={Straif},
+           familyi={S\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b3fe44eb80d971589c64fbfac5ebf0a2}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=21f1fb4cdbbab490c4d374aaf98bc988}{%
+           family={Schrader},
+           familyi={S\bibinitperiod},
+           given={Stefanie},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b5b787a08d47bcf24ec5dab0c45da982}{%
+           family={Storch},
+           familyi={S\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=1e334e93f66367225a957cbefff4e85b}{%
+           family={Heiden},
+           familyi={H\bibinitperiod},
+           given={Uta},
+           giveni={U\bibinitperiod}}}%
+        {{hash=8a6c9c0890b96766b8cc7c152d7b86a8}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2ab3e68a1bb61afe4461c82ff6501df5}{%
+           family={Bachmann},
+           familyi={B\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=375724045d624122348021829bc19087}{%
+           family={Mühle},
+           familyi={M\bibinitperiod},
+           given={Helmut},
+           giveni={H\bibinitperiod}}}%
+        {{hash=78a8a9de9601141d382c6712f99bf9e0}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Rupert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=57b26bab10ecf28b8c064c6311f0eada}{%
+           family={Habermeyer},
+           familyi={H\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=fb5e3db6aeecdaf011dd84bbee432552}{%
+           family={Ohndorf},
+           familyi={O\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e529c4c969b849bb9938d3dde816cfeb}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+        {{hash=72a75a9ce3f2b8e7158eca50c85f4009}{%
+           family={Buddenbaum},
+           familyi={B\bibinitperiod},
+           given={Henning},
+           giveni={H\bibinitperiod}}}%
+        {{hash=bd79c6e03cbd2f250f1c52b1d596abd0}{%
+           family={Hostert},
+           familyi={H\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bf677bf75b4b3a396d48c5825855043a}{%
+           family={Van\bibnamedelimb der\bibnamedelima Linden},
+           familyi={V\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=13d0f0fd6f1c4854fb5cbed0b8228944}{%
+           family={Leitão},
+           familyi={L\bibinitperiod},
+           given={Pedro\bibnamedelima J.},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=8a1664bf6ea999b31bde1898be342f3e}{%
+           family={Rabe},
+           familyi={R\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0260e7c5e15cda3964f2273273e45a18}{%
+           family={Doerffer},
+           familyi={D\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod}}}%
+        {{hash=beee382c1639582097c05a14a34d4c22}{%
+           family={Krasemann},
+           familyi={K\bibinitperiod},
+           given={Hajo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d09a9adc83673dfde8a299329c8f3a48}{%
+           family={Xi},
+           familyi={X\bibinitperiod},
+           given={Hongyan},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d76069d04a7292433e2b0472d1a9c9c0}{%
+           family={Mauser},
+           familyi={M\bibinitperiod},
+           given={Wolfram},
+           giveni={W\bibinitperiod}}}%
+        {{hash=f1a55d46ffd102ad531b18ddbeb69adb}{%
+           family={Hank},
+           familyi={H\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f824a02e86e6bbf3450fb0944b2c3045}{%
+           family={Locherer},
+           familyi={L\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+        {{hash=638d60ec2468d2e42b92f735caa0737d}{%
+           family={Rast},
+           familyi={R\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=cbcc9c03ce5040b10b31a415a975b1a4}{%
+           family={Staenz},
+           familyi={S\bibinitperiod},
+           given={Karl},
+           giveni={K\bibinitperiod}}}%
+        {{hash=ef02de801b226564367de0d98fa64cde}{%
+           family={Sang},
+           familyi={S\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{4303e792a9203bdb32c40d09a7cd1ed4}
+      \strng{fullhash}{a846bb62623dabc5bb1cbba7fe3602ea}
+      \strng{bibnamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
+      \strng{authorbibnamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
+      \strng{authornamehash}{4303e792a9203bdb32c40d09a7cd1ed4}
+      \strng{authorfullhash}{a846bb62623dabc5bb1cbba7fe3602ea}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Imaging spectroscopy, also known as hyperspectral remote sensing, is based on the characterization of Earth surface materials and processes through spectrally-resolved measurements of the light interacting with matter. The potential of imaging spectroscopy for Earth remote sensing has been demonstrated since the 1980s. However, most of the developments and applications in imaging spectroscopy have largely relied on airborne spectrometers, as the amount and quality of space-based imaging spectroscopy data remain relatively low to date. The upcoming Environmental Mapping and Analysis Program ({EnMAP}) German imaging spectroscopy mission is intended to fill this gap. An overview of the main characteristics and current status of the mission is provided in this contribution. The core payload of {EnMAP} consists of a dual-spectrometer instrument measuring in the optical spectral range between 420 and 2450 nm with a spectral sampling distance varying between 5 and 12 nm and a reference signal-to-noise ratio of 400:1 in the visible and near-infrared and 180:1 in the shortwave-infrared parts of the spectrum. {EnMAP} images will cover a 30 km-wide area in the across-track direction with a ground sampling distance of 30 m. An across-track tilted observation capability will enable a target revisit time of up to four days at the Equator and better at high latitudes. {EnMAP} will contribute to the development and exploitation of spaceborne imaging spectroscopy applications by making high-quality data freely available to scientific users worldwide.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{note}{Number: 7 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{7}
+      \field{title}{The {EnMAP} Spaceborne Imaging Spectroscopy Mission for Earth Observation}
+      \field{urlday}{2}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{7}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{8830\bibrangedash 8857}
+      \range{pages}{28}
+      \verb{doi}
+      \verb 10.3390/rs70708830
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\ZX7JQPUP\\Guanter et al. - 2015 - The EnMAP Spaceborne Imaging Spectroscopy Mission .pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/7/7/8830
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/7/7/8830
+      \endverb
+      \keyw{Earth observation,{EnMAP},environmental applications,hyperspectral remote sensing,imaging spectroscopy}
+    \endentry
+    \entry{bohn_glacier_2022}{article}{}
+      \name{author}{8}{}{%
+        {{hash=d39e5555b6fa18a9eb9ab15e47d738df}{%
+           family={Bohn},
+           familyi={B\bibinitperiod},
+           given={Niklas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=e46a1b8bdd7244be932853787a244d29}{%
+           family={Di\bibnamedelima Mauro},
+           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Biagio},
+           giveni={B\bibinitperiod}}}%
+        {{hash=d6a09d317e0f8aa2b6acf7fedd92a90c}{%
+           family={Colombo},
+           familyi={C\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5cc4669dcd9bd2879717632245bf3b86}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=feb70c6ece580b9f05a191d5ab1ca78d}{%
+           family={Susiluoto},
+           familyi={S\bibinitperiod},
+           given={Jouni},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7b9bd1d6afa658e3e6791c71aea518d6}{%
+           family={Carmon},
+           familyi={C\bibinitperiod},
+           given={Nimrod},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ea92ae2046fc4aaeccd4b2c6349f3bf8}{%
+           family={Turmon},
+           familyi={T\bibinitperiod},
+           given={Michael\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=b1a0aa2ddbf724cd05730dac701b4583}{%
+           family={Guanter},
+           familyi={G\bibinitperiod},
+           given={Luis},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b39d42471e1be1ff6fb9641a9b26998}
+      \strng{fullhash}{f23794cc274f4dec0f7a1f6de29f7955}
+      \strng{bibnamehash}{3b39d42471e1be1ff6fb9641a9b26998}
+      \strng{authorbibnamehash}{3b39d42471e1be1ff6fb9641a9b26998}
+      \strng{authornamehash}{3b39d42471e1be1ff6fb9641a9b26998}
+      \strng{authorfullhash}{f23794cc274f4dec0f7a1f6de29f7955}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Snow and ice melt processes on the Greenland Ice Sheet are a key in Earth's energy balance and are acutely sensitive to climate change. Melting dynamics are directly related to a decrease in surface albedo, amongst others caused by the accumulation of light-absorbing particles ({LAPs}). Featuring unique spectral patterns, these accumulations can be mapped and quantified by imaging spectroscopy. We present first results for the retrieval of glacier ice properties from the spaceborne {PRISMA} imaging spectrometer by applying a recently developed simultaneous inversion of atmospheric and surface state using optimal estimation. The image analyzed in this study was acquired over the South-West margin of the Greenland Ice Sheet in late August 2020. The area is characterized by patterns of both clean and dark ice associated with a high amount of {LAPs} deposited on the surface. We present retrieval maps and uncertainties for grain size, liquid water, and algae concentration, as well as estimated reflectance spectra for different surface properties. We then show the feasibility of using imaging spectroscopy to interpret multiband sensor data to achieve high accuracy, frequently repeated observations of changing snow and ice conditions. For example, the impurity index calculated from multiband Sentinel-3 Ocean and Land Colour Instrument measurements is dependent on dust particles, but we show that algae concentration alone can be predicted from this data with less than 20\% uncertainty. Our study evidences that present and upcoming orbital imaging spectroscopy missions such as {PRISMA}, Environmental Mapping and Analysis Program, Copernicus Hyperspectral Imaging Mission, and the Surface Biology and Geology designated observable, can significantly support research of melting ice sheets.}
+      \field{issn}{2169-8961}
+      \field{journaltitle}{Journal of Geophysical Research: Biogeosciences}
+      \field{langid}{english}
+      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1029/2021JG006718}
+      \field{number}{3}
+      \field{shorttitle}{Glacier Ice Surface Properties in South-West Greenland Ice Sheet}
+      \field{title}{Glacier Ice Surface Properties in South-West Greenland Ice Sheet: First Estimates From {PRISMA} Imaging Spectroscopy Data}
+      \field{urlday}{2}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{127}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{e2021JG006718}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1029/2021JG006718
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\CDTGX9TP\\Bohn et al. - 2022 - Glacier Ice Surface Properties in South-West Green.pdf:application/pdf;Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\SCAA9U65\\2021JG006718.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006718
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006718
+      \endverb
+      \keyw{Greenland Ice Sheet,imaging spectroscopy,mapping glacier algae,optimal estimation,{PRISMA},snow and ice surface properties}
+    \endentry
     \entry{pascual-venteo_prototyping_2022}{article}{}
       \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=1464508240d5aa5d5c89ac68dd1afa8d}{%
+        {{hash=1464508240d5aa5d5c89ac68dd1afa8d}{%
            family={Pascual-Venteo},
            familyi={P\bibinithyphendelim V\bibinitperiod},
            given={Ana\bibnamedelima B.},
-           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0c570e787339454bdf1b927d9401efc2}{%
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=0c570e787339454bdf1b927d9401efc2}{%
            family={Portalés},
            familyi={P\bibinitperiod},
            given={Enrique},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2e17f6f4f83bdbea02098517018037f9}{%
+           giveni={E\bibinitperiod}}}%
+        {{hash=2e17f6f4f83bdbea02098517018037f9}{%
            family={Berger},
            familyi={B\bibinitperiod},
            given={Katja},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f3ab39ad5584855074fc4f1c4fe47322}{%
+           giveni={K\bibinitperiod}}}%
+        {{hash=f3ab39ad5584855074fc4f1c4fe47322}{%
            family={Tagliabue},
            familyi={T\bibinitperiod},
            given={Giulia},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=9a5f9ad3a8ccddb31c6281e0ce5b2506}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=9a5f9ad3a8ccddb31c6281e0ce5b2506}{%
            family={Garcia},
            familyi={G\bibinitperiod},
            given={Jose\bibnamedelima L.},
-           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=06fd25e0c8ecec3764e09ee64e0090cc}{%
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=06fd25e0c8ecec3764e09ee64e0090cc}{%
            family={Pérez-Suay},
            familyi={P\bibinithyphendelim S\bibinitperiod},
            given={Adrián},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1cae48ced6a580a1325e3c89e0eead8b}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=1cae48ced6a580a1325e3c89e0eead8b}{%
            family={Rivera-Caicedo},
            familyi={R\bibinithyphendelim C\bibinitperiod},
            given={Juan\bibnamedelima Pablo},
-           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=eaafac414dd048c82c7b6acbefab97fe}{%
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=eaafac414dd048c82c7b6acbefab97fe}{%
            family={Verrelst},
            familyi={V\bibinitperiod},
            given={Jochem},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
+           giveni={J\bibinitperiod}}}%
       }
       \strng{namehash}{660ce38fe369bcfc158af99a11bf5cf5}
       \strng{fullhash}{2326cb3847b2b306d0dc1d75c067acd1}
@@ -590,10 +514,8 @@
       \strng{authorbibnamehash}{660ce38fe369bcfc158af99a11bf5cf5}
       \strng{authornamehash}{660ce38fe369bcfc158af99a11bf5cf5}
       \strng{authorfullhash}{2326cb3847b2b306d0dc1d75c067acd1}
-      \field{sortinit}{P}
-      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{In preparation for new-generation imaging spectrometer missions and the accompanying unprecedented inflow of hyperspectral data, optimized models are needed to generate vegetation traits routinely. Hybrid models, combining radiative transfer models with machine learning algorithms, are preferred, however, dealing with spectral collinearity imposes an additional challenge. In this study, we analyzed two spectral dimensionality reduction methods: principal component analysis ({PCA}) and band ranking ({BR}), embedded in a hybrid workflow for the retrieval of specific leaf area ({SLA}), leaf area index ({LAI}), canopy water content ({CWC}), canopy chlorophyll content ({CCC}), the fraction of absorbed photosynthetic active radiation ({FAPAR}), and fractional vegetation cover ({FVC}). The {SCOPE} model was used to simulate training data sets, which were optimized with active learning. Gaussian process regression ({GPR}) algorithms were trained over the simulations to obtain trait-specific models. The inclusion of {PCA} and {BR} with 20 features led to the so-called {GPR}-20PCA and {GPR}-20BR models. The 20PCA models encompassed over 99.95\% cumulative variance of the full spectral data, while the {GPR}-20BR models were based on the 20 most sensitive bands. Validation against in situ data obtained moderate to optimal results with normalized root mean squared error ({NRMSE}) from 13.9\% ({CWC}) to 22.3\% ({CCC}) for {GPR}-20PCA models, and {NRMSE} from 19.6\% ({CWC}) to 29.1\% ({SLA}) for {GPR}-20BR models. Overall, the {GPR}-20PCA slightly outperformed the {GPR}-20BR models for all six variables. To demonstrate mapping capabilities, both models were tested on a {PRecursore} {IperSpettrale} della Missione Applicativa ({PRISMA}) scene, spectrally resampled to Copernicus Hyperspectral Imaging Mission for the Environment ({CHIME}), over an agricultural test site (Jolanda di Savoia, Italy). The two strategies obtained plausible spatial patterns, and consistency between the two models was highest for {FVC} and {LAI} (R2=0.91, R2=0.86) and lowest for {SLA} mapping (R2=0.53). From these findings, we recommend implementing {GPR}-20PCA models as the most efficient strategy for the retrieval of multiple crop traits from hyperspectral data streams. Hence, this workflow will support and facilitate the preparations of traits retrieval models from the next-generation operational {CHIME}.}
@@ -628,87 +550,84 @@
       \endverb
       \keyw{active learning,biochemical and biophysical traits,{CHIME},feature selection,Gaussian process regression,hybrid methods,principal component analysis,{PRISMA}}
     \endentry
-    \entry{zea_leveraging_2022}{article}{}
-      \name{author}{6}{}{%
-        {{un=0,uniquepart=base,hash=7637a6024ecc04ba31762d79fa1f43d5}{%
-           family={Zea},
-           familyi={Z\bibinitperiod},
-           given={Maria},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0b090f9545af4ee52376736eac863fd4}{%
-           family={Souza},
-           familyi={S\bibinitperiod},
-           given={Augusto},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d9da4a23ca804cbf6aff5760349ec643}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={Yang},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b2f76df1e4fbbda968c7534981dabe51}{%
-           family={Lee},
-           familyi={L\bibinitperiod},
-           given={Linda},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=5ca8f6f2ac4f6d199651ca7aaf026814}{%
-           family={Nemali},
-           familyi={N\bibinitperiod},
-           given={Krishna},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e10c332f12fd09db952ee3b71846530c}{%
-           family={Hoagland},
-           familyi={H\bibinitperiod},
-           given={Lori},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
+    \entry{dopper_estimating_2022}{article}{}
+      \name{author}{7}{}{%
+        {{hash=708ad334e5a81387edd16a19848d8bb7}{%
+           family={Döpper},
+           familyi={D\bibinitperiod},
+           given={Veronika},
+           giveni={V\bibinitperiod}}}%
+        {{hash=be66c7855ea83915f64a02829c4fe855}{%
+           family={Rocha},
+           familyi={R\bibinitperiod},
+           given={Alby\bibnamedelima Duarte},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=2e17f6f4f83bdbea02098517018037f9}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Katja},
+           giveni={K\bibinitperiod}}}%
+        {{hash=232c24b2eec1ff29d9cc549cd35e16a8}{%
+           family={Gränzig},
+           familyi={G\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=eaafac414dd048c82c7b6acbefab97fe}{%
+           family={Verrelst},
+           familyi={V\bibinitperiod},
+           given={Jochem},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c0aa180fb2e9396e759f3db03292b8d6}{%
+           family={Kleinschmit},
+           familyi={K\bibinitperiod},
+           given={Birgit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=90912b3550fbb6635fc7a05e48ec015f}{%
+           family={Förster},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
       }
-      \strng{namehash}{fc28ebfd5f06fe775ee61739e973baf9}
-      \strng{fullhash}{601ab616665463ae2e9b4ad3bf3c6169}
-      \strng{bibnamehash}{fc28ebfd5f06fe775ee61739e973baf9}
-      \strng{authorbibnamehash}{fc28ebfd5f06fe775ee61739e973baf9}
-      \strng{authornamehash}{fc28ebfd5f06fe775ee61739e973baf9}
-      \strng{authorfullhash}{601ab616665463ae2e9b4ad3bf3c6169}
-      \field{sortinit}{Z}
-      \field{sortinithash}{8f7b480688e809b50b6f6577b16f3db5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
+      \strng{namehash}{32c51740b7a165bac0cac952c5506145}
+      \strng{fullhash}{4429bdb25ef1bb11760604ca5725863e}
+      \strng{bibnamehash}{32c51740b7a165bac0cac952c5506145}
+      \strng{authorbibnamehash}{32c51740b7a165bac0cac952c5506145}
+      \strng{authornamehash}{32c51740b7a165bac0cac952c5506145}
+      \strng{authorfullhash}{4429bdb25ef1bb11760604ca5725863e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Cadmium (Cd) is a toxic metal that can accumulate in soils and negatively impact crop as well as human health. Amendments like biochar have potential to address these challenges by reducing Cd bioavailability in soil, though reliance on post-harvest wet chemical methods to quantify Cd uptake have slowed efforts to identify the most effective amendments. Hyperspectral imaging ({HSI}) is a novel technology that could overcome this limitation by quantifying symptoms of Cd stress while plants are still growing. The goals of this study were to: 1) determine whether {HSI} can detect Cd stress in two distinct leafy green crops, 2) quantify whether a locally sourced biochar derived from hardwoods can reduce Cd stress and uptake in these crops, and 3) identify vegetative indices ({VIs}) that best quantify changes in plant stress responses. Experiments were conducted in a tightly controlled automated phenotyping facility that allowed all environmental factors to be kept constant except Cd concentration (0, 5 10 and 15 mg kg−1). Symptoms of Cd stress were stronger in basil (Ocimum basilicum) than kale (Brassica oleracea), and were easier to detect using {HSI}. Several {VIs} detected Cd stress in basil, but only the anthocyanin reflectance index ({ARI}) detected all levels of Cd stress in both crop species. The biochar amendment did reduce Cd uptake, especially at low Cd concentrations in kale which took up more Cd than basil. Again, the {ARI} index was the most effective in quantifying changes in plant stress mediated by the biochar. These results indicate that the biochar evaluated in this study has potential to reduce Cd bioavailability in soil, and {HSI} could be further developed to identify rates that can best achieve this benefit. The technology also may be helping in elucidating mechanisms mediating how biochar can influence plant growth and stress responses.}
+      \field{abstract}{The monitoring of soil moisture content ({SMC}) at very high spatial resolution ({<}10m) using unmanned aerial systems ({UAS}) is of high interest for precision agriculture and the validation of large scale {SMC} products. Data-driven approaches are the most common method to retrieve {SMC} with {UAS}-borne data at water limited sites over non-disturbed agricultural crops. A major disadvantage of data-driven algorithms is the limited transferability in space and time and the need of a high number of ground reference samples. Physically-based approaches are less dependent on the amount of samples and are transferable in space and time. This study explores the potential of (1) a hybrid method targeting the soil brightness factor of the {PROSAIL} model using a variational heteroscedastic Gaussian Processes regression ({VHGPR}) algorithm, and (2) a data-driven method employing {VHGPR} for the retrieval of {SMC} over three grassland sites based on {UAS}-borne {VIS}–{NIR} (399–1001nm) hyperspectral data. The sites were managed by mowing (Fendt), grazing (Grosses Bruch) and irrigation (Marquardt). With these distinct local pre-conditions we aimed to identify factors that favor and limit the retrieval of {SMC}. The hybrid approach presented encouraging results in Marquardt ({RMSE} = 1.5Vol\_\%, R2 = 0.2). At the permanent grassland sites (Fendt, Grosses Bruch) the thatch layer jeopardized the application of the hybrid model. We identified the complex canopy structure of grassland as the main factor impacting the hybrid {SMC} retrieval. The data-driven approach showed high accuracy for Fendt (R2 = 0.84, {RMSE} = 8.66) and Marquardt (R2 = 0.4, {RMSE} = 10.52). All data-driven models build on the {LAI}-{SMC} relationship. However, this relationship was hampered by mowing (Fendt), leading to a lack of transferability in time. The alteration of plant traits by grazing prevents finding a relationship with {SMC} in Grosses Bruch. In Marquardt, we identified the timelag between changes in {SMC} and plant response as the main reason of decrease in model accuracy. Yet, the model performance is accurate in undisturbed and water-limited areas (Marquardt). The analysis points to challenges that need to be tackled in future research and opens the discussion for the development of robust models to retrieve high resolution {SMC} from {UAS}-borne remote sensing observations.}
       \field{day}{1}
-      \field{issn}{0269-7491}
-      \field{journaltitle}{Environmental Pollution}
+      \field{issn}{1569-8432}
+      \field{journaltitle}{International Journal of Applied Earth Observation and Geoinformation}
       \field{langid}{english}
-      \field{month}{1}
-      \field{shortjournal}{Environmental Pollution}
-      \field{title}{Leveraging high-throughput hyperspectral imaging technology to detect cadmium stress in two leafy green crops and accelerate soil remediation efforts}
+      \field{month}{6}
+      \field{shortjournal}{International Journal of Applied Earth Observation and Geoinformation}
+      \field{title}{Estimating soil moisture content under grassland with hyperspectral data using radiative transfer modelling and machine learning}
       \field{urlday}{2}
       \field{urlmonth}{4}
       \field{urlyear}{2023}
-      \field{volume}{292}
+      \field{volume}{110}
       \field{year}{2022}
       \field{dateera}{ce}
       \field{urldateera}{ce}
-      \field{pages}{118405}
+      \field{pages}{102817}
       \range{pages}{1}
       \verb{doi}
-      \verb 10.1016/j.envpol.2021.118405
+      \verb 10.1016/j.jag.2022.102817
       \endverb
       \verb{file}
-      \verb ScienceDirect Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\X62SJCS7\\Zea et al. - 2022 - Leveraging high-throughput hyperspectral imaging t.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\YH7GWHK7\\S0269749121019874.html:text/html
+      \verb ScienceDirect Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\3VRYB6K3\\Döpper et al. - 2022 - Estimating soil moisture content under grassland w.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\RQGGM7CR\\S156984322200019X.html:text/html
       \endverb
       \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/S0269749121019874
+      \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
       \endverb
       \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/S0269749121019874
+      \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
       \endverb
-      \keyw{Basil,Biochar,Hormesis,Kale,Plant uptake,Vegetative indices}
+      \keyw{Anthropogenic Influence,Gaussian Processes,Grazing,Irrigation,{LAI},Leaf Area Index,Mowing,{PROSAIL},Time Lag,Unmanned Aerial Systems}
     \endentry
   \enddatalist
 \endrefsection
