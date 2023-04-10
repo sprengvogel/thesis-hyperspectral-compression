@@ -2356,6 +2356,19 @@
     <bcf:citekey order="4">bohn_glacier_2022</bcf:citekey>
     <bcf:citekey order="5">pascual-venteo_prototyping_2022</bcf:citekey>
     <bcf:citekey order="6">dopper_estimating_2022</bcf:citekey>
+    <bcf:citekey order="7">kuester_1d-convolutional_2021</bcf:citekey>
+    <bcf:citekey order="8">kuester_transferability_2022</bcf:citekey>
+    <bcf:citekey order="9">la_grassa_hyperspectral_2022</bcf:citekey>
+    <bcf:citekey order="10">guo_learned_2021</bcf:citekey>
+    <bcf:citekey order="11">balle_end--end_2017</bcf:citekey>
+    <bcf:citekey order="12">aidini_hyperspectral_2019</bcf:citekey>
+    <bcf:citekey order="13">deng_learning-based_2020</bcf:citekey>
+    <bcf:citekey order="14">leal-taixe_onboard_2019</bcf:citekey>
+    <bcf:citekey order="15">la_grassa_hyperspectral_2022</bcf:citekey>
+    <bcf:citekey order="16">kuester_1d-convolutional_2021</bcf:citekey>
+    <bcf:citekey order="17">kuester_transferability_2022</bcf:citekey>
+    <bcf:citekey order="18">guo_learned_2021</bcf:citekey>
+    <bcf:citekey order="19">berger_rate-distortion_2003</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

@@ -155,7 +155,7 @@
       \verb{url}
       \verb https://www.sciencedirect.com/science/article/pii/S0924203121001247
       \endverb
-      \keyw{Hyperspectral imaging,Plastic identification,Plastic recycling,Principal component analysis}
+      \keyw{Principal component analysis,Hyperspectral imaging,Plastic identification,Plastic recycling}
     \endentry
     \entry{guanter_enmap_2015}{article}{}
       \name{author}{36}{}{%
@@ -463,7 +463,7 @@
       \verb{url}
       \verb https://onlinelibrary.wiley.com/doi/abs/10.1029/2021JG006718
       \endverb
-      \keyw{Greenland Ice Sheet,imaging spectroscopy,mapping glacier algae,optimal estimation,{PRISMA},snow and ice surface properties}
+      \keyw{imaging spectroscopy,{PRISMA},Greenland Ice Sheet,mapping glacier algae,optimal estimation,snow and ice surface properties}
     \endentry
     \entry{pascual-venteo_prototyping_2022}{article}{}
       \name{author}{8}{}{%
@@ -628,6 +628,589 @@
       \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
       \endverb
       \keyw{Anthropogenic Influence,Gaussian Processes,Grazing,Irrigation,{LAI},Leaf Area Index,Mowing,{PROSAIL},Time Lag,Unmanned Aerial Systems}
+    \endentry
+    \entry{kuester_1d-convolutional_2021}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=5636cb4fe8a630b8e7ef42f246f64528}{%
+           family={Kuester},
+           familyi={K\bibinitperiod},
+           given={J.\bibnamedelimi 1},
+           giveni={J\bibinitperiod\bibinitdelim 1\bibinitperiod}}}%
+        {{hash=f128979975e0b27ca7a43770f3b40a6d}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={W.\bibnamedelimi 1},
+           giveni={W\bibinitperiod\bibinitdelim 1\bibinitperiod}}}%
+        {{hash=d758f0356f36829cb178224cfa75807f}{%
+           family={Middelmann},
+           familyi={M\bibinitperiod},
+           given={W.\bibnamedelimi 1\bibnamedelimb 1\bibnamedelimb Fraunhofer\bibnamedelima {IOSB}},
+           giveni={W\bibinitperiod\bibinitdelim 1\bibinitperiod\bibinitdelim 1\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=24abe4d66e585c972e0fb16541fd391b}{%
+           family={Image\bibnamedelima Exploitation},
+           familyi={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={Germany},
+           giveni={G\bibinitperiod}}}%
+        {{hash=664fec3293801bc9ce8a41894d68855d}{%
+           family={Fraunhofer\bibnamedelima {IOSB}},
+           familyi={F\bibinitperiod\bibinitdelim I\bibinitperiod},
+           given={Ettlingen},
+           giveni={E\bibinitperiod}}}%
+        {{hash=24abe4d66e585c972e0fb16541fd391b}{%
+           family={Image\bibnamedelima Exploitation},
+           familyi={I\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={Germany},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Copernicus {GmbH}}%
+      }
+      \strng{namehash}{129270147837856530a73144af0f1803}
+      \strng{fullhash}{86aa403e93ebdd4f6189db508b4a33ab}
+      \strng{bibnamehash}{129270147837856530a73144af0f1803}
+      \strng{authorbibnamehash}{129270147837856530a73144af0f1803}
+      \strng{authornamehash}{129270147837856530a73144af0f1803}
+      \strng{authorfullhash}{86aa403e93ebdd4f6189db508b4a33ab}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hyperspectral sensor technology has been advancing in recent years and become more practical to tackle a variety of applications. The arising issues of data transmission and storage can be addressed with the help of compression. To minimize the loss of important information, high spectral correlation between adjacent bands is exploited. In this paper, we introduce an approach to compress hyperspectral data based on a 1D-Convolutional Autoencoder. Compression is achieved through reducing correlation by transforming the spectral signature into a low-dimensional space, while simultaneously preserving the significant features. The focus lies on compression of the spectral dimension. The spatial dimension is not used in the compression in order not to falsify correlation between the spectral dimension and accuracy of the reconstruction. The proposed 1D-Convolutional Autoencoder efficiently finds and extracts features relevant for compression. Additionally, it can be exploited as a feature extractor or for dimensionality reduction. The hyperspectral data sets Greding Village and Pavia University were used for the training and the evaluation process. The reconstruction accuracy is evaluated using the Signal to Noise Ratio and the Spectral Angle. Additionally, a land cover classification using a multi-class Support Vector Machine is used as a target application. The classification performance of the original and reconstructed data are compared. The reconstruction accuracy of the 1D-Convolutional Autoencoder outperforms the Deep Autoencoder and Nonlinear Principal Component Analysis for the used metrics and for both data sets using a fixed compression ratio.}
+      \field{note}{{ISSN}: 16821750 Num Pages: 15-21}
+      \field{title}{1d-Convolutional Autoencoder Based Hyperspectral Data Compression}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{15\bibrangedash 21}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.5194/isprs-archives-XLIII-B1-2021-15-2021
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\SU885T65\\Kuester et al. - 2021 - 1d-Convolutional Autoencoder Based Hyperspectral D.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.proquest.com/docview/2585318626
+      \endverb
+      \verb{url}
+      \verb https://www.proquest.com/docview/2585318626
+      \endverb
+      \keyw{Hyperspectral,convolutional neural network ({CNN})}
+    \endentry
+    \entry{kuester_transferability_2022}{online}{}
+      \name{author}{5}{}{%
+        {{hash=985317030acb55de451d55c2128a6059}{%
+           family={Kuester},
+           familyi={K\bibinitperiod},
+           given={Jannick},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cb8041ba23a69969dbd40dcb58e9a521}{%
+           family={Gross},
+           familyi={G\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=6cac136260050c9a35b58fc951c690e0}{%
+           family={Schreiner},
+           familyi={S\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=44f0241492aab2905a2ad66fb0e13dce}{%
+           family={Heizmann},
+           familyi={H\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=66bd888a0b3b30bf78a7f3cde3017eee}{%
+           family={Middelmann},
+           familyi={M\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b64e46370ae9b4004c31d2ac1ba929a}
+      \strng{fullhash}{0a61cdbf9b48fdf0ae0a46d39ee7e4d4}
+      \strng{bibnamehash}{3b64e46370ae9b4004c31d2ac1ba929a}
+      \strng{authorbibnamehash}{3b64e46370ae9b4004c31d2ac1ba929a}
+      \strng{authornamehash}{3b64e46370ae9b4004c31d2ac1ba929a}
+      \strng{authorfullhash}{0a61cdbf9b48fdf0ae0a46d39ee7e4d4}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{TU} Berlin - Wir haben die Ideen für die Zukunft. Zum Nutzen der Gesellschaft.}
+      \field{langid}{english}
+      \field{title}{Transferability of Convolutional Autoencoder Model for Lossy Compression to Unknown Hyperspectral {PRISMA} Data}
+      \field{titleaddon}{{TU} Berlin}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://tubcloud.tu-berlin.de/s/dnAzTNsC5762HHp
+      \endverb
+      \verb{url}
+      \verb https://tubcloud.tu-berlin.de/s/dnAzTNsC5762HHp
+      \endverb
+      \keyw{Hyperspectral}
+    \endentry
+    \entry{la_grassa_hyperspectral_2022}{article}{}
+      \name{author}{4}{}{%
+        {{hash=ee5164eea70df8f69bc2a63957e4236f}{%
+           family={La\bibnamedelima Grassa},
+           familyi={L\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Riccardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5e2cecca2d0af4c185417d1422063723}{%
+           family={Re},
+           familyi={R\bibinitperiod},
+           given={Cristina},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f90b9a037e1e0c03f3b62e02a0ca1a36}{%
+           family={Cremonese},
+           familyi={C\bibinitperiod},
+           given={Gabriele},
+           giveni={G\bibinitperiod}}}%
+        {{hash=be607c11441ac7403931ce06828d23bc}{%
+           family={Gallo},
+           familyi={G\bibinitperiod},
+           given={Ignazio},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9e3364757e2d3a38b69be59070243bd}
+      \strng{fullhash}{6bc7edeb2db2e460d713894d986051e8}
+      \strng{bibnamehash}{d9e3364757e2d3a38b69be59070243bd}
+      \strng{authorbibnamehash}{d9e3364757e2d3a38b69be59070243bd}
+      \strng{authornamehash}{d9e3364757e2d3a38b69be59070243bd}
+      \strng{authorfullhash}{6bc7edeb2db2e460d713894d986051e8}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In space science and satellite imagery, better resolution of the data information obtained makes images clearer and interpretation more accurate. However, the huge data volume gained by the complex on-board satellite instruments becomes a problem that needs to be managed carefully. To reduce the data volume to be stored and transmitted on-ground, the signals received should be compressed, allowing a good original source representation in the reconstruction step. Image compression covers a key role in space science and satellite imagery and, recently, deep learning models have achieved remarkable results in computer vision. In this paper, we propose a spectral signals compressor network based on deep convolutional autoencoder ({SSCNet}) and we conduct experiments over multi/hyperspectral and {RGB} datasets reporting improvements over all baselines used as benchmarks and than the {JPEG} family algorithm. Experimental results demonstrate the effectiveness in the compression ratio and spectral signal reconstruction and the robustness with a data type greater than 8 bits, clearly exhibiting better results using the {PSNR}, {SSIM}, and {MS}-{SSIM} evaluation criteria.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{note}{Number: 10 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{10}
+      \field{title}{Hyperspectral Data Compression Using Fully Convolutional Autoencoder}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{14}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{2472}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs14102472
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\BFRQTF6U\\La Grassa et al. - 2022 - Hyperspectral Data Compression Using Fully Convolu.pdf:application/pdf;Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\RFNXFEDG\\htm.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/14/10/2472
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/14/10/2472
+      \endverb
+      \keyw{Hyperspectral,convolutional neural network ({CNN}),autoencoder,data compression,remote sensing,satellite images}
+    \endentry
+    \entry{guo_learned_2021}{article}{}
+      \name{author}{5}{}{%
+        {{hash=8fe9c028b9c5ea30e8716d738f0cb56e}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Yuanyuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8eb4538a7d6921534b56d073cfc4ee8f}{%
+           family={Chong},
+           familyi={C\bibinitperiod},
+           given={Yanwen},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=87923950e1121c2033ab95cdc805ea4f}{%
+           family={Ding},
+           familyi={D\bibinitperiod},
+           given={Yun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3daae6058d5b42a64299252fbe6ff44e}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={Shaoming},
+           giveni={S\bibinitperiod}}}%
+        {{hash=688b24cd91effcc00c895580aa52f700}{%
+           family={Gu},
+           familyi={G\bibinitperiod},
+           given={Xiaolin},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{68a24a3b2c801ae00fcad4122efed40e}
+      \strng{fullhash}{db90b77cdd3115703a1cf1474f85441c}
+      \strng{bibnamehash}{68a24a3b2c801ae00fcad4122efed40e}
+      \strng{authorbibnamehash}{68a24a3b2c801ae00fcad4122efed40e}
+      \strng{authornamehash}{68a24a3b2c801ae00fcad4122efed40e}
+      \strng{authorfullhash}{db90b77cdd3115703a1cf1474f85441c}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hyperspectral compression is one of the most common techniques in hyperspectral image processing. Most recent learned image compression methods have exhibited excellent rate-distortion performance for natural images, but they have not been fully explored for hyperspectral compression tasks. In this paper, we propose a trainable network architecture for hyperspectral compression tasks, which not only considers the anisotropic characteristic of hyperspectral images but also embeds an accurate entropy model using the non-Gaussian prior knowledge of hyperspectral images and nonlinear transform. Specifically, we first design a spatial-spectral block, involving a spatial net and a spectral net as the base components of the core autoencoder, which is more consistent with the anisotropic hyperspectral cubes than the existing compression methods based on deep learning. Then, we design a Student’s T hyperprior that merges the statistics of the latents and the side information concepts into a unified neural network to provide an accurate entropy model used for entropy coding. This not only remarkably enhances the flexibility of the entropy model by adjusting various values of the degree of freedom, but also leads to a superior rate-distortion performance. The results illustrate that the proposed compression scheme supersedes the Gaussian hyperprior universally for virtually all learned natural image codecs and the optimal linear transform coding methods for hyperspectral compression. Specifically, the proposed method provides a 1.51\% to 59.95\% average increase in peak signal-to-noise ratio, a 0.17\% to 18.17\% average increase in the structural similarity index metric and a 6.15\% to 64.60\% average reduction in spectral angle mapping over three public hyperspectral datasets compared to the Gaussian hyperprior and the optimal linear transform coding methods.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{note}{Number: 21 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{21}
+      \field{title}{Learned Hyperspectral Compression Using a Student’s T Hyperprior}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{13}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{4390}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs13214390
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\TF97UC2T\\Guo et al. - 2021 - Learned Hyperspectral Compression Using a Student’.pdf:application/pdf;Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\DRVI6RM7\\4390.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/13/21/4390
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/13/21/4390
+      \endverb
+      \keyw{Hyperspectral,artificial neural networks,entropy model,hyperspectral compression,student’s T distribution}
+    \endentry
+    \entry{balle_end--end_2017}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=b565c073c7c0ed90dae12ffc2820a66d}{%
+           family={Ballé},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=cece8bb3b3fd5f27d94210ceb297643b}{%
+           family={Laparra},
+           familyi={L\bibinitperiod},
+           given={Valero},
+           giveni={V\bibinitperiod}}}%
+        {{hash=027ac5801d4cec598c393e1f9875c60b}{%
+           family={Simoncelli},
+           familyi={S\bibinitperiod},
+           given={Eero\bibnamedelima P.},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \strng{fullhash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \strng{bibnamehash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \strng{authorbibnamehash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \strng{authornamehash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \strng{authorfullhash}{8fabb3fc9c0dcfc5501ac06b6867996b}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We describe an image compression method, consisting of a nonlinear analysis transformation, a uniform quantizer, and a nonlinear synthesis transformation. The transforms are constructed in three successive stages of convolutional linear filters and nonlinear activation functions. Unlike most convolutional neural networks, the joint nonlinearity is chosen to implement a form of local gain control, inspired by those used to model biological neurons. Using a variant of stochastic gradient descent, we jointly optimize the entire model for rate-distortion performance over a database of training images, introducing a continuous proxy for the discontinuous loss function arising from the quantizer. Under certain conditions, the relaxed loss function may be interpreted as the log likelihood of a generative model, as implemented by a variational autoencoder. Unlike these models, however, the compression model must operate at any given point along the rate-distortion curve, as specified by a trade-off parameter. Across an independent set of test images, we find that the optimized method generally exhibits better rate-distortion performance than the standard {JPEG} and {JPEG} 2000 compression methods. More importantly, we observe a dramatic improvement in visual quality for all images at all bit rates, which is supported by objective quality estimates using {MS}-{SSIM}.}
+      \field{day}{3}
+      \field{eprinttype}{arxiv}
+      \field{month}{3}
+      \field{note}{Number: {arXiv}:1611.01704}
+      \field{number}{{arXiv}:1611.01704}
+      \field{title}{End-to-end Optimized Image Compression}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1611.01704
+      \endverb
+      \verb{eprint}
+      \verb 1611.01704 [cs, math]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:C\:\\Users\\Niklas\\Zotero\\storage\\6UR64VEC\\Ballé et al. - 2017 - End-to-end Optimized Image Compression.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\2LTVDF9V\\1611.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1611.01704
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1611.01704
+      \endverb
+      \keyw{Computer Science - Information Theory,{RGB},Computer Science - Computer Vision and Pattern Recognition}
+    \endentry
+    \entry{aidini_hyperspectral_2019}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=4c35aef42aa8d6236dedcb186dd65fdb}{%
+           family={Aidini},
+           familyi={A\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=33d55305b51121581882d7b3b6d572cb}{%
+           family={Giannopoulos},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f0dd9e2c8600e45633bd38712c47dc1d}{%
+           family={Pentari},
+           familyi={P\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d3233e034f64f7cace3ab138db08b9a5}{%
+           family={Fotiadou},
+           familyi={F\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=fde9ee7e3392c8706b2ec381cafcbb5f}{%
+           family={Tsakalides},
+           familyi={T\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Pacific Grove, {CA}, {USA}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{72e87a057c0ee20e117b3f4bd0513579}
+      \strng{fullhash}{2992b209a3ddd08814b577e1a792dcba}
+      \strng{bibnamehash}{72e87a057c0ee20e117b3f4bd0513579}
+      \strng{authorbibnamehash}{72e87a057c0ee20e117b3f4bd0513579}
+      \strng{authornamehash}{72e87a057c0ee20e117b3f4bd0513579}
+      \strng{authorfullhash}{2992b209a3ddd08814b577e1a792dcba}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{As the ﬁeld of remote sensing for Earth Observation is rapidly evolving, there is an increasing demand for developing suitable methods to store and transmit the massive amounts of the generated data. At the same time, as multiple sensors acquire observations with different dimensions, super-resolution methods come into play to unify the framework for upcoming statistical inference tasks. In this paper, we employ a tensorbased structuring of multi-spectral image data and we propose a low-rank tensor completion scheme for efﬁcient image-content compression and recovery. To address the problem of lowresolution imagery, we further provide a robust algorithmic scheme for super-resolving satellite images, followed by a stateof-the-art convolutional neural network architecture serving the classiﬁcation task of the employed images. Experimental analysis on real-world observations demonstrates the detrimental effects of image compression on classiﬁcation, an issued successfully addressed by the proposed recovery and super-resolution schemes.}
+      \field{booktitle}{2019 53rd Asilomar Conference on Signals, Systems, and Computers}
+      \field{eventtitle}{2019 53rd Asilomar Conference on Signals, Systems, and Computers}
+      \field{isbn}{978-1-72814-300-2}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{title}{Hyperspectral Image Compression and Super-Resolution Using Tensor Decomposition Learning}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1369\bibrangedash 1373}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/IEEECONF44664.2019.9048735
+      \endverb
+      \verb{file}
+      \verb Aidini et al. - 2019 - Hyperspectral Image Compression and Super-Resoluti.pdf:C\:\\Users\\Niklas\\Zotero\\storage\\N8B858V8\\Aidini et al. - 2019 - Hyperspectral Image Compression and Super-Resoluti.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/9048735/
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/9048735/
+      \endverb
+    \endentry
+    \entry{deng_learning-based_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=77a77fcfccb46d228188b7a9d09b051f}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Chubo},
+           giveni={C\bibinitperiod}}}%
+        {{hash=516f4a50095fa2474ba26ad9de8867b6}{%
+           family={Cen},
+           familyi={C\bibinitperiod},
+           given={Yi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=41d25f52c1f11ce83d9e960bf88bedbd}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Lifu},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \strng{fullhash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \strng{bibnamehash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \strng{authorbibnamehash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \strng{authornamehash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \strng{authorfullhash}{5f449d1f9aa6631a4e1c9cd606ecce14}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hyperspectral images ({HSIs}), which obtain abundant spectral information for narrow spectral bands (no wider than 10 nm), have greatly improved our ability to qualitatively and quantitatively sense the Earth. Since {HSIs} are collected by high-resolution instruments over a very large number of wavelengths, the data generated by such sensors is enormous, and the amount of data continues to grow, {HSI} compression technique will play more crucial role in this trend. The classical method for {HSI} compression is through compression and reconstruction methods such as three-dimensional wavelet-based techniques or the principle component analysis ({PCA}) transform. In this paper, we provide an alternative approach for {HSI} compression via a generative neural network ({GNN}), which learns the probability distribution of the real data from a random latent code. This is achieved by defining a family of densities and finding the one minimizing the distance between this family and the real data distribution. Then, the well-trained neural network is a representation of the {HSI}, and the compression ratio is determined by the complexity of the {GNN}. Moreover, the latent code can be encrypted by embedding a digit with a random distribution, which makes the code confidential. Experimental examples are presented to demonstrate the potential of the {GNN} to solve image compression problems in the field of {HSI}. Compared with other algorithms, it has better performance at high compression ratio, and there is still much room left for improvements along with the fast development of deep-learning techniques.}
+      \field{issn}{2072-4292}
+      \field{journaltitle}{Remote Sensing}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{note}{Number: 21 Publisher: Multidisciplinary Digital Publishing Institute}
+      \field{number}{21}
+      \field{title}{Learning-Based Hyperspectral Imagery Compression through Generative Neural Networks}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{12}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{3657}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/rs12213657
+      \endverb
+      \verb{file}
+      \verb Volltext:C\:\\Users\\Niklas\\Zotero\\storage\\QDMBVYLW\\Deng et al. - 2020 - Learning-Based Hyperspectral Imagery Compression t.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2072-4292/12/21/3657
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2072-4292/12/21/3657
+      \endverb
+      \keyw{compression sensing,feature reduction,generative neural network,hyperspectral}
+    \endentry
+    \entry{leal-taixe_onboard_2019}{incollection}{}
+      \name{author}{4}{}{%
+        {{hash=c3ac9e7dae03c093a86970853c449196}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Saurabh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=54bfbb915fff866072f0d259630a20d3}{%
+           family={Chaudhuri},
+           familyi={C\bibinitperiod},
+           given={Subhasis},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ad68567c44f54f631a3b9b54c90ba4be}{%
+           family={Banerjee},
+           familyi={B\bibinitperiod},
+           given={Biplab},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3cca37dfd82e88fb1ad93742621d21e8}{%
+           family={Ali},
+           familyi={A\bibinitperiod},
+           given={Feroz},
+           giveni={F\bibinitperiod}}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=9d77cb1dfed191a63c5284a2f4456909}{%
+           family={Leal-Taixé},
+           familyi={L\bibinithyphendelim T\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod}}}%
+        {{hash=507b5db9b42e37f1dc7fd50bac7cd869}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{b35d3331afd9c5e3ce3bf8c989059b60}
+      \strng{fullhash}{6d7a190177a621541d139908b76b8071}
+      \strng{bibnamehash}{b35d3331afd9c5e3ce3bf8c989059b60}
+      \strng{authorbibnamehash}{b35d3331afd9c5e3ce3bf8c989059b60}
+      \strng{authornamehash}{b35d3331afd9c5e3ce3bf8c989059b60}
+      \strng{authorfullhash}{6d7a190177a621541d139908b76b8071}
+      \strng{editorbibnamehash}{3f8f2e6e0ff6a7812846bacf761c7204}
+      \strng{editornamehash}{3f8f2e6e0ff6a7812846bacf761c7204}
+      \strng{editorfullhash}{3f8f2e6e0ff6a7812846bacf761c7204}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose a real-time onboard compression scheme for hyperspectral datacube which consists of a very low complexity encoder and a deep learning based parallel decoder architecture for fast decompression. The encoder creates a set of coded snapshots from a given datacube using a measurement code matrix. The decoder decompresses the coded snapshots by using a sparse recovery algorithm. We solve this sparse recovery problem using a deep neural network for fast reconstruction. We present experimental results which demonstrate that our technique performs very well in terms of quality of reconstruction and in terms of computational requirements compared to other transform based techniques with some tradeoﬀ in {PSNR}. The proposed technique also enables faster inference in compressed domain, suitable for on-board requirements.}
+      \field{booktitle}{Computer Vision – {ECCV} 2018 Workshops}
+      \field{isbn}{978-3-030-11011-6 978-3-030-11012-3}
+      \field{langid}{english}
+      \field{note}{Series Title: Lecture Notes in Computer Science}
+      \field{title}{Onboard Hyperspectral Image Compression Using Compressed Sensing and Deep Learning}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{11130}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{30\bibrangedash 42}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/978-3-030-11012-3_3
+      \endverb
+      \verb{file}
+      \verb Kumar et al. - 2019 - Onboard Hyperspectral Image Compression Using Comp.pdf:C\:\\Users\\Niklas\\Zotero\\storage\\GYBTPNQN\\Kumar et al. - 2019 - Onboard Hyperspectral Image Compression Using Comp.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/10.1007/978-3-030-11012-3_3
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/10.1007/978-3-030-11012-3_3
+      \endverb
+    \endentry
+    \entry{berger_rate-distortion_2003}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=d526c5f4159cdad8fd41fae5c33d6b30}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={Toby},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, Ltd}%
+      }
+      \strng{namehash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \strng{fullhash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \strng{bibnamehash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \strng{authorbibnamehash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \strng{authornamehash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \strng{authorfullhash}{d526c5f4159cdad8fd41fae5c33d6b30}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Rate-distortion theory is the branch of information theory that treats compressing the data produced by an information source down to a specified encoding rate that is strictly less than the source's entropy. This necessarily entails some lossiness, or distortion, between the original source data and the best approximation thereto that can be produced on the basis of the encoder's output bits. Rate-distortion theory was introduced in the seminal works written in 1948 and 1959 by C. E. Shannon, the founder of information theory. We describe Shannon's contribution and then trace its subsequent development worldwide. Heavier than usual emphasis is placed on the concept of “matching” a channel to a source in the rate-distortion sense, and also on the analogous matching of a source to a channel. Experimental evidence has been mounting in support of the hypothesis that living organisms often simultaneously achieve both of these matchings when processing their sensory inputs, thereby eliminating the need for the complex encoding and decoding operations that are needed in order to produce an information-theoretically optimum system in the absence of such double matching.}
+      \field{booktitle}{Wiley Encyclopedia of Telecommunications}
+      \field{isbn}{978-0-471-21928-6}
+      \field{langid}{english}
+      \field{note}{\_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/0471219282.eot142}
+      \field{title}{Rate-Distortion Theory}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1002/0471219282.eot142
+      \endverb
+      \verb{file}
+      \verb Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\3C25BMXI\\0471219282.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/0471219282.eot142
+      \endverb
+      \verb{url}
+      \verb https://onlinelibrary.wiley.com/doi/abs/10.1002/0471219282.eot142
+      \endverb
+      \keyw{bioinformation theory,distortion measure,joint source-channel coding,lossy source coding,rate-distortion,Shannon}
     \endentry
   \enddatalist
 \endrefsection
