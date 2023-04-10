@@ -2369,6 +2369,13 @@
     <bcf:citekey order="17">kuester_transferability_2022</bcf:citekey>
     <bcf:citekey order="18">guo_learned_2021</bcf:citekey>
     <bcf:citekey order="19">berger_rate-distortion_2003</bcf:citekey>
+    <bcf:citekey order="20">kuester_1d-convolutional_2021</bcf:citekey>
+    <bcf:citekey order="21">aidini_hyperspectral_2019</bcf:citekey>
+    <bcf:citekey order="22">ulku_large-scale_2018</bcf:citekey>
+    <bcf:citekey order="23">zikiou_support_2020</bcf:citekey>
+    <bcf:citekey order="24">shen_golomb-rice_2017</bcf:citekey>
+    <bcf:citekey order="25">guo_learned_2021</bcf:citekey>
+    <bcf:citekey order="26">balle_end--end_2017</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

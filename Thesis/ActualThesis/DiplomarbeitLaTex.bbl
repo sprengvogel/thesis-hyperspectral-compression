@@ -1212,6 +1212,186 @@
       \endverb
       \keyw{bioinformation theory,distortion measure,joint source-channel coding,lossy source coding,rate-distortion,Shannon}
     \endentry
+    \entry{ulku_large-scale_2018}{article}{}
+      \name{author}{2}{}{%
+        {{hash=caf1c5e14ea4838d99b8e777471ed2cd}{%
+           family={Ülkü},
+           familyi={Ü\bibinitperiod},
+           given={İrem},
+           giveni={İ\bibinitperiod}}}%
+        {{hash=60c8f0cbf703650044ad451c9c62b9d6}{%
+           family={Kizgut},
+           familyi={K\bibinitperiod},
+           given={Ersin},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{915ae0b39d9856e0e08402936791a4fa}
+      \strng{fullhash}{915ae0b39d9856e0e08402936791a4fa}
+      \strng{bibnamehash}{915ae0b39d9856e0e08402936791a4fa}
+      \strng{authorbibnamehash}{915ae0b39d9856e0e08402936791a4fa}
+      \strng{authornamehash}{915ae0b39d9856e0e08402936791a4fa}
+      \strng{authorfullhash}{915ae0b39d9856e0e08402936791a4fa}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this study, proximity based optimization algorithms are used for lossy compression of hyperspectral images that are inherently large scale. This is the ﬁrst time that such proximity based optimization algorithms are implemented with an online dictionary learning method. Compression performances are compared with the one obtained by various sparse representation algorithms. As a result, proximity based optimization algorithms are listed among the three best ones in terms of compression performance values for all hyperspectral images. Additionally, the applicability of anomaly detection is tested on the reconstructed images.}
+      \field{day}{1}
+      \field{issn}{2083-8492}
+      \field{journaltitle}{International Journal of Applied Mathematics and Computer Science}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{Large-scale hyperspectral image compression via sparse representations based on online learning}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{28}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{197\bibrangedash 207}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.2478/amcs-2018-0015
+      \endverb
+      \verb{file}
+      \verb Ülkü und Kizgut - 2018 - Large-scale hyperspectral image compression via sp.pdf:C\:\\Users\\Niklas\\Zotero\\storage\\UMRA6TII\\Ülkü und Kizgut - 2018 - Large-scale hyperspectral image compression via sp.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciendo.com/article/10.2478/amcs-2018-0015
+      \endverb
+      \verb{url}
+      \verb https://www.sciendo.com/article/10.2478/amcs-2018-0015
+      \endverb
+    \endentry
+    \entry{zikiou_support_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=15b6cf8559f56e9a194ef60e68432435}{%
+           family={Zikiou},
+           familyi={Z\bibinitperiod},
+           given={Nadia},
+           giveni={N\bibinitperiod}}}%
+        {{hash=e85ffa4ecab49ece204815083bf80945}{%
+           family={Lahdir},
+           familyi={L\bibinitperiod},
+           given={Mourad},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c730c5398932c60242e5af75fde6ba38}{%
+           family={Helbert},
+           familyi={H\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{bd0cea4c71609b65be5afea76d64685f}
+      \strng{fullhash}{bd0cea4c71609b65be5afea76d64685f}
+      \strng{bibnamehash}{bd0cea4c71609b65be5afea76d64685f}
+      \strng{authorbibnamehash}{bd0cea4c71609b65be5afea76d64685f}
+      \strng{authornamehash}{bd0cea4c71609b65be5afea76d64685f}
+      \strng{authorfullhash}{bd0cea4c71609b65be5afea76d64685f}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Hyperspectral imaging is known for its rich spatial–spectral information. The spectral bands provide the ability to distinguish substances spectra which are substantial for analyzing materials. However, high-dimensional data volume of hyperspectral images is problematic for data storage. In this paper, we present a lossy hyperspectral image compression system based on the regression of 3D wavelet coefficients. The 3D wavelet transform is applied to sparsely represent the hyperspectral images ({HSI}). A support vector machine regression is then applied on wavelet details and provides vector supports and weights which represent wavelet texture features. To achieve the best possible overall rate-distortion performance after regression, entropy encoding based on run-length encoding and arithmetic encoding is used. To preserve the spatial pertinent information of the image, the lowest sub-band wavelet coefficients are furthermore encoded by a lossless coding with differential pulse code modulation. Spectral and spatial redundancies are thus substantially reduced. Experimental tests are performed over several {HSI} from airborne and spaceborne sensors and compared with the main existing algorithms. The obtained results show that the proposed compression method has high performances in terms of rate distortion and spectral fidelity. Indeed, high {PSNRs} and classification accuracies, which could exceed 40.65 {dB} and \$\$75.8{\textbackslash}\%\$\$, respectively, are observed for all decoded {HSI} images and overpass those given by many cited famous methods. In addition, the evaluation of detection and compression over various bands shows that spectral information is preserved using our compression method.}
+      \field{day}{1}
+      \field{issn}{1432-2315}
+      \field{journaltitle}{The Visual Computer}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{number}{7}
+      \field{shortjournal}{Vis Comput}
+      \field{title}{Support vector regression-based 3D-wavelet texture learning for hyperspectral image compression}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{36}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1473\bibrangedash 1490}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s00371-019-01753-z
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\A4XDG4UF\\Zikiou et al. - 2020 - Support vector regression-based 3D-wavelet texture.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s00371-019-01753-z
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s00371-019-01753-z
+      \endverb
+      \keyw{Hyperspectral image,Image coding,Lossless compression,Remote sensing,Spectral classification,Texture feature learning}
+    \endentry
+    \entry{shen_golomb-rice_2017}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=a22ba1601c0e9db5f9336e069eef614b}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Hongda},
+           giveni={H\bibinitperiod}}}%
+        {{hash=e1813d570e1abc1fc9148707509f370f}{%
+           family={Pan},
+           familyi={P\bibinitperiod},
+           given={W.\bibnamedelimi David},
+           giveni={W\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=014c9898b49deebb68305010f1c69a14}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Yuhang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=cba4612591a12fb781643c65c8293655}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Zhuocheng},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Fort Worth, {TX}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{96e62eb881cd3289b662764e51e1f359}
+      \strng{fullhash}{30d6b0299969396870c9613f682ce19e}
+      \strng{bibnamehash}{96e62eb881cd3289b662764e51e1f359}
+      \strng{authorbibnamehash}{96e62eb881cd3289b662764e51e1f359}
+      \strng{authornamehash}{96e62eb881cd3289b662764e51e1f359}
+      \strng{authorfullhash}{30d6b0299969396870c9613f682ce19e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While Golomb-Rice codes are optimal for geometrically distributed source, the practically achievable coding efﬁciency depends on the accuracy of the coding parameter estimated from the input data. Most existing methods are based on the assumption of geometric distribution and thus would suffer from a loss in coding efﬁciency if the underlying distribution deviates from the geometric distribution, which is usually the case in practice. We proposed a data-driven parameter estimation method without assuming the underlying distribution. We formulated the problem of choosing the best coding parameter for the given input data as a pattern classiﬁcation problem. To this end, we trained a deep belief network using the data segments to be coded, along with their “labels”, which are the optimal coding parameters that yield the shortest codewords. Simulations on data synthesized using statistical models, as well as data in hyperspectral image coding showed that the proposed deep learning method tended to be more robust than several state-of-the-art parameter estimation methods, with the capability to further improve the accuracies of these methods.}
+      \field{booktitle}{2017 {IEEE} International Geoscience and Remote Sensing Symposium ({IGARSS})}
+      \field{eventtitle}{2017 {IEEE} International Geoscience and Remote Sensing Symposium ({IGARSS})}
+      \field{isbn}{978-1-5090-4951-6}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{Golomb-Rice coding parameter learning using deep belief network for hyperspectral image compression}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{2239\bibrangedash 2242}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/IGARSS.2017.8127434
+      \endverb
+      \verb{file}
+      \verb Shen et al. - 2017 - Golomb-Rice coding parameter learning using deep b.pdf:C\:\\Users\\Niklas\\Zotero\\storage\\8LGKWP44\\Shen et al. - 2017 - Golomb-Rice coding parameter learning using deep b.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://ieeexplore.ieee.org/document/8127434/
+      \endverb
+      \verb{url}
+      \verb http://ieeexplore.ieee.org/document/8127434/
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
