@@ -96,5 +96,3 @@
 \contentsline {chapter}{\nonumberline Bibliography}{15}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\nonumberline Appendix}{18}{chapter*.6}%
-\defcounter {refsection}{0}\relax 
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
