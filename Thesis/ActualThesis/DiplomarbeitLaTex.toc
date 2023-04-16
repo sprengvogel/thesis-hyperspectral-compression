@@ -19,80 +19,82 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2.1}Hyperspectral image compression }{5}{section.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.1}CNN-based architectures}{5}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}CNN-based architectures}{6}{subsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1.2}Other architectures}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.2}Other architectures }{6}{subsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}RGB image compression }{7}{section.2.2}%
+\contentsline {section}{\numberline {2.2}RGB image compression }{8}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}CNN-based architectures}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.1}The hyperprior architecture}{8}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Transformer-based architectures}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Transformer-based architectures}{9}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Theoretical foundations}{8}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Theoretical foundations}{10}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Convolutional Neural Networks}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Convolutional Neural Networks}{10}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Transformer Models}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Transformer Models}{10}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Arithmetic Coding}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Arithmetic Coding}{10}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Hyperprior Architecture}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Hyperprior Architecture}{10}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Methodology}{9}{chapter.4}%
+\contentsline {chapter}{\numberline {4}Methodology}{11}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Spectral Autoencoder Methods}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Spectral Autoencoder Methods}{12}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Pixel-Wise Convolutional Neural Network}{10}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.1}Pixel-Wise Convolutional Neural Network}{12}{subsection.4.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Two-dimensional CNN with Low Kernel Size}{10}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.2}Two-dimensional CNN with Low Kernel Size}{12}{subsection.4.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.3}Spectral Transformer Model}{10}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.3}Spectral Transformer Model}{12}{subsection.4.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Spatial Autoencoder Methods}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Spatial Autoencoder Methods}{12}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}CNN-based Spatial Autoencoder}{10}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.1}CNN-based Spatial Autoencoder}{12}{subsection.4.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Hyperprior-based Spatial Autoencoder}{10}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.2}Hyperprior-based Spatial Autoencoder}{12}{subsection.4.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Attention-based Model Using Hyperprior Architecture}{10}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Attention-based Model Using Hyperprior Architecture}{12}{subsection.4.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}The Combined Model}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.3}The Combined Model}{12}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Loss functions}{10}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Loss functions}{12}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}MSE Loss}{10}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.1}MSE Loss}{12}{subsection.4.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Rate Distortion Loss}{10}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.2}Rate Distortion Loss}{12}{subsection.4.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}Dual MSE Loss}{10}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.3}Dual MSE Loss}{12}{subsection.4.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Implementation}{11}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Implementation}{13}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.1}Frameworks and libraries used}{11}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.1}Frameworks and libraries used}{13}{subsection.5.0.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.2}Model implementation structure}{11}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.2}Model implementation structure}{13}{subsection.5.0.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.3}Metrics and data set implementation}{11}{subsection.5.0.3}%
+\contentsline {subsection}{\numberline {5.0.3}Metrics and data set implementation}{13}{subsection.5.0.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.0.4}Weights and Biases for experiments}{11}{subsection.5.0.4}%
+\contentsline {subsection}{\numberline {5.0.4}Weights and Biases for experiments}{13}{subsection.5.0.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experiments}{12}{chapter.6}%
+\contentsline {chapter}{\numberline {6}Experiments}{14}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Description of the Data Set}{12}{section.6.1}%
+\contentsline {section}{\numberline {6.1}Description of the Data Set}{14}{section.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Design of Experiments}{12}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Design of Experiments}{14}{section.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.1}Metrics}{12}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.1}Metrics}{14}{subsection.6.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Results of the XX}{12}{section.6.3}%
+\contentsline {section}{\numberline {6.3}Results of the XX}{14}{section.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Results of the YY}{12}{section.6.4}%
+\contentsline {section}{\numberline {6.4}Results of the YY}{14}{section.6.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}Results of the ZZ}{12}{section.6.5}%
+\contentsline {section}{\numberline {6.5}Results of the ZZ}{14}{section.6.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Conclusion and Discussion}{13}{chapter.7}%
+\contentsline {chapter}{\numberline {7}Conclusion and Discussion}{15}{chapter.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Bibliography}{15}{chapter*.5}%
+\contentsline {chapter}{\nonumberline Bibliography}{17}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Appendix}{18}{chapter*.6}%
+\contentsline {chapter}{\nonumberline Appendix}{21}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

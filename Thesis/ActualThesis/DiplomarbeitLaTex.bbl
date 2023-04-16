@@ -598,7 +598,7 @@
       \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{The monitoring of soil moisture content ({SMC}) at very high spatial resolution (<10m) using unmanned aerial systems ({UAS}) is of high interest for precision agriculture and the validation of large scale {SMC} products. Data-driven approaches are the most common method to retrieve {SMC} with {UAS}-borne data at water limited sites over non-disturbed agricultural crops. A major disadvantage of data-driven algorithms is the limited transferability in space and time and the need of a high number of ground reference samples. Physically-based approaches are less dependent on the amount of samples and are transferable in space and time. This study explores the potential of (1) a hybrid method targeting the soil brightness factor of the {PROSAIL} model using a variational heteroscedastic Gaussian Processes regression ({VHGPR}) algorithm, and (2) a data-driven method employing {VHGPR} for the retrieval of {SMC} over three grassland sites based on {UAS}-borne {VIS}–{NIR} (399–1001nm) hyperspectral data. The sites were managed by mowing (Fendt), grazing (Grosses Bruch) and irrigation (Marquardt). With these distinct local pre-conditions we aimed to identify factors that favor and limit the retrieval of {SMC}. The hybrid approach presented encouraging results in Marquardt ({RMSE} = 1.5Vol\_\%, R2 = 0.2). At the permanent grassland sites (Fendt, Grosses Bruch) the thatch layer jeopardized the application of the hybrid model. We identified the complex canopy structure of grassland as the main factor impacting the hybrid {SMC} retrieval. The data-driven approach showed high accuracy for Fendt (R2 = 0.84, {RMSE} = 8.66) and Marquardt (R2 = 0.4, {RMSE} = 10.52). All data-driven models build on the {LAI}-{SMC} relationship. However, this relationship was hampered by mowing (Fendt), leading to a lack of transferability in time. The alteration of plant traits by grazing prevents finding a relationship with {SMC} in Grosses Bruch. In Marquardt, we identified the timelag between changes in {SMC} and plant response as the main reason of decrease in model accuracy. Yet, the model performance is accurate in undisturbed and water-limited areas (Marquardt). The analysis points to challenges that need to be tackled in future research and opens the discussion for the development of robust models to retrieve high resolution {SMC} from {UAS}-borne remote sensing observations.}
+      \field{abstract}{The monitoring of soil moisture content ({SMC}) at very high spatial resolution ({<}10m) using unmanned aerial systems ({UAS}) is of high interest for precision agriculture and the validation of large scale {SMC} products. Data-driven approaches are the most common method to retrieve {SMC} with {UAS}-borne data at water limited sites over non-disturbed agricultural crops. A major disadvantage of data-driven algorithms is the limited transferability in space and time and the need of a high number of ground reference samples. Physically-based approaches are less dependent on the amount of samples and are transferable in space and time. This study explores the potential of (1) a hybrid method targeting the soil brightness factor of the {PROSAIL} model using a variational heteroscedastic Gaussian Processes regression ({VHGPR}) algorithm, and (2) a data-driven method employing {VHGPR} for the retrieval of {SMC} over three grassland sites based on {UAS}-borne {VIS}–{NIR} (399–1001nm) hyperspectral data. The sites were managed by mowing (Fendt), grazing (Grosses Bruch) and irrigation (Marquardt). With these distinct local pre-conditions we aimed to identify factors that favor and limit the retrieval of {SMC}. The hybrid approach presented encouraging results in Marquardt ({RMSE} = 1.5Vol\_\%, R2 = 0.2). At the permanent grassland sites (Fendt, Grosses Bruch) the thatch layer jeopardized the application of the hybrid model. We identified the complex canopy structure of grassland as the main factor impacting the hybrid {SMC} retrieval. The data-driven approach showed high accuracy for Fendt (R2 = 0.84, {RMSE} = 8.66) and Marquardt (R2 = 0.4, {RMSE} = 10.52). All data-driven models build on the {LAI}-{SMC} relationship. However, this relationship was hampered by mowing (Fendt), leading to a lack of transferability in time. The alteration of plant traits by grazing prevents finding a relationship with {SMC} in Grosses Bruch. In Marquardt, we identified the timelag between changes in {SMC} and plant response as the main reason of decrease in model accuracy. Yet, the model performance is accurate in undisturbed and water-limited areas (Marquardt). The analysis points to challenges that need to be tackled in future research and opens the discussion for the development of robust models to retrieve high resolution {SMC} from {UAS}-borne remote sensing observations.}
       \field{day}{1}
       \field{issn}{1569-8432}
       \field{journaltitle}{International Journal of Applied Earth Observation and Geoinformation}
@@ -628,6 +628,64 @@
       \verb https://www.sciencedirect.com/science/article/pii/S156984322200019X
       \endverb
       \keyw{Anthropogenic Influence,Gaussian Processes,Grazing,Irrigation,{LAI},Leaf Area Index,Mowing,{PROSAIL},Time Lag,Unmanned Aerial Systems}
+    \endentry
+    \entry{dua_comprehensive_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=4af8a3a7910b285b61dd768a93319ab0}{%
+           family={Dua},
+           familyi={D\bibinitperiod},
+           given={Yaman},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=08a43e8ef8e3a2d464e9e8800f2ab3c9}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Vinod},
+           giveni={V\bibinitperiod}}}%
+        {{hash=97f7d63c3a64b32b8fb78c54444899e5}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Ravi\bibnamedelima Shankar},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \strng{fullhash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \strng{bibnamehash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \strng{authorbibnamehash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \strng{authornamehash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \strng{authorfullhash}{2243ef9a2ee0eeccb10eb7904a4e53a9}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Rapid advancement in the development of hyperspectral image analysis techniques has led to specialized hyperspectral missions. It results in the bulk transmission of hyperspectral images from sensors to analysis centers and finally to data centers. Storage of these large size images is a critical issue that is handled by compression techniques. This survey focuses on different hyperspectral image compression algorithms that have been classified into two broad categories based on eight internal and six external parameters. In addition, we identified research challenges and suggested future scope for each technique. The detailed classification used in this paper can categorize other compression algorithms and may help in selecting research objectives.}
+      \field{issn}{0091-3286, 1560-2303}
+      \field{journaltitle}{Optical Engineering}
+      \field{month}{9}
+      \field{note}{Publisher: {SPIE}}
+      \field{number}{9}
+      \field{shortjournal}{{OE}}
+      \field{title}{Comprehensive review of hyperspectral image compression algorithms}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{59}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{090902}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1117/1.OE.59.9.090902
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\CJZKBW8B\\Dua et al. - 2020 - Comprehensive review of hyperspectral image compre.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.spiedigitallibrary.org/journals/optical-engineering/volume-59/issue-9/090902/Comprehensive-review-of-hyperspectral-image-compression-algorithms/10.1117/1.OE.59.9.090902.full
+      \endverb
+      \verb{url}
+      \verb https://www.spiedigitallibrary.org/journals/optical-engineering/volume-59/issue-9/090902/Comprehensive-review-of-hyperspectral-image-compression-algorithms/10.1117/1.OE.59.9.090902.full
+      \endverb
     \endentry
     \entry{kuester_1d-convolutional_2021}{inproceedings}{}
       \name{author}{6}{}{%
@@ -672,8 +730,8 @@
       \strng{authornamehash}{129270147837856530a73144af0f1803}
       \strng{authorfullhash}{86aa403e93ebdd4f6189db508b4a33ab}
       \field{extraname}{1}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Hyperspectral sensor technology has been advancing in recent years and become more practical to tackle a variety of applications. The arising issues of data transmission and storage can be addressed with the help of compression. To minimize the loss of important information, high spectral correlation between adjacent bands is exploited. In this paper, we introduce an approach to compress hyperspectral data based on a 1D-Convolutional Autoencoder. Compression is achieved through reducing correlation by transforming the spectral signature into a low-dimensional space, while simultaneously preserving the significant features. The focus lies on compression of the spectral dimension. The spatial dimension is not used in the compression in order not to falsify correlation between the spectral dimension and accuracy of the reconstruction. The proposed 1D-Convolutional Autoencoder efficiently finds and extracts features relevant for compression. Additionally, it can be exploited as a feature extractor or for dimensionality reduction. The hyperspectral data sets Greding Village and Pavia University were used for the training and the evaluation process. The reconstruction accuracy is evaluated using the Signal to Noise Ratio and the Spectral Angle. Additionally, a land cover classification using a multi-class Support Vector Machine is used as a target application. The classification performance of the original and reconstructed data are compared. The reconstruction accuracy of the 1D-Convolutional Autoencoder outperforms the Deep Autoencoder and Nonlinear Principal Component Analysis for the used metrics and for both data sets using a fixed compression ratio.}
@@ -736,8 +794,8 @@
       \strng{authornamehash}{3b64e46370ae9b4004c31d2ac1ba929a}
       \strng{authorfullhash}{0a61cdbf9b48fdf0ae0a46d39ee7e4d4}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{{TU} Berlin - Wir haben die Ideen für die Zukunft. Zum Nutzen der Gesellschaft.}
@@ -787,8 +845,8 @@
       \strng{authorbibnamehash}{d9e3364757e2d3a38b69be59070243bd}
       \strng{authornamehash}{d9e3364757e2d3a38b69be59070243bd}
       \strng{authorfullhash}{6bc7edeb2db2e460d713894d986051e8}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{In space science and satellite imagery, better resolution of the data information obtained makes images clearer and interpretation more accurate. However, the huge data volume gained by the complex on-board satellite instruments becomes a problem that needs to be managed carefully. To reduce the data volume to be stored and transmitted on-ground, the signals received should be compressed, allowing a good original source representation in the reconstruction step. Image compression covers a key role in space science and satellite imagery and, recently, deep learning models have achieved remarkable results in computer vision. In this paper, we propose a spectral signals compressor network based on deep convolutional autoencoder ({SSCNet}) and we conduct experiments over multi/hyperspectral and {RGB} datasets reporting improvements over all baselines used as benchmarks and than the {JPEG} family algorithm. Experimental results demonstrate the effectiveness in the compression ratio and spectral signal reconstruction and the robustness with a data type greater than 8 bits, clearly exhibiting better results using the {PSNR}, {SSIM}, and {MS}-{SSIM} evaluation criteria.}
@@ -1182,8 +1240,8 @@
       \strng{authorbibnamehash}{d526c5f4159cdad8fd41fae5c33d6b30}
       \strng{authornamehash}{d526c5f4159cdad8fd41fae5c33d6b30}
       \strng{authorfullhash}{d526c5f4159cdad8fd41fae5c33d6b30}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Rate-distortion theory is the branch of information theory that treats compressing the data produced by an information source down to a specified encoding rate that is strictly less than the source's entropy. This necessarily entails some lossiness, or distortion, between the original source data and the best approximation thereto that can be produced on the basis of the encoder's output bits. Rate-distortion theory was introduced in the seminal works written in 1948 and 1959 by C. E. Shannon, the founder of information theory. We describe Shannon's contribution and then trace its subsequent development worldwide. Heavier than usual emphasis is placed on the concept of “matching” a channel to a source in the rate-distortion sense, and also on the analogous matching of a source to a channel. Experimental evidence has been mounting in support of the hypothesis that living organisms often simultaneously achieve both of these matchings when processing their sensory inputs, thereby eliminating the need for the complex encoding and decoding operations that are needed in order to produce an information-theoretically optimum system in the absence of such double matching.}
@@ -1293,9 +1351,7 @@
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Hyperspectral imaging is known for its rich spatial–spectral information. The spectral bands provide the ability to distinguish substances spectra which are substantial for analyzing materials. However, high-dimensional data volume of hyperspectral images is problematic for data storage. In this paper, we present a lossy hyperspectral image compression system based on the regression of 3D wavelet coefficients. The 3D wavelet transform is applied to sparsely represent the hyperspectral images ({HSI}). A support vector machine regression is then applied on wavelet details and provides vector supports and weights which represent wavelet texture features. To achieve the best possible overall rate-distortion performance after regression, entropy encoding based on run-length encoding and arithmetic encoding is used. To preserve the spatial pertinent information of the image, the lowest sub-band wavelet coefficients are furthermore encoded by a lossless coding with differential pulse code modulation. Spectral and spatial redundancies are thus substantially reduced. Experimental tests are performed over several {HSI} from airborne and spaceborne sensors and compared with the main existing algorithms. The obtained results show that the proposed compression method has high performances in terms of rate distortion and spectral fidelity. Indeed, high {PSNRs} and classification accuracies, which could exceed 40.65 {dB} and \$\$75.8{\textbackslash}\%\$\$, respectively, are observed for all decoded {HSI} images and overpass those given by many cited famous methods. In addition, the evaluation of detection and compression over various bands shows that spectral information is preserved using our compression method.}
-      \field{day}{1}
-      \field{issn}{1432-2315}
+      \field{issn}{0178-2789, 1432-2315}
       \field{journaltitle}{The Visual Computer}
       \field{langid}{english}
       \field{month}{7}
@@ -1315,15 +1371,14 @@
       \verb 10.1007/s00371-019-01753-z
       \endverb
       \verb{file}
-      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\A4XDG4UF\\Zikiou et al. - 2020 - Support vector regression-based 3D-wavelet texture.pdf:application/pdf
+      \verb Zikiou et al. - 2020 - Support vector regression-based 3D-wavelet texture.pdf:C\:\\Users\\Niklas\\Zotero\\storage\\K5GMSX8N\\Zikiou et al. - 2020 - Support vector regression-based 3D-wavelet texture.pdf:application/pdf
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1007/s00371-019-01753-z
+      \verb http://link.springer.com/10.1007/s00371-019-01753-z
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1007/s00371-019-01753-z
+      \verb http://link.springer.com/10.1007/s00371-019-01753-z
       \endverb
-      \keyw{Hyperspectral image,Image coding,Lossless compression,Remote sensing,Spectral classification,Texture feature learning}
     \endentry
     \entry{shen_golomb-rice_2017}{inproceedings}{}
       \name{author}{4}{}{%
@@ -1391,6 +1446,366 @@
       \verb{url}
       \verb http://ieeexplore.ieee.org/document/8127434/
       \endverb
+    \endentry
+    \entry{hong_spectralformer_2022}{article}{}
+      \name{author}{7}{}{%
+        {{hash=f2cb6caf5572328fc37ef1849ac97bef}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={Danfeng},
+           giveni={D\bibinitperiod}}}%
+        {{hash=21502e7d52af09e49d31a5bc40073591}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Zhu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=f24142629687500e6745ae7eb5f73609}{%
+           family={Yao},
+           familyi={Y\bibinitperiod},
+           given={Jing},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4473d223520d273ef91c17040044603d}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Lianru},
+           giveni={L\bibinitperiod}}}%
+        {{hash=44d73e639c535123777db68e270b754e}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Bing},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9b3ce6468cd35a018e12616afcd1f795}{%
+           family={Plaza},
+           familyi={P\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=19a50089cae8f67ab374e30b054493ad}{%
+           family={Chanussot},
+           familyi={C\bibinitperiod},
+           given={Jocelyn},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{d150928b75a52d6934cbe61798927da4}
+      \strng{fullhash}{e13a723231353b98549155b61fac8c52}
+      \strng{bibnamehash}{d150928b75a52d6934cbe61798927da4}
+      \strng{authorbibnamehash}{d150928b75a52d6934cbe61798927da4}
+      \strng{authornamehash}{d150928b75a52d6934cbe61798927da4}
+      \strng{authorfullhash}{e13a723231353b98549155b61fac8c52}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Hyperspectral ({HS}) images are characterized by approximately contiguous spectral information, enabling the fine identification of materials by capturing subtle spectral discrepancies. Owing to their excellent locally contextual modeling ability, convolutional neural networks ({CNNs}) have been proven to be a powerful feature extractor in {HS} image classification. However, {CNNs} fail to mine and represent the sequence attributes of spectral signatures well due to the limitations of their inherent network backbone. To solve this issue, we rethink {HS} image classification from a sequential perspective with transformers, and propose a novel backbone network called {\textbackslash}ul\{{SpectralFormer}\}. Beyond band-wise representations in classic transformers, {SpectralFormer} is capable of learning spectrally local sequence information from neighboring bands of {HS} images, yielding group-wise spectral embeddings. More significantly, to reduce the possibility of losing valuable information in the layer-wise propagation process, we devise a cross-layer skip connection to convey memory-like components from shallow to deep layers by adaptively learning to fuse "soft" residuals across layers. It is worth noting that the proposed {SpectralFormer} is a highly flexible backbone network, which can be applicable to both pixel- and patch-wise inputs. We evaluate the classification performance of the proposed {SpectralFormer} on three {HS} datasets by conducting extensive experiments, showing the superiority over classic transformers and achieving a significant improvement in comparison with state-of-the-art backbone networks. The codes of this work will be available at https://github.com/danfenghong/{IEEE}\_TGRS\_SpectralFormer for the sake of reproducibility.}
+      \field{eprinttype}{arxiv}
+      \field{issn}{0196-2892, 1558-0644}
+      \field{journaltitle}{{IEEE} Transactions on Geoscience and Remote Sensing}
+      \field{shortjournal}{{IEEE} Trans. Geosci. Remote Sensing}
+      \field{shorttitle}{{SpectralFormer}}
+      \field{title}{{SpectralFormer}: Rethinking Hyperspectral Image Classification with Transformers}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{60}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/TGRS.2021.3130716
+      \endverb
+      \verb{eprint}
+      \verb 2107.02988 [cs]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:C\:\\Users\\Niklas\\Zotero\\storage\\22H8XK7D\\Hong et al. - 2022 - SpectralFormer Rethinking Hyperspectral Image Cla.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\NFISRMRG\\2107.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2107.02988
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2107.02988
+      \endverb
+      \keyw{Hyperspectral,Computer Science - Computer Vision and Pattern Recognition,Transformer,Computer Science - Artificial Intelligence}
+    \endentry
+    \entry{balle_variational_2018}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=b565c073c7c0ed90dae12ffc2820a66d}{%
+           family={Ballé},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5aceb742cdf021564a365f36fd243783}{%
+           family={Minnen},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=72046c7dbd4a54893754d1a062d4533d}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Saurabh},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f1c68f81252dde8b1f24287c039eb553}{%
+           family={Hwang},
+           familyi={H\bibinitperiod},
+           given={Sung\bibnamedelima Jin},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=1134e9a8181206e5bf1afdf9ba661ea5}{%
+           family={Johnston},
+           familyi={J\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{2638b945a6b56ecf837a7a3f91e3dda1}
+      \strng{fullhash}{41a583ba06e32df803acc7a0baeacc4a}
+      \strng{bibnamehash}{2638b945a6b56ecf837a7a3f91e3dda1}
+      \strng{authorbibnamehash}{2638b945a6b56ecf837a7a3f91e3dda1}
+      \strng{authornamehash}{2638b945a6b56ecf837a7a3f91e3dda1}
+      \strng{authorfullhash}{41a583ba06e32df803acc7a0baeacc4a}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We describe an end-to-end trainable model for image compression based on variational autoencoders. The model incorporates a hyperprior to effectively capture spatial dependencies in the latent representation. This hyperprior relates to side information, a concept universal to virtually all modern image codecs, but largely unexplored in image compression using artificial neural networks ({ANNs}). Unlike existing autoencoder compression methods, our model trains a complex prior jointly with the underlying autoencoder. We demonstrate that this model leads to state-of-the-art image compression when measuring visual quality using the popular {MS}-{SSIM} index, and yields rate-distortion performance surpassing published {ANN}-based methods when evaluated using a more traditional metric based on squared error ({PSNR}). Furthermore, we provide a qualitative comparison of models trained for different distortion metrics.}
+      \field{day}{1}
+      \field{eprinttype}{arxiv}
+      \field{month}{5}
+      \field{note}{Number: {arXiv}:1802.01436}
+      \field{number}{{arXiv}:1802.01436}
+      \field{title}{Variational image compression with a scale hyperprior}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1802.01436
+      \endverb
+      \verb{eprint}
+      \verb 1802.01436 [cs, eess, math]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:C\:\\Users\\Niklas\\Zotero\\storage\\C3LJ7W7J\\Ballé et al. - 2018 - Variational image compression with a scale hyperpr.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\9U5KFP5D\\1802.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1802.01436
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1802.01436
+      \endverb
+      \keyw{Computer Science - Information Theory,Electrical Engineering and Systems Science - Image and Video Processing,{RGB}}
+    \endentry
+    \entry{hu_coarse--fine_2020}{article}{}
+      \name{author}{3}{}{%
+        {{hash=8473978ef37400874c5116be019ccf07}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Yueyu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=f587c1ac46bec3a61592a61368310207}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Wenhan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e97cb99f7ec95531e680d1c399e23717}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Jiaying},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \strng{fullhash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \strng{bibnamehash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \strng{authorbibnamehash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \strng{authornamehash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \strng{authorfullhash}{a80d956a1c7f0ae4003400be2f18aca5}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Approaches to image compression with machine learning now achieve superior performance on the compression rate compared to existing hybrid codecs. The conventional learning-based methods for image compression exploits hyper-prior and spatial context model to facilitate probability estimations. Such models have limitations in modeling long-term dependency and do not fully squeeze out the spatial redundancy in images. In this paper, we propose a coarse-to-fine framework with hierarchical layers of hyper-priors to conduct comprehensive analysis of the image and more effectively reduce spatial redundancy, which improves the rate-distortion performance of image compression significantly. Signal Preserving Hyper Transforms are designed to achieve an in-depth analysis of the latent representation and the Information Aggregation Reconstruction sub-network is proposed to maximally utilize side-information for reconstruction. Experimental results show the effectiveness of the proposed network to efficiently reduce the redundancies in images and improve the rate-distortion performance, especially for high-resolution images. Our project is publicly available at https://huzi96.github.io/coarse-to-fine-compression.html.}
+      \field{day}{3}
+      \field{issn}{2374-3468}
+      \field{journaltitle}{Proceedings of the {AAAI} Conference on Artificial Intelligence}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{note}{Number: 07}
+      \field{number}{7}
+      \field{title}{Coarse-to-Fine Hyper-Prior Modeling for Learned Image Compression}
+      \field{urlday}{10}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{volume}{34}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{11013\bibrangedash 11020}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1609/aaai.v34i07.6736
+      \endverb
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\76C5MKLF\\Hu et al. - 2020 - Coarse-to-Fine Hyper-Prior Modeling for Learned Im.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/6736
+      \endverb
+      \verb{url}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/6736
+      \endverb
+    \endentry
+    \entry{minnen_joint_2018}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=5aceb742cdf021564a365f36fd243783}{%
+           family={Minnen},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b565c073c7c0ed90dae12ffc2820a66d}{%
+           family={Ballé},
+           familyi={B\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=56dcd5441b25401387ffebe7b4703e82}{%
+           family={Toderici},
+           familyi={T\bibinitperiod},
+           given={George\bibnamedelima D},
+           giveni={G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \strng{fullhash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \strng{bibnamehash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \strng{authorbibnamehash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \strng{authornamehash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \strng{authorfullhash}{d9466a42b4c56b290660ab1e7413dc7b}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recent models for learned image compression are based on autoencoders that learn approximately invertible mappings from pixels to a quantized latent representation. The transforms are combined with an entropy model, which is a prior on the latent representation that can be used with standard arithmetic coding algorithms to generate a compressed bitstream. Recently, hierarchical entropy models were introduced as a way to exploit more structure in the latents than previous fully factorized priors, improving compression performance while maintaining end-to-end optimization. Inspired by the success of autoregressive priors in probabilistic generative models, we examine autoregressive, hierarchical, and combined priors as alternatives, weighing their costs and benefits in the context of image compression. While it is well known that autoregressive models can incur a significant computational penalty, we find that in terms of compression performance, autoregressive and hierarchical priors are complementary and can be combined to exploit the probabilistic structure in the latents better than all previous learned models. The combined model yields state-of-the-art rate-distortion performance and generates smaller files than existing methods: 15.8\% rate reductions over the baseline hierarchical model and 59.8\%, 35\%, and 8.4\% savings over {JPEG}, {JPEG}2000, and {BPG}, respectively. To the best of our knowledge, our model is the first learning-based method to outperform the top standard image codec ({BPG}) on both the {PSNR} and {MS}-{SSIM} distortion metrics.}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Joint Autoregressive and Hierarchical Priors for Learned Image Compression}
+      \field{urlday}{1}
+      \field{urlmonth}{10}
+      \field{urlyear}{2022}
+      \field{volume}{31}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Full Text PDF:C\:\\Users\\Niklas\\Zotero\\storage\\3P92WYEA\\Minnen et al. - 2018 - Joint Autoregressive and Hierarchical Priors for L.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2018/hash/53edebc543333dfbf7c5933af792c9c4-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2018/hash/53edebc543333dfbf7c5933af792c9c4-Abstract.html
+      \endverb
+      \keyw{{RGB},Hierarchical Priors}
+    \endentry
+    \entry{wainwright_scale_1999}{article}{}
+      \name{author}{2}{}{%
+        {{hash=7eb03239453694f59946ad6008e9f0ab}{%
+           family={Wainwright},
+           familyi={W\bibinitperiod},
+           given={Martin\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=027ac5801d4cec598c393e1f9875c60b}{%
+           family={Simoncelli},
+           familyi={S\bibinitperiod},
+           given={Eero\bibnamedelima P},
+           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d2b51823c79a307667ae24eb092775e}
+      \strng{fullhash}{7d2b51823c79a307667ae24eb092775e}
+      \strng{bibnamehash}{7d2b51823c79a307667ae24eb092775e}
+      \strng{authorbibnamehash}{7d2b51823c79a307667ae24eb092775e}
+      \strng{authornamehash}{7d2b51823c79a307667ae24eb092775e}
+      \strng{authorfullhash}{7d2b51823c79a307667ae24eb092775e}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The statistics of photographic images, when represented using multiscale (wavelet) bases, exhibit two striking types of {nonGaussian} behavior. First, the marginal densities of the coefficients have extended heavy tails. Second, the joint densities exhibit variance dependencies not captured by second-order models. We examine properties of the class of Gaussian scale mixtures, and show that these densities can accurately characterize both the marginal and joint distributions of natural image wavelet coefficients. This class of model suggests a Markov structure, in which wavelet coefficients are linked by hidden scaling variables corresponding to local image structure. We derive an estimator for these hidden variables, and show that a nonlinear "normalization" procedure can be used to Gaussianize the coefficients.}
+      \field{langid}{english}
+      \field{title}{Scale Mixtures of Gaussians and the Statistics of Natural Images}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \verb{file}
+      \verb Wainwright und Simoncelli - Scale Mixtures of Gaussians and the Statistics of .pdf:C\:\\Users\\Niklas\\Zotero\\storage\\6Q2NWKWN\\Wainwright und Simoncelli - Scale Mixtures of Gaussians and the Statistics of .pdf:application/pdf
+      \endverb
+    \endentry
+    \entry{cheng_learned_2020}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=f652c693cd7b4e3d6500eddb256a2008}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Zhengxue},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=81926f66ad04d113de17ef67f1fb584f}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Heming},
+           giveni={H\bibinitperiod}}}%
+        {{hash=9113daa6d901501c686ba3747fa327d3}{%
+           family={Takeuchi},
+           familyi={T\bibinitperiod},
+           given={Masaru},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9759f7e1f21e24b9d16df8f37b991bb3}{%
+           family={Katto},
+           familyi={K\bibinitperiod},
+           given={Jiro},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{4b55abb5a5d40dcb98fa347782e40991}
+      \strng{fullhash}{63a80ece25caec125fd1194b7ca12355}
+      \strng{bibnamehash}{4b55abb5a5d40dcb98fa347782e40991}
+      \strng{authorbibnamehash}{4b55abb5a5d40dcb98fa347782e40991}
+      \strng{authornamehash}{4b55abb5a5d40dcb98fa347782e40991}
+      \strng{authorfullhash}{63a80ece25caec125fd1194b7ca12355}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Image compression is a fundamental research field and many well-known compression standards have been developed for many decades. Recently, learned compression methods exhibit a fast development trend with promising results. However, there is still a performance gap between learned compression algorithms and reigning compression standards, especially in terms of widely used {PSNR} metric. In this paper, we explore the remaining redundancy of recent learned compression algorithms. We have found accurate entropy models for rate estimation largely affect the optimization of network parameters and thus affect the rate-distortion performance. Therefore, in this paper, we propose to use discretized Gaussian Mixture Likelihoods to parameterize the distributions of latent codes, which can achieve a more accurate and flexible entropy model. Besides, we take advantage of recent attention modules and incorporate them into network architecture to enhance the performance. Experimental results demonstrate our proposed method achieves a state-of-the-art performance compared to existing learned compression methods on both Kodak and high-resolution datasets. To our knowledge our approach is the first work to achieve comparable performance with latest compression standard Versatile Video Coding ({VVC}) regarding {PSNR}. More importantly, our approach generates more visually pleasant results when optimized by {MS}-{SSIM}. This project page is at this https {URL} https://github.com/{ZhengxueCheng}/Learned-Image-Compression-with-{GMM}-and-Attention}
+      \field{day}{30}
+      \field{eprinttype}{arxiv}
+      \field{month}{3}
+      \field{number}{{arXiv}:2001.01568}
+      \field{title}{Learned Image Compression with Discretized Gaussian Mixture Likelihoods and Attention Modules}
+      \field{urlday}{16}
+      \field{urlmonth}{4}
+      \field{urlyear}{2023}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2001.01568
+      \endverb
+      \verb{eprint}
+      \verb 2001.01568 [eess]
+      \endverb
+      \verb{file}
+      \verb arXiv Fulltext PDF:C\:\\Users\\Niklas\\Zotero\\storage\\7NUF688E\\Cheng et al. - 2020 - Learned Image Compression with Discretized Gaussia.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\Niklas\\Zotero\\storage\\R6EICM8U\\2001.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2001.01568
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2001.01568
+      \endverb
+      \keyw{Electrical Engineering and Systems Science - Image and Video Processing}
     \endentry
   \enddatalist
 \endrefsection

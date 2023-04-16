@@ -1,19 +1,17 @@
-[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
-[0] Config.pm:307> INFO - Logfile is 'DiplomarbeitLaTex.blg'
-[67] biber:322> INFO - === Tue Apr 11, 2023, 14:30:08
-[80] Biber.pm:415> INFO - Reading 'DiplomarbeitLaTex.bcf'
-[144] Biber.pm:943> INFO - Found 18 citekeys in bib section 0
-[156] Biber.pm:4256> INFO - Processing section 0
-[156] Utils.pm:75> INFO - Globbing data source './bib/references.bib'
-[156] Utils.pm:91> INFO - Globbed data source './bib/references.bib' to ./bib/references.bib
-[166] Biber.pm:4455> INFO - Looking for bibtex format file './bib/references.bib' for section 0
-[172] bibtex.pm:1653> INFO - LaTeX decoding ...
-[277] bibtex.pm:1471> INFO - Found BibTeX data source './bib/references.bib'
-[469] Utils.pm:293> WARN - ISBN '978-3-030-11011-6 978-3-030-11012-3' in entry 'leal-taixe_onboard_2019' is invalid - run biber with '--validate_datamodel' for details.
-[527] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[527] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[528] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[528] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[545] bbl.pm:652> INFO - Writing 'DiplomarbeitLaTex.bbl' with encoding 'UTF-8'
-[576] bbl.pm:755> INFO - Output to DiplomarbeitLaTex.bbl
-[576] Biber.pm:128> INFO - WARNINGS: 1
+[0] Config.pm:312> INFO - This is Biber 2.15
+[0] Config.pm:315> INFO - Logfile is 'DiplomarbeitLaTex.blg'
+[162] biber-MSWIN32:330> INFO - === 
+[209] Biber.pm:415> INFO - Reading 'DiplomarbeitLaTex.bcf'
+[320] Biber.pm:952> INFO - Found 25 citekeys in bib section 0
+[337] Biber.pm:4334> INFO - Processing section 0
+[359] Biber.pm:4523> INFO - Looking for bibtex format file './bib/references.bib' for section 0
+[373] bibtex.pm:1682> INFO - LaTeX decoding ...
+[512] bibtex.pm:1494> INFO - Found BibTeX data source './bib/references.bib'
+[726] Utils.pm:395> WARN - ISBN '978-3-030-11011-6 978-3-030-11012-3' in entry 'leal-taixe_onboard_2019' is invalid - run biber with '--validate_datamodel' for details.
+[823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[823] Biber.pm:4162> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[823] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-US'
+[869] bbl.pm:651> INFO - Writing 'DiplomarbeitLaTex.bbl' with encoding 'UTF-8'
+[905] bbl.pm:754> INFO - Output to DiplomarbeitLaTex.bbl
+[905] Biber.pm:128> INFO - WARNINGS: 1
