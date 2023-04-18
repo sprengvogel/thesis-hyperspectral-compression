@@ -1,15 +1,17 @@
 [0] Config.pm:312> INFO - This is Biber 2.15
 [0] Config.pm:315> INFO - Logfile is 'DiplomarbeitLaTex.blg'
-[97] biber-MSWIN32:330> INFO - === 
-[113] Biber.pm:415> INFO - Reading 'DiplomarbeitLaTex.bcf'
-[217] Biber.pm:952> INFO - Found 6 citekeys in bib section 0
-[233] Biber.pm:4334> INFO - Processing section 0
-[245] Biber.pm:4523> INFO - Looking for bibtex format file './bib/references.bib' for section 0
-[255] bibtex.pm:1682> INFO - LaTeX decoding ...
-[349] bibtex.pm:1494> INFO - Found BibTeX data source './bib/references.bib'
-[475] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[475] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[475] Biber.pm:4162> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[475] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-US'
-[492] bbl.pm:651> INFO - Writing 'DiplomarbeitLaTex.bbl' with encoding 'UTF-8'
-[516] bbl.pm:754> INFO - Output to DiplomarbeitLaTex.bbl
+[162] biber-MSWIN32:330> INFO - === 
+[209] Biber.pm:415> INFO - Reading 'DiplomarbeitLaTex.bcf'
+[320] Biber.pm:952> INFO - Found 25 citekeys in bib section 0
+[337] Biber.pm:4334> INFO - Processing section 0
+[359] Biber.pm:4523> INFO - Looking for bibtex format file './bib/references.bib' for section 0
+[373] bibtex.pm:1682> INFO - LaTeX decoding ...
+[512] bibtex.pm:1494> INFO - Found BibTeX data source './bib/references.bib'
+[726] Utils.pm:395> WARN - ISBN '978-3-030-11011-6 978-3-030-11012-3' in entry 'leal-taixe_onboard_2019' is invalid - run biber with '--validate_datamodel' for details.
+[823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[823] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[823] Biber.pm:4162> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[823] Biber.pm:4168> INFO - No sort tailoring available for locale 'en-US'
+[869] bbl.pm:651> INFO - Writing 'DiplomarbeitLaTex.bbl' with encoding 'UTF-8'
+[905] bbl.pm:754> INFO - Output to DiplomarbeitLaTex.bbl
+[905] Biber.pm:128> INFO - WARNINGS: 1
