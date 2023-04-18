@@ -18,16 +18,16 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Fast1DConvModel(
-        nChannels=p.CHANNELS, bottleneck_size=13)
+        nChannels=p.CHANNELS, bottleneck_size=13, H=128, W=128)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)
     conv_model.train()
     conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
-    conv_model.freeze()
-    # for param in conv_model.autoencoder.encoder.parameters():
-    #    param.requires_grad = False
-    # conv_model.autoencoder.encoder.eval()
+    # conv_model.freeze()
+    for param in conv_model.autoencoder.encoder.parameters():
+        param.requires_grad = False
+    conv_model.autoencoder.encoder.eval()
     return conv_model.autoencoder
 
 
@@ -35,11 +35,11 @@ if __name__ == "__main__":
     torch.manual_seed(0)
     np.random.seed(0)
     outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-12bfh33j:v0")
+        "niklas-sprengel/MastersThesis/model-37bkqy6m:v0")
 
-    model = models.LitAutoEncoder(models.CombinedModelWithHyperprior(
-        nChannels=p.CHANNELS, innerChannels=13, H=128, W=128, outerModel=outer_model),
-        lr=p.LR, loss=metrics.RateDistortionLoss(lmbda=p.RATE_DISTORTION_LDMBA), model_type=models.ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR)
+    model = models.LitAutoEncoder(models.FastCombinedModel(
+        nChannels=p.CHANNELS, bottleneck_size=13, H=128, W=128, outerModel=outer_model),
+        lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
     summary(model.autoencoder, input_size=(
         p.BATCH_SIZE, p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
 

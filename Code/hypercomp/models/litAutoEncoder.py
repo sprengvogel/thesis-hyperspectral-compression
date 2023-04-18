@@ -10,7 +10,7 @@ from .modelType import ModelType
 
 class LitAutoEncoder(pl.LightningModule):
 
-    def __init__(self, model: torch.nn.Module, lr: float, loss=torch.nn.MSELoss(), model_type: ModelType = ModelType.OTHER, weight_decay=p.WEIGHT_DECAY, dual_mse_loss_lambda=p.DUAL_MSE_LOSS_LMBDA, rate_distortion_ldmba=p.RATE_DISTORTION_LDMBA) -> None:
+    def __init__(self, model: torch.nn.Module, lr: float, loss=torch.nn.MSELoss(), model_type: ModelType = ModelType.OTHER, weight_decay=p.WEIGHT_DECAY, dual_mse_loss_lambda=p.DUAL_MSE_LOSS_LMBDA, rate_distortion_ldmba=p.RATE_DISTORTION_LDMBA, shuffle_dataloader=p.SHUFFLE_DATA_LOADER) -> None:
         super().__init__()
         self.save_hyperparameters(ignore=['model', 'loss'])
         self.autoencoder = model
@@ -71,8 +71,9 @@ class LitAutoEncoder(pl.LightningModule):
                 inner_img = latent_image[0]
                 inner_img_hat = x_hat_inner[0]
                 self.logger.log_image(key=f"train_latentimages/sample_{batch_idx}", images=[
-                    inner_img[0, :, :], inner_img_hat[0, :, :], inner_img[1, :, :],
-                      inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
+                    inner_img[0, :, :], inner_img_hat[0,
+                                                      :, :], inner_img[1, :, :],
+                    inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
         return loss
 
     def validation_step(self, batch, batch_idx):
@@ -131,8 +132,9 @@ class LitAutoEncoder(pl.LightningModule):
                 inner_img = latent_image[0]
                 inner_img_hat = x_hat_inner[0]
                 self.logger.log_image(key=f"{prefix}_latentimages/sample_{batch_idx}", images=[
-                    inner_img[0, :, :], inner_img_hat[0, :, :], inner_img[1, :, :],
-                      inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
+                    inner_img[0, :, :], inner_img_hat[0,
+                                                      :, :], inner_img[1, :, :],
+                    inner_img_hat[1, :, :], inner_img[2, :, :], inner_img_hat[2, :, :]])
 
     def configure_optimizers(self):
         return torch.optim.Adam(self.parameters(), lr=self.lr, weight_decay=p.WEIGHT_DECAY)

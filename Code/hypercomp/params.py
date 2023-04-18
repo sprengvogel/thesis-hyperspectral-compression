@@ -1,7 +1,7 @@
 # Input Channels
 CHANNELS = 202
 # Learning rate
-LR = 1e-4
+LR = 5e-5
 LR_HYPERPRIOR = 1e-6
 # Specific optimizer parameters
 WEIGHT_DECAY = 0
@@ -12,7 +12,7 @@ SHUFFLE_DATA_LOADER = True
 # Number of workers for data loaders
 NUM_WORKERS = 0
 # Batch size for all data loaders
-BATCH_SIZE = 1
+BATCH_SIZE = 4
 # Special batch size for hyperprior net
 BATCH_SIZE_HYPERPRIOR = 1
 # Batch size for conv 2D net
@@ -26,6 +26,6 @@ DATA_FOLDER = "/home/niklassp/data"
 DATA_FOLDER_SQUIRREL = "/media/storagecube/data/datasets/fatih/squirrel/full/"
 DATA_FOLDER_HYSPECNET = "/media/storagecube/data/datasets/enmap/dataset"
 # ID of gpu to train on (taken from nivida-smi)
-GPU_ID = 0
+GPU_ID = 2
 
 KEYWORDS = "spatial, spectral, learned hyperspectral image compression, analyzing latent space, (transformer, cnn)"
