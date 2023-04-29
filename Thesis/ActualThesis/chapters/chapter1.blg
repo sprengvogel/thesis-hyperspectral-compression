@@ -1,5 +1,0 @@
-[0] Config.pm:312> INFO - This is Biber 2.15
-[0] Config.pm:315> INFO - Logfile is 'chapter1.blg'
-[89] biber-MSWIN32:330> INFO - === 
-[504] Utils.pm:411> ERROR - Cannot find 'chapter1.bcf'!
-[505] Biber.pm:132> INFO - ERRORS: 1

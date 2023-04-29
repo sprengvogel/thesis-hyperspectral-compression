@@ -1,5 +1,0 @@
-[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
-[0] Config.pm:307> INFO - Logfile is 'DiplomarbeitLaTex.aux.blg'
-[67] biber:322> INFO - === Tue Apr 11, 2023, 14:29:16
-[98] Utils.pm:309> ERROR - Cannot find 'DiplomarbeitLaTex.aux.bcf'!
-[98] Biber.pm:132> INFO - ERRORS: 1
