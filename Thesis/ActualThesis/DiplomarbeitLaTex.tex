@@ -15,14 +15,17 @@ sorting=none
 \usepackage{mathptmx}
 \usepackage[english]{babel}
 \usepackage{graphicx} 				% it's recommended to use PDF images but you can use JPG or PNG as well
+\usepackage{hyperref}
 \usepackage{url}           		% format URLs
-\usepackage{hyperref} 				% create hyperlinks
 \usepackage{listings, color}	% for source code
 \usepackage{subfig}						% two figures next to each other (example: figure 3a), figure 3b)
 % set path where images are stored
 \usepackage{csquotes}
 \usepackage{scrhack}
 \graphicspath{{./img/}}
+\addto\extrasenglish{
+  \renewcommand{\chapterautorefname}{Chapter}
+}
 %\input{./misc/hyphenation} 					% use this file to set explicit hyphenations (doesn't seem to work correctly)
 \addbibresource{./bib/references.bib}
 
@@ -36,6 +39,9 @@ sorting=none
 \fancyhead[LE,RO]{\nouppercase{\rightmark}}
 \fancyhead[LO,RE]{\nouppercase{\leftmark}}
 \renewcommand{\footrulewidth}{1pt}
+\usepackage{acro}
+\acsetup{pages/display=all, uppercase/list}
+\input{./misc/acronyms}
 \begin{document}
 % ---------------------------------------------------------------
     \include{./misc/titlepage}
@@ -46,11 +52,6 @@ sorting=none
     \input{./misc/self-assertion_de} 
     \thispagestyle{fancy}
     
-    
-    \input{./misc/acknowledgement} 
-    \thispagestyle{fancy}
-    \clearpage
-    
     \input{./misc/abstract}
     \thispagestyle{fancy}
     \clearpage
@@ -60,7 +61,7 @@ sorting=none
     \tableofcontents
     \thispagestyle{fancy}
     
-    \input{./misc/acronyms}
+    \printacronyms
     \thispagestyle{fancy}
     
     \listoffigures
@@ -87,8 +88,6 @@ sorting=none
     \thispagestyle{fancy}
     \input{./chapters/chapter6}
     \thispagestyle{fancy}
-    \input{./chapters/chapter7}
-    \thispagestyle{fancy}
 
 % ---------------------------------------------------------------
 \backmatter % no page numbering from here
@@ -100,7 +99,7 @@ sorting=none
     %\bibliography{./bib/references}
     %
     \printbibliography
-    
+
     \input{./misc/annex}
 
 \end{document}
