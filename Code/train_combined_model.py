@@ -32,11 +32,15 @@ def load_outer_model(artifact_id):
 
 
 if __name__ == "__main__":
+    # Old latent 13
+    # model_id = "3gm16mbp:v1"
+    # New latent 13
+    model_id = "2urbamfy:v0"
     outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-3gm16mbp:v1")
+        f"niklas-sprengel/MastersThesis/model-{model_id}")
 
     model = models.LitAutoEncoder(models.CombinedModel(
         nChannels=p.CHANNELS, innerChannels=13, H=128, W=128, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    
+
     data.train_and_test(model)
