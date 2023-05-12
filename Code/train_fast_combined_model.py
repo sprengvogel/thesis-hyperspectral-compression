@@ -42,4 +42,5 @@ if __name__ == "__main__":
     model = models.LitAutoEncoder(models.FastCombinedModel(
         nChannels=p.CHANNELS, bottleneck_size=13, H=128, W=128, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    data.train_and_test(model, use_early_stopping=p.USE_EARLY_STOPPING)
+    data.train_and_test(
+        model, use_early_stopping=p.USE_EARLY_STOPPING, batch_size=4)

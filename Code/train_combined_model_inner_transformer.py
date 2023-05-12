@@ -18,7 +18,7 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=False)
+        nChannels=p.CHANNELS, num_poolings=4)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     model = models.LitAutoEncoder(models.CombinedModelInnerTransformer(
         nChannels=p.CHANNELS, innerChannels=13, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    
+
     data.train_and_test(model)

@@ -39,7 +39,7 @@ def train_and_test(model: LitAutoEncoder, batch_size=p.BATCH_SIZE, do_summary=Tr
     callbacks = [checkpoint_callback]
     if use_early_stopping:
         early_stopping_callback = EarlyStopping(
-            "val_loss", min_delta=1e-7, patience=3, mode="min", check_on_train_epoch_end=False)
+            "val_loss/loss", min_delta=1e-7, patience=3, mode="min", check_on_train_epoch_end=False)
         callbacks.append(early_stopping_callback)
     accelerator = "gpu" if torch.cuda.is_available() else "cpu"
     print("Accelerator: " + accelerator)

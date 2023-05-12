@@ -18,7 +18,7 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=False)
+        nChannels=p.CHANNELS, num_poolings=4)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)

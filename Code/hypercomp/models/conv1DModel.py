@@ -1,16 +1,19 @@
 import torch
 import torch.nn as nn
 import math
+from itertools import chain
 from .. import params as p
 from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 
 class Conv1DModel(torch.nn.Module):
 
-    def __init__(self, nChannels: int, bpp_2: bool = False) -> None:
+    def __init__(self, nChannels: int, num_poolings: int) -> None:
         super().__init__()
-        self.encoder = Conv1DEncoder(input_channels=nChannels, bpp_2=bpp_2)
-        self.decoder = Conv1DDecoder(output_channels=nChannels, bpp_2=bpp_2)
+        self.encoder = Conv1DEncoder(
+            input_channels=nChannels, num_poolings=num_poolings)
+        self.decoder = Conv1DDecoder(
+            output_channels=nChannels, num_poolings=num_poolings)
 
     def forward(self, x):
         return self.decoder(self.encoder(x))
@@ -18,73 +21,40 @@ class Conv1DModel(torch.nn.Module):
 
 class Conv1DEncoder(torch.nn.Module):
 
-    def __init__(self, input_channels: int, bpp_2: bool = False) -> None:
+    def __init__(self, input_channels: int, num_poolings: int) -> None:
         super().__init__()
-        # Round up to next number divisible by 4
+        # Round up to next number divisible for each max_pooling
         self.input_channels = input_channels
-        self.bpp_2 = bpp_2
-        if bpp_2:
-            divisor = 16
-        else:
-            divisor = 8
+        divisor = 2**num_poolings
         self.padded_channels = input_channels + paddingToBeDivisibleByN(
             input_size=input_channels, divisor=divisor)
+
+        flat_conv_list = [nn.Conv1d(in_channels=1, out_channels=self.padded_channels // 2, kernel_size=11, padding='same'),
+                          nn.LeakyReLU(),
+                          # nn.Dropout1d(p=0.1),
+                          nn.MaxPool1d(kernel_size=2)]
+
+        additional_layers = [
+            [nn.Conv1d(in_channels=self.padded_channels // (2**i), out_channels=self.padded_channels //
+                       (2**(i+1)), kernel_size=11, padding='same'),
+             nn.LeakyReLU(),
+             # nn.Dropout1d(p=0.1),
+             nn.MaxPool1d(kernel_size=2)] for i in range(1, num_poolings)]
+        flat_additional_layers = [
+            item for sub_list in additional_layers for item in sub_list]
+        flat_conv_list.extend(flat_additional_layers)
+
         print(self.input_channels)
         print(self.padded_channels)
-        if bpp_2:
-            self.encoder = nn.Sequential(
-                nn.Conv1d(in_channels=1, out_channels=self.padded_channels //
-                          2, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//4, out_channels=self.padded_channels//8, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//8, out_channels=self.padded_channels//16, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//16, out_channels=self.padded_channels//32, kernel_size=9, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//32, out_channels=1, kernel_size=7, padding='same'),
-                nn.Sigmoid())
-        else:
-            self.encoder = nn.Sequential(
-                nn.Conv1d(in_channels=1, out_channels=self.padded_channels //
-                          2, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//2, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//4, out_channels=self.padded_channels//8, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.MaxPool1d(kernel_size=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//8, out_channels=self.padded_channels//16, kernel_size=9, padding='same'),
-                nn.LeakyReLU(),
-                # nn.Dropout1d(p=0.1),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//16, out_channels=1, kernel_size=7, padding='same'),
-                nn.Sigmoid()
-            )
+        self.encoder = nn.Sequential(
+            *flat_conv_list,
+            nn.Conv1d(
+                in_channels=self.padded_channels//(2**num_poolings), out_channels=self.padded_channels//(2**(num_poolings+1)), kernel_size=9, padding='same'),
+            nn.LeakyReLU(),
+            # nn.Dropout1d(p=0.1),
+            nn.Conv1d(
+                in_channels=self.padded_channels//(2**(num_poolings+1)), out_channels=1, kernel_size=7, padding='same'),
+            nn.Sigmoid())
 
     def forward(self, x: torch.Tensor):
         x = flatten_spacial_dims(x)
@@ -99,60 +69,34 @@ class Conv1DEncoder(torch.nn.Module):
 
 class Conv1DDecoder(torch.nn.Module):
 
-    def __init__(self, output_channels: int, bpp_2: bool = False) -> None:
+    def __init__(self, output_channels: int, num_poolings: int) -> None:
         super().__init__()
         self.output_channels = output_channels
-        self.bpp_2 = bpp_2
-        if bpp_2:
-            divisor = 16
-        else:
-            divisor = 8
+        divisor = 2**num_poolings
         self.padded_channels = output_channels + \
             paddingToBeDivisibleByN(output_channels, divisor=divisor)
-        if self.bpp_2:
-            self.decoder = nn.Sequential(
-                nn.Conv1d(
-                    in_channels=1, out_channels=self.padded_channels//32, kernel_size=7, padding='same'),
-                nn.LeakyReLU(),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//32, out_channels=self.padded_channels//16, kernel_size=9, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//16, out_channels=self.padded_channels//8, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//8, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//4, out_channels=self.padded_channels//2, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//2, out_channels=1, kernel_size=11, padding='same'),
-                nn.Sigmoid())
-        else:
-            self.decoder = nn.Sequential(
-                nn.Conv1d(
-                    in_channels=1, out_channels=self.padded_channels//16, kernel_size=7, padding='same'),
-                nn.LeakyReLU(),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//16, out_channels=self.padded_channels//8, kernel_size=9, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//8, out_channels=self.padded_channels//4, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//4, out_channels=self.padded_channels//2, kernel_size=11, padding='same'),
-                nn.LeakyReLU(),
-                nn.Upsample(scale_factor=2),
-                nn.Conv1d(
-                    in_channels=self.padded_channels//2, out_channels=1, kernel_size=11, padding='same'),
-                nn.Sigmoid())
+
+        conv_list = [[
+            nn.Upsample(scale_factor=2),
+            nn.Conv1d(
+                in_channels=self.padded_channels//(2**i), out_channels=self.padded_channels//(2**(i-1)), kernel_size=11, padding='same'),
+            nn.LeakyReLU()] for i in range(num_poolings, 1, -1)]
+        flat_conv_list = [
+            item for sub_list in conv_list for item in sub_list]
+        flat_conv_list.extend([
+            nn.Upsample(scale_factor=2),
+            nn.Conv1d(
+                in_channels=self.padded_channels//2, out_channels=1, kernel_size=11, padding='same'),
+            nn.Sigmoid()])
+
+        self.decoder = nn.Sequential(
+            nn.Conv1d(
+                in_channels=1, out_channels=self.padded_channels//(2**(num_poolings+1)), kernel_size=7, padding='same'),
+            nn.LeakyReLU(),
+            nn.Conv1d(
+                in_channels=self.padded_channels//(2**(num_poolings+1)), out_channels=self.padded_channels//(2**(num_poolings)), kernel_size=9, padding='same'),
+            nn.LeakyReLU(),
+            *flat_conv_list)
 
     def forward(self, x: torch.Tensor):
         if not x.dim() == 3 and x.shape[1] == 1:
