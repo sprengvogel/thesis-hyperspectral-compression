@@ -18,16 +18,16 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, bpp_2=True)
+        nChannels=p.CHANNELS, bpp_2=False)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)
     conv_model.train()
     conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
     # conv_model.freeze()
-    for param in conv_model.autoencoder.encoder.parameters():
-        param.requires_grad = False
-    conv_model.autoencoder.encoder.eval()
+    # for param in conv_model.autoencoder.encoder.parameters():
+    #     param.requires_grad = False
+    # conv_model.autoencoder.encoder.eval()
     return conv_model.autoencoder
 
 
@@ -35,12 +35,14 @@ if __name__ == "__main__":
     # Old latent 13
     # model_id = "3gm16mbp:v1"
     # New latent 13
-    model_id = "2urbamfy:v0"
+    # model_id = "2urbamfy:v0"
+    # New latent 26
+    model_id = "3grh8utl:v0"
     outer_model = load_outer_model(
         f"niklas-sprengel/MastersThesis/model-{model_id}")
 
     model = models.LitAutoEncoder(models.CombinedModel(
-        nChannels=p.CHANNELS, innerChannels=13, H=128, W=128, outerModel=outer_model),
+        nChannels=p.CHANNELS, innerChannels=26, H=128, W=128, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
 
     data.train_and_test(model)

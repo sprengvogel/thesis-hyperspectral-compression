@@ -25,17 +25,21 @@ def load_outer_model(artifact_id):
     conv_model.train()
     conv_model.to(torch.device("cuda:"+str(p.GPU_ID)))
     # conv_model.freeze()
-    for param in conv_model.autoencoder.encoder.parameters():
-        param.requires_grad = False
-    conv_model.autoencoder.encoder.eval()
+    # for param in conv_model.autoencoder.encoder.parameters():
+    #     param.requires_grad = False
+    # conv_model.autoencoder.encoder.eval()
     return conv_model.autoencoder
 
 
 if __name__ == "__main__":
+    # Old standard (latent 13)
+    # model_id = "37bkqy6m:v0"
+    # Bitrate comp latent 13
+    model_id = "s1w3vien:v0"
     outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-37bkqy6m:v0")
+        f"niklas-sprengel/MastersThesis/model-{model_id}")
 
     model = models.LitAutoEncoder(models.FastCombinedModel(
         nChannels=p.CHANNELS, bottleneck_size=13, H=128, W=128, outerModel=outer_model),
         lr=p.LR, loss=metrics.DualMSELoss(p.DUAL_MSE_LOSS_LMBDA), model_type=models.ModelType.CONV1D_AND_2D)
-    data.train_and_test(model)
+    data.train_and_test(model, use_early_stopping=p.USE_EARLY_STOPPING)
