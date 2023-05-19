@@ -1,12 +1,16 @@
 \documentclass[bibliography=totoc,listof=totoc,BCOR=5mm,DIV=12,fontsize=12pt,headings=big]{scrbook}
 
 \usepackage[backend=biber, %% Hilfsprogramm "biber" (statt "biblatex" oder "bibtex")
-style=numeric, %% Zitierstil (siehe Dokumentation)
+style=ieee, %% Zitierstil (siehe Dokumentation)
 natbib=true, %% Bereitstellen von natbib-kompatiblen Zitierkommandos
 hyperref=true, %% hyperref-Paket verwenden, um Links zu erstellen
 sortcites=true,
 sorting=none
 ]{biblatex}
+\AtEveryBibitem{%
+	\clearfield{url}%
+     \clearfield{urlyear}
+}
 
 % use this declaration to set specific page margins
 %\usepackage[a4paper , lmargin = {2.7cm} , rmargin = {2.9cm} , tmargin = {2.7cm} , bmargin = {4.6cm} ]{geometry}
