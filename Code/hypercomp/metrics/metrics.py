@@ -104,7 +104,14 @@ class MSELossWithBPPEstimation(torch.nn.Module):
         self.mse = torch.nn.MSELoss()
 
     def forward(self, output, target):
-        x_hat, x_hat_inner, latent_image, y_likelihoods, z_likelihoods = output
+        if len(output) == 3:
+            x_hat, y_likelihoods, z_likelihoods = output
+            likelihoods = [y_likelihoods, z_likelihoods]
+        elif len(output) == 5:
+            x_hat, _, _, y_likelihoods, z_likelihoods = output
+            likelihoods = [y_likelihoods, z_likelihoods]
+        else:
+            x_hat, likelihoods = output
         likelihoods = [y_likelihoods, z_likelihoods]
         N, _, H, W = target.size()
         num_pixels = N * H * W

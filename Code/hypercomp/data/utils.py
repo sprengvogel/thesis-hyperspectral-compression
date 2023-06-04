@@ -6,6 +6,7 @@ from .hySpecNet11k import HySpecNet11k
 from torchinfo import summary
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
+from pytorch_lightning.utilities.model_summary.model_summary import ModelSummary
 from torch.utils.data import Dataset, DataLoader
 from .. import params as p
 
@@ -19,6 +20,12 @@ def train_and_test(model: LitAutoEncoder, batch_size=p.BATCH_SIZE, do_summary=Tr
     if do_summary:
         summary(model.autoencoder, input_size=(batch_size,
                                                p.CHANNELS, 128, 128), device="cuda:"+str(p.GPU_ID))
+    # else:
+    #     model.example_input_array = torch.zeros(
+    #         1, 202, 128, 128, device=torch.device("cuda:"+str(p.GPU_ID)))
+    #     model.to(torch.device("cuda:"+str(p.GPU_ID)))
+    #     print(ModelSummary(model, max_depth=5))
+    #     return
 
     train_dataset = HySpecNet11k(
         p.DATA_FOLDER_HYSPECNET, mode="easy", split="train")

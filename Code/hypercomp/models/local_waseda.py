@@ -37,12 +37,10 @@ from compressai.layers import (
     conv3x3,
     subpel_conv3x3,
 )
-from compressai.registry import register_model
 
 from compressai.models.google import JointAutoregressiveHierarchicalPriors
 
 
-@register_model("cheng2020-anchor")
 class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
     """Anchor model variant from `"Learned Image Compression with
     Discretized Gaussian Mixture Likelihoods and Attention Modules"
@@ -72,11 +70,15 @@ class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
         self.h_a = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
-            conv3x3(N, N),
+            conv3x3(N, N, stride=2),  # Extra
+            nn.LeakyReLU(inplace=True),  # Extra
+            # conv3x3(N, N),
+            conv3x3(N, N, stride=2),  # Extra
             nn.LeakyReLU(inplace=True),
             conv3x3(N, N, stride=2),
             nn.LeakyReLU(inplace=True),
-            conv3x3(N, N),
+            # conv3x3(N, N),
+            conv3x3(N, N, stride=2),  # Extra
             nn.LeakyReLU(inplace=True),
             conv3x3(N, N, stride=2),
         )
@@ -84,13 +86,17 @@ class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
         self.h_s = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
+            subpel_conv3x3(N, N, 2),  # Extra
+            nn.LeakyReLU(inplace=True),  # Extra
             subpel_conv3x3(N, N, 2),
             nn.LeakyReLU(inplace=True),
-            conv3x3(N, N * 3 // 2),
+            # conv3x3(N, N * 3 // 2),
+            subpel_conv3x3(N, N * 3 // 2, 2),  # Extra
             nn.LeakyReLU(inplace=True),
             subpel_conv3x3(N * 3 // 2, N * 3 // 2, 2),
             nn.LeakyReLU(inplace=True),
-            conv3x3(N * 3 // 2, N * 2),
+            # conv3x3(N * 3 // 2, N * 2),
+            subpel_conv3x3(N * 3 // 2, N * 2, 2),  # Extra
         )
 
         self.g_s = nn.Sequential(
@@ -113,7 +119,6 @@ class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
         return net
 
 
-@register_model("cheng2020-attn")
 class Cheng2020Attention(Cheng2020Anchor):
     """Self-attention model variant from `"Learned Image Compression with
     Discretized Gaussian Mixture Likelihoods and Attention Modules"
@@ -131,12 +136,15 @@ class Cheng2020Attention(Cheng2020Anchor):
         super().__init__(N=N, **kwargs)
 
         self.g_a = nn.Sequential(
-            ResidualBlockWithStride(in_channels, N, stride=2),
+            ResidualBlock(in_channels, N),  # Extra
+            # ResidualBlockWithStride(in_channels, N, stride=2),
+            ResidualBlock(N, N),  # Extra
+            # ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
-            ResidualBlockWithStride(N, N, stride=2),
             AttentionBlock(N),
+            ResidualBlock(N, N),  # Extra
+            # ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
-            ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
             conv3x3(N, N, stride=2),
             AttentionBlock(N),
@@ -145,12 +153,15 @@ class Cheng2020Attention(Cheng2020Anchor):
         self.g_s = nn.Sequential(
             AttentionBlock(N),
             ResidualBlock(N, N),
-            ResidualBlockUpsample(N, N, 2),
+            ResidualBlock(N, N),  # Extra
+            # ResidualBlockUpsample(N, N, 2),
+            ResidualBlock(N, N),  # Extra
+            # ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
-            ResidualBlockUpsample(N, N, 2),
             AttentionBlock(N),
+            ResidualBlock(N, N),  # Extra
+            # ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
-            ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
             subpel_conv3x3(N, in_channels, 2),
         )

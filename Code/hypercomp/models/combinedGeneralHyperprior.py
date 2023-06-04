@@ -4,8 +4,8 @@ from .cheng_attention import ChengAttentionModel
 from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 
-class CombinedModelWithAttention(torch.nn.Module):
-    def __init__(self, nChannels: int, innerChannels: int, outerModel: Conv1DModel = None, innerModel=None) -> None:
+class CombinedGeneralHyperprior(torch.nn.Module):
+    def __init__(self, nChannels: int, outerModel: Conv1DModel = None, innerModel=None) -> None:
         super().__init__()
         if outerModel == None:
             self.outer_encoder = Conv1DEncoder(
@@ -15,11 +15,7 @@ class CombinedModelWithAttention(torch.nn.Module):
         else:
             self.outer_encoder = outerModel.encoder
             self.outer_decoder = outerModel.decoder
-        if innerModel == None:
-            self.inner_autoencoder = ChengAttentionModel(
-                in_channels=innerChannels)
-        else:
-            self.inner_autoencoder = innerModel
+        self.inner_autoencoder = innerModel
 
     def forward(self, x):
         latent_image = unflatten_and_split_apart_batches(self.outer_encoder(x))

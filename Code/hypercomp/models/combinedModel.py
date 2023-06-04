@@ -5,7 +5,7 @@ from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 
 class CombinedModel(torch.nn.Module):
-    def __init__(self, nChannels: int, innerChannels: int, H: int = 96, W: int = 96, outerModel: Conv1DModel = None) -> None:
+    def __init__(self, nChannels: int, innerChannels: int, H: int = 128, W: int = 128, outerModel: Conv1DModel = None, innerModel=None) -> None:
         super().__init__()
         if outerModel == None:
             self.outer_encoder = Conv1DEncoder(
@@ -15,7 +15,11 @@ class CombinedModel(torch.nn.Module):
         else:
             self.outer_encoder = outerModel.encoder
             self.outer_decoder = outerModel.decoder
-        self.inner_autoencoder = Conv2DModel(nChannels=innerChannels, H=H, W=W)
+        if innerModel == None:
+            self.inner_autoencoder = Conv2DModel(
+                nChannels=innerChannels, H=H, W=W)
+        else:
+            self.inner_autoencoder = innerModel
 
     def forward(self, x):
         latent_image = unflatten_and_split_apart_batches(self.outer_encoder(x))

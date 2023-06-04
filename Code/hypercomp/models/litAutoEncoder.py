@@ -19,7 +19,7 @@ class LitAutoEncoder(pl.LightningModule):
         self.model_type = model_type
 
     def forward(self, x):
-        return self.autoencoder.encoder(x)
+        return self.autoencoder(x)
 
     def training_step(self, batch, batch_idx):
         x = batch
@@ -53,11 +53,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log("train_loss/bpp", bpp, prog_bar=True)
             self.log("train_loss/mse", mse, prog_bar=False)
         psnr_val = psnr(x_hat, x)
-        #ssim_val = ssim(x_hat, x)
+        # ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
         self.log("train_loss/loss", loss)
         self.log("train_metrics/psnr", psnr_val, prog_bar=True)
-        #self.log("train_metrics/ssim", ssim_val, prog_bar=True)
+        # self.log("train_metrics/ssim", ssim_val, prog_bar=True)
         self.log("train_metrics/spectral angle",
                  spectral_angle_val, prog_bar=False)
         # Only log image once every epoch
@@ -114,11 +114,11 @@ class LitAutoEncoder(pl.LightningModule):
             self.log(f"{prefix}_loss/bpp", bpp, prog_bar=True)
             self.log(f"{prefix}_loss/mse", mse_loss, prog_bar=False)
         psnr_val = psnr(x_hat, x)
-        #ssim_val = ssim(x_hat, x)
+        # ssim_val = ssim(x_hat, x)
         spectral_angle_val = spectral_angle(x_hat, x)
         self.log(f"{prefix}_loss/loss", loss)
         self.log(f"{prefix}_metrics/psnr", psnr_val, prog_bar=False)
-        #self.log(f"{prefix}_metrics/ssim", ssim_val, prog_bar=False)
+        # self.log(f"{prefix}_metrics/ssim", ssim_val, prog_bar=False)
         self.log(f"{prefix}_metrics/spectral angle",
                  spectral_angle_val, prog_bar=False)
         # Only log image once every epoch

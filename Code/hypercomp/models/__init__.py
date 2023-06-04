@@ -15,3 +15,7 @@ from .fast1DconvModel import Fast1DConvModel
 from .cheng_attention import ChengAttentionModel
 from .combinedModelWithAttention import CombinedModelWithAttention
 from .fastCombinedModel import FastCombinedModel
+from .cheng_main import ChengMain
+from .general_hyperprior import GeneralHyperprior
+from .cheng_hyperprior import ChengHyperprior
+from .combinedGeneralHyperprior import CombinedGeneralHyperprior
