@@ -10,6 +10,7 @@ import numpy as np
 from hypercomp import models
 from hypercomp import metrics
 import wandb
+from compressai.layers import conv3x3, subpel_conv3x3
 
 
 def load_outer_model(artifact_id):
@@ -29,6 +30,16 @@ def load_outer_model(artifact_id):
     #    param.requires_grad = False
     # conv_model.autoencoder.encoder.eval()
     return conv_model.autoencoder
+
+
+class OneDAdapterAutoencoder(torch.nn.Module):
+    def __init__(self) -> None:
+        super().__init__()
+        self.encoder = conv3x3(13, 192)
+        self.decoder = subpel_conv3x3(192, 13)
+
+    def forward(self, x):
+        return self.decoder(self.encoder(x))
 
 
 if __name__ == "__main__":

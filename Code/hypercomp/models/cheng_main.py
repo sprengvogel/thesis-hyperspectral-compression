@@ -25,7 +25,8 @@ class ChengMain(nn.Module):
             # ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
             ResidualBlock(N, N),
-            conv3x3(N, N, stride=2),
+            # conv3x3(N, N, stride=2),
+            conv3x3(N, N),  # Extra
             AttentionBlock(N),
         )
 
@@ -42,7 +43,8 @@ class ChengMain(nn.Module):
             # ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
             ResidualBlock(N, N),
-            subpel_conv3x3(N, in_channels, 2),
+            # subpel_conv3x3(N, in_channels, 2),
+            subpel_conv3x3(N, in_channels),  # Extra
         )
 
     def forward(self, x):

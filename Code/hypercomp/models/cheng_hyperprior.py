@@ -15,6 +15,8 @@ class ChengHyperprior(nn.Module):
             nn.LeakyReLU(inplace=True),
             conv3x3(N, N, stride=2),  # Extra
             nn.LeakyReLU(inplace=True),  # Extra
+            conv3x3(N, N, stride=2),  # Extra
+            nn.LeakyReLU(inplace=True),  # Extra
             # conv3x3(N, N),
             conv3x3(N, N, stride=2),  # Extra
             nn.LeakyReLU(inplace=True),
@@ -29,6 +31,8 @@ class ChengHyperprior(nn.Module):
         self.decoder = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
+            subpel_conv3x3(N, N, 2),  # Extra
+            nn.LeakyReLU(inplace=True),  # Extra
             subpel_conv3x3(N, N, 2),  # Extra
             nn.LeakyReLU(inplace=True),  # Extra
             subpel_conv3x3(N, N, 2),
