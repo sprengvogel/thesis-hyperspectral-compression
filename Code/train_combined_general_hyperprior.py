@@ -35,23 +35,25 @@ def load_outer_model(artifact_id):
 class OneDAdapterAutoencoder(torch.nn.Module):
     def __init__(self) -> None:
         super().__init__()
-        self.encoder = conv3x3(13, 192)
-        self.decoder = subpel_conv3x3(192, 13)
+        self.encoder = torch.nn.Identity()
+        self.decoder = torch.nn.Identity()
 
     def forward(self, x):
         return self.decoder(self.encoder(x))
 
 
 if __name__ == "__main__":
-    outer_model = load_outer_model(
-        "niklas-sprengel/MastersThesis/model-3gm16mbp:v1")
+    # outer_model = load_outer_model(
+    #    "niklas-sprengel/MastersThesis/model-3gm16mbp:v1")
+    outer_model = models.Conv1DModel(nChannels=p.CHANNELS, num_poolings=4)
 
     model = models.LitAutoEncoder(models.CombinedGeneralHyperprior(
         nChannels=p.CHANNELS, outerModel=outer_model,
-        innerModel=models.GeneralHyperprior(main_autoencoder=models.ChengMain(in_channels=13),
+        innerModel=models.GeneralHyperprior(main_autoencoder=OneDAdapterAutoencoder(),
                                             hyperprior_autoencoder=models.ChengHyperprior())),
-                                  # loss=metrics.RateDistortionLoss(lmbda=p.RATE_DISTORTION_LDMBA),
-                                  loss=metrics.MSELossWithBPPEstimation(),
+                                  loss=metrics.RateDistortionLoss(
+                                      lmbda=p.RATE_DISTORTION_LDMBA),
+                                  # loss=metrics.MSELossWithBPPEstimation(),
                                   lr=p.LR,
                                   model_type=models.ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR)
 

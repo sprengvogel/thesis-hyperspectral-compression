@@ -9,7 +9,7 @@ from compressai.layers import (
 class ChengHyperprior(nn.Module):
     def __init__(self):
         super().__init__()
-        N = 192
+        N = 13
         self.encoder = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
