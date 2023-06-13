@@ -46,7 +46,7 @@ citestyle=numeric-comp
 \fancyhead[LO,RE]{\nouppercase{\leftmark}}
 \renewcommand{\footrulewidth}{1pt}
 \usepackage{acro}
-\acsetup{pages/display=all, uppercase/list}
+\acsetup{pages/display=all, uppercase/list, barriers/use=true, barriers/reset=true}
 \input{./misc/acronyms}
 \begin{document}
 % ---------------------------------------------------------------
@@ -84,14 +84,19 @@ citestyle=numeric-comp
 
     \input{./chapters/chapter1}
     \thispagestyle{fancy}
+    \acbarrier
     \input{./chapters/chapter2}
     \thispagestyle{fancy}
+    \acbarrier    
     \input{./chapters/chapter3}
     \thispagestyle{fancy}
+    \acbarrier    
     \input{./chapters/chapter4}
     \thispagestyle{fancy}
+    \acbarrier
     \input{./chapters/chapter5}
     \thispagestyle{fancy}
+    \acbarrier
     \input{./chapters/chapter6}
     \thispagestyle{fancy}
 
