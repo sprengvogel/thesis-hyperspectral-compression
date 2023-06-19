@@ -1,18 +1,43 @@
 \chapter{Methodology\label{cha:chapter4}}
-
+- Ansatz wanting to use rgb compression methods and multispectral on hyperspectral
+- Easy idea: Raise number of filters: Infeasible
+- Also: State of the art in hyperspectral only uses spectral information and pixel by pixel
+- Therefore: Idea of combined model
 \section{The Combined Model}
+-Describe combined model
+-Advantages: Uses state of the art hyperspectral ansatz, can use arbitrary spatial encoder, different spectral encoders as long as still spatial dependencies, uses spatial and spectral dependencies
+-Disadvantage: If latent space is not continuous, small changes from spatial autoencoder could lead to big errors in spectral reconstruction. Simulatenous training of both autoencoders can make training of the spatial autoencoder hard since its inputs are bad.
+-Option: Pretraining and optionally freezing spectral autoencoder. Encoder can then be seen as a preprocessing step. (More complex because of decoder). (Also has the advantage of speeding up training.)
 
 \section{Spectral Autoencoder Methods}
+-Introduction sentence
 
 \subsection{Pixel-Wise Convolutional Neural Network\label{sec:ch3xxx}}
+-Describe model
+-Describe changes from paper (variable number of layers for diff. compression ratios. Number of filters increased, possible advantage that it is handy with adaptable number of layers.)
+-Model has the best reconstruction performance compared to any other model on our data (ref experiments)
+-Slow training (why?)
 
 \subsection{Two-dimensional Spectral CNN\label{sec:ch3yyy}}
+-Describe model
+-Faster training
+-Optional LayerNorm
+
+
+\subsection{Variational autoencoder \label{sec:ch3yyy}}
+-Describe model and background in detail
+-Idea of VAE for continuous latent space
+-However, not useful
+-Hyperprior sadly not possible here because bottleneck is not compressible further.
 
 \section{Spatial Autoencoder Methods\label{sec:ch3zzz}}
-
+-Introduction
 \subsection{CNN-based Spatial Autoencoder}
+-Describe model
 
 \subsection{Hyperprior-based Spatial Autoencoder}
+-Describe model, both original ballé and with CNN-base
 
 \subsection{Attention-based Model Using Hyperprior Architecture}
-
+-Describe model and how to change for multiple spatial compression ratios while adapting hyperprior
+-Hyperprior bottleneck has to be kept small
