@@ -20,3 +20,176 @@ This chapter describes the implementation of component X.
 \section{Results of the YY\label{sec:ch5yy}}
 
 \section{Results of the ZZ\label{sec:ch5zz}}
+
+\begin{figure}[!ht]
+    \centering
+\pgfplotstableread[col sep=semicolon,]{graphs/hughes.csv}\datatable
+\begin{tikzpicture}
+\begin{semilogxaxis}[
+	log ticks with fixed point,
+    width=\textwidth,
+    height=10cm,
+    xtick=data,
+    xticklabels from table={\datatable}{dsfactor},
+    legend style={at={(0.98,0.3)},anchor=south east},
+    ylabel={Psnr},
+    xlabel={Division factor for dataset}]
+    
+    \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_psnr}]{\datatable};
+    \addlegendentry{FastConv}
+    
+    \addplot [mark=o, red!80] table [x={dsfactor}, y={fastcombined_psnr}]{\datatable};
+    \addlegendentry{FastCombined}
+\end{semilogxaxis}
+\end{tikzpicture}
+\caption{Hughes Phenomen combined vs fast combined}
+\label{fig:hughes}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+\pgfplotstableread[col sep=semicolon,]{graphs/hughes.csv}\datatable
+\begin{tikzpicture}
+\begin{semilogxaxis}[
+	log ticks with fixed point,
+    width=\textwidth,
+    height=10cm,
+    xtick=data,
+    xticklabels from table={\datatable}{dsfactor},
+    legend style={at={(0.98,0.3)},anchor=south east},
+    ylabel={Spectral Angle},
+    xlabel={Division factor for dataset}]
+    
+    \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_sangle}]{\datatable};
+    \addlegendentry{FastConv}
+    
+    \addplot [mark=o, red!80] table [x={dsfactor}, y={fastcombined_sangle}]{\datatable};
+    \addlegendentry{FastCombined}
+\end{semilogxaxis}
+\end{tikzpicture}
+\caption{Hughes Phenomen combined vs fast combined}
+\label{fig:hughesangle}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+\pgfplotstableread[col sep=semicolon,]{graphs/bitratecomp.csv}\datatable
+\begin{tikzpicture}
+\begin{semilogxaxis}[
+	log ticks with fixed point,
+    width=\textwidth,
+    height=10cm,
+    xtick={0,0.1,0.25,0.5,1,2,4,8},
+    legend style={at={(0.98,0.1)},anchor=south east},
+    ylabel={Psnr},
+    xlabel={Bits per pixel per channel},
+	cycle list name=color list,
+	every axis plot/.append style={mark=o} % set options for all plots]
+	]
+    
+    \addplot+ table [x={bpppc}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{0:0}]{\datatable};
+    \addlegendentry{Cubic Interpolation}
+    
+    \addplot+ table [x={bpppc}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{1:1}]{\datatable};
+    \addlegendentry{Linear Interpolation}
+    
+    \addplot+ table [x={bpppc}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{2:2}]{\datatable};
+    \addlegendentry{FastCombined}
+    
+    %\addplot+ table [x={bpppc}, y={psnr}, 
+    %restrict expr to domain={\thisrow{model_id}}{3:3}]{\datatable};
+    %\addlegendentry{Conv1D}
+    
+    %\addplot+ table [x={bpppc}, y={psnr}, 
+    %restrict expr to domain={\thisrow{model_id}}{4:4}]{\datatable};
+    %\addlegendentry{Combined}
+    
+    \addplot+ table [x={bpppc}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{5:5}]{\datatable};
+    \addlegendentry{FastConv1D}
+    
+    \addplot+ table [x={bpppc}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{8:8}]{\datatable};
+    \addlegendentry{JPEG2000}
+\end{semilogxaxis}
+\end{tikzpicture}
+\caption{Rate distortion plot}
+\label{fig:ratedistortion}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+\pgfplotstableread[col sep=semicolon,]{graphs/freezedualmse.csv}\datatable
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    height=10cm,
+    legend style={at={(0.98,0.1)},anchor=south east},
+    xtick=data,
+    ylabel={Psnr},
+    xlabel={Dual MSE $\lambda$}]
+    
+    \addplot table [x={lmbda}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{1:1}]{\datatable};
+    \addlegendentry{Combined-AllFrozen}
+    
+    \addplot table [x={lmbda}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{2:2}]{\datatable};
+    \addlegendentry{Combined-EncoderFrozen}
+    
+    \addplot table [x={lmbda}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{3:3}]{\datatable};
+    \addlegendentry{FastCombined-AllFrozen}
+    
+    \addplot table [x={lmbda}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{4:4}]{\datatable};
+    \addlegendentry{FastCombined-EncoderFrozen}
+    
+    \addplot table [x={lmbda}, y={psnr}, 
+    restrict expr to domain={\thisrow{model_id}}{5:5}]{\datatable};
+    \addlegendentry{FastCombined-NothingFrozen}
+\end{axis}
+\end{tikzpicture}
+\caption{Dual MSE lambda plot}
+\label{fig:dualmseloss}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+\pgfplotstableread[col sep=semicolon,]{graphs/freezedualmse.csv}\datatable
+\begin{tikzpicture}
+\begin{axis}[
+    width=\textwidth,
+    height=10cm,
+    legend style={at={(0.98,0.7)},anchor=south east},
+    xtick=data,
+    ylabel={Spectral angle},
+    xlabel={Dual MSE $\lambda$}]
+    
+    \addplot table [x={lmbda}, y={sangle}, 
+    restrict expr to domain={\thisrow{model_id}}{1:1}]{\datatable};
+    \addlegendentry{Combined-AllFrozen}
+    
+    \addplot table [x={lmbda}, y={sangle}, 
+    restrict expr to domain={\thisrow{model_id}}{2:2}]{\datatable};
+    \addlegendentry{Combined-EncoderFrozen}
+    
+    \addplot table [x={lmbda}, y={sangle}, 
+    restrict expr to domain={\thisrow{model_id}}{3:3}]{\datatable};
+    \addlegendentry{FastCombined-AllFrozen}
+    
+    \addplot table [x={lmbda}, y={sangle}, 
+    restrict expr to domain={\thisrow{model_id}}{4:4}]{\datatable};
+    \addlegendentry{FastCombined-EncoderFrozen}
+    
+    \addplot table [x={lmbda}, y={sangle}, 
+    restrict expr to domain={\thisrow{model_id}}{5:5}]{\datatable};
+    \addlegendentry{FastCombined-NothingFrozen}
+\end{axis}
+\end{tikzpicture}
+\caption{Dual MSE lambda plot}
+\label{fig:dualmselossangle}
+\end{figure}

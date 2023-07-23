@@ -24,7 +24,6 @@ citestyle=numeric-comp
 \usepackage{hyperref}
 \usepackage{url}           		% format URLs
 \usepackage{listings, color}	% for source code
-\usepackage{subfig}						% two figures next to each other (example: figure 3a), figure 3b)
 % set path where images are stored
 \usepackage{csquotes}
 \usepackage{scrhack}
@@ -32,6 +31,11 @@ citestyle=numeric-comp
 \addto\extrasenglish{
   \renewcommand{\chapterautorefname}{Chapter}
 }
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.9}
+\usepackage{subcaption}
 %\input{./misc/hyphenation} 					% use this file to set explicit hyphenations (doesn't seem to work correctly)
 \addbibresource{./bib/references.bib}
 
