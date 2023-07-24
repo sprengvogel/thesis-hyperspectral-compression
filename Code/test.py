@@ -1,31 +1,27 @@
 from hypercomp import data
 import torch
 from pytorch_lightning.loggers import WandbLogger
-import numpy as np
-
-
-def convertVNIRImageToRGB(hyperspectral_image: torch.Tensor):
-    """
-    Extracts a red, green and blue channel from a picture from the VNIR sensor (369 channels between 400-1000nm).
-    Because it is needed in channel-last format for wandb logger, this returns (H,W,C).
-    """
-    if hyperspectral_image.shape[0] == 369:
-        red_channel = hyperspectral_image[154, :, :]
-        green_channel = hyperspectral_image[74, :, :]
-        blue_channel = hyperspectral_image[34, :, :]
-    elif hyperspectral_image.shape[0] == 202:
-        red_channel = hyperspectral_image[100, :, :]
-        green_channel = hyperspectral_image[50, :, :]
-        blue_channel = hyperspectral_image[20, :, :]
-    else:
-        raise ValueError("Not a known number of channels.")
-    return np.uint8((torch.stack([red_channel, green_channel, blue_channel], dim=-1)*255).cpu().numpy())
-
+from hypercomp import params as p
+from hypercomp import models
+from hypercomp import metrics
+import wandb
+import pytorch_lightning as pl
 
 dataset = data.HySpecNet11k(
-    root_dir="/media/storagecube/data/datasets/enmap/dataset", mode="easy", split="train")
-dataloader = data.dataLoader(dataset)
-logger = WandbLogger("test")
-for i in dataloader:
-    im = convertVNIRImageToRGB(i[0])
-    logger.log_image(key="test", images=[im])
+    root_dir=p.DATA_FOLDER_HYSPECNET, mode="easy", split="test")
+dataloader = data.dataLoader(dataset, shuffle=False)
+run = wandb.init(project="MastersThesis")
+artifact = run.use_artifact(
+    "niklas-sprengel/MastersThesis/model-214yd7yf:v0", type='model')
+artifact_dir = artifact.download()
+onedmodel = models.Fast1DConvModel(
+    nChannels=p.CHANNELS, bottleneck_size=3, H=128, W=128)
+model = models.FastCombinedModel(
+    nChannels=p.CHANNELS, bottleneck_size=3, H=128, W=128, kernel_size=3, outerModel=onedmodel)
+loaded_model = models.LitAutoEncoder.load_from_checkpoint(
+    artifact_dir+"/model.ckpt", model=model, loss=metrics.DualMSELoss(lmbda=p.DUAL_MSE_LOSS_LMBDA))
+wandb_logger = WandbLogger(project="MastersThesis", log_model=True)
+accelerator = "gpu" if torch.cuda.is_available() else "cpu"
+trainer = pl.Trainer(accelerator=accelerator, logger=wandb_logger,
+                     log_every_n_steps=50, devices=[p.GPU_ID])
+trainer.test(loaded_model, dataloaders=dataloader)

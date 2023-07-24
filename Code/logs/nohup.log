@@ -1,0 +1,262 @@
+1149
+71
+ Batch 0 started.
+Compression and decompression finished.
+ Batch 0 finished.
+ Batch 1 started.
+Compression and decompression finished.
+/home/eouser/thesis-hyperspectral-compression/Code/benchmark.py:243: RuntimeWarning: divide by zero encountered in log10
+  psnr = 20 * np.log10(max_val) - 10 * np.log10(mse)
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 1 finished.
+ Batch 2 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 2 finished.
+ Batch 3 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 3 finished.
+ Batch 4 started.
+Compression and decompression finished.
+ Batch 4 finished.
+ Batch 5 started.
+Compression and decompression finished.
+ Batch 5 finished.
+ Batch 6 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 6 finished.
+ Batch 7 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 7 finished.
+ Batch 8 started.
+Compression and decompression finished.
+ Batch 8 finished.
+ Batch 9 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 9 finished.
+ Batch 10 started.
+Compression and decompression finished.
+ Batch 10 finished.
+ Batch 11 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 11 finished.
+ Batch 12 started.
+Compression and decompression finished.
+ Batch 12 finished.
+ Batch 13 started.
+Compression and decompression finished.
+ Batch 13 finished.
+ Batch 14 started.
+Compression and decompression finished.
+ Batch 14 finished.
+ Batch 15 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 15 finished.
+ Batch 16 started.
+Compression and decompression finished.
+ Batch 16 finished.
+ Batch 17 started.
+Compression and decompression finished.
+ Batch 17 finished.
+ Batch 18 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 18 finished.
+ Batch 19 started.
+Compression and decompression finished.
+ Batch 19 finished.
+ Batch 20 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 20 finished.
+ Batch 21 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 21 finished.
+ Batch 22 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 22 finished.
+ Batch 23 started.
+Compression and decompression finished.
+ Batch 23 finished.
+ Batch 24 started.
+Compression and decompression finished.
+ Batch 24 finished.
+ Batch 25 started.
+Compression and decompression finished.
+ Batch 25 finished.
+ Batch 26 started.
+Compression and decompression finished.
+ Batch 26 finished.
+ Batch 27 started.
+Compression and decompression finished.
+ Batch 27 finished.
+ Batch 28 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 28 finished.
+ Batch 29 started.
+Compression and decompression finished.
+ Batch 29 finished.
+ Batch 30 started.
+Compression and decompression finished.
+ Batch 30 finished.
+ Batch 31 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 31 finished.
+ Batch 32 started.
+Compression and decompression finished.
+ Batch 32 finished.
+ Batch 33 started.
+Compression and decompression finished.
+ Batch 33 finished.
+ Batch 34 started.
+Compression and decompression finished.
+ Batch 34 finished.
+ Batch 35 started.
+Compression and decompression finished.
+ Batch 35 finished.
+ Batch 36 started.
+Compression and decompression finished.
+ Batch 36 finished.
+ Batch 37 started.
+Compression and decompression finished.
+ Batch 37 finished.
+ Batch 38 started.
+Compression and decompression finished.
+ Batch 38 finished.
+ Batch 39 started.
+Compression and decompression finished.
+ Batch 39 finished.
+ Batch 40 started.
+Compression and decompression finished.
+ Batch 40 finished.
+ Batch 41 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 41 finished.
+ Batch 42 started.
+Compression and decompression finished.
+ Batch 42 finished.
+ Batch 43 started.
+Compression and decompression finished.
+ Batch 43 finished.
+ Batch 44 started.
+Compression and decompression finished.
+ Batch 44 finished.
+ Batch 45 started.
+Compression and decompression finished.
+ Batch 45 finished.
+ Batch 46 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 46 finished.
+ Batch 47 started.
+Compression and decompression finished.
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+mse:0.0
+ Batch 47 finished.
+ Batch 48 started.
+Compression and decompression finished.
+ Batch 48 finished.
+ Batch 49 started.
+Compression and decompression finished.
+ Batch 49 finished.
+ Batch 50 started.
+Compression and decompression finished.
+ Batch 50 finished.
+ Batch 51 started.
+Compression and decompression finished.
+ Batch 51 finished.
+ Batch 52 started.
+Compression and decompression finished.
+ Batch 52 finished.
+ Batch 53 started.
+Compression and decompression finished.
+ Batch 53 finished.
+ Batch 54 started.
+Compression and decompression finished.
+ Batch 54 finished.
+ Batch 55 started.
+Compression and decompression finished.
+ Batch 55 finished.
+ Batch 56 started.
+Compression and decompression finished.
+ Batch 56 finished.
+ Batch 57 started.
+Compression and decompression finished.
+ Batch 57 finished.
+ Batch 58 started.
+Compression and decompression finished.
+ Batch 58 finished.
+ Batch 59 started.
+Compression and decompression finished.
+ Batch 59 finished.
+ Batch 60 started.
+Compression and decompression finished.
+ Batch 60 finished.
+ Batch 61 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 61 finished.
+ Batch 62 started.
+Compression and decompression finished.
+ Batch 62 finished.
+ Batch 63 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 63 finished.
+ Batch 64 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 64 finished.
+ Batch 65 started.
+Compression and decompression finished.
+ Batch 65 finished.
+ Batch 66 started.
+Compression and decompression finished.
+mse:0.0
+ Batch 66 finished.
+ Batch 67 started.
+Compression and decompression finished.
+ Batch 67 finished.
+ Batch 68 started.
+Compression and decompression finished.
+ Batch 68 finished.
+ Batch 69 started.
+Compression and decompression finished.
+ Batch 69 finished.
+ Batch 70 started.
+Compression and decompression finished.
+ Batch 70 finished.

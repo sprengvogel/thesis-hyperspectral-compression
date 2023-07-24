@@ -37,6 +37,10 @@ class LitAutoEncoder(pl.LightningModule):
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
             x_hat = x_hat[0]
+            self.log("dbg/train_x_hat_inner_max", torch.max(x_hat_inner))
+            self.log("dbg/train_latent_image_max", torch.max(latent_image))
+            self.log("dbg/train_x_hat_inner_min", torch.min(x_hat_inner))
+            self.log("dbg/train_latent_image_min", torch.min(latent_image))
             self.log("train_loss/dual_mse", loss, prog_bar=True)
             self.log("train_loss/inner_mse", inner_loss, prog_bar=True)
             self.log("train_loss/outer_mse", outer_loss, prog_bar=True)
@@ -98,6 +102,10 @@ class LitAutoEncoder(pl.LightningModule):
             latent_image = x_hat[2]
             x_hat_inner = x_hat[1]
             x_hat = x_hat[0]
+            self.log(f"dbg/{prefix}_x_hat_inner_max", torch.max(x_hat_inner))
+            self.log(f"dbg/{prefix}_latent_image_max", torch.max(latent_image))
+            self.log(f"dbg/{prefix}_x_hat_inner_min", torch.min(x_hat_inner))
+            self.log(f"dbg/{prefix}_latent_image_min", torch.min(latent_image))
             self.log(f"{prefix}_loss/dual_mse", loss, prog_bar=True)
             self.log(f"{prefix}_loss/inner_mse", inner_loss, prog_bar=True)
             self.log(f"{prefix}_loss/outer_mse", outer_loss, prog_bar=True)

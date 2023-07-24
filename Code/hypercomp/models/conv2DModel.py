@@ -6,10 +6,12 @@ from .. import params as p
 
 class Conv2DModel(nn.Module):
 
-    def __init__(self, nChannels: int, H: int, W: int) -> None:
+    def __init__(self, nChannels: int, H: int, W: int, kernel_size: int = 3) -> None:
         super().__init__()
-        self.encoder = Conv2DEncoder(input_channels=nChannels, H=H, W=W)
-        self.decoder = Conv2DDecoder(output_channels=nChannels, H=H, W=W)
+        self.encoder = Conv2DEncoder(
+            input_channels=nChannels, H=H, W=W, kernel_size=kernel_size)
+        self.decoder = Conv2DDecoder(
+            output_channels=nChannels, H=H, W=W, kernel_size=kernel_size)
 
     def forward(self, x):
         return self.decoder(self.encoder(x))
@@ -17,15 +19,16 @@ class Conv2DModel(nn.Module):
 
 class Conv2DEncoder(nn.Module):
 
-    def __init__(self, input_channels: int, H: int, W: int) -> None:
+    def __init__(self, input_channels: int, H: int, W: int, kernel_size: int) -> None:
         super().__init__()
+        padding = (kernel_size-1)//2
         self.encoder = nn.Sequential(
             nn.Conv2d(in_channels=input_channels,
-                      out_channels=256, kernel_size=3, padding=1),
+                      out_channels=256, kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((256, H, W)),
             nn.PReLU(256),
             nn.Conv2d(in_channels=256,
-                      out_channels=256, kernel_size=3, padding=1),
+                      out_channels=256, kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((256, H, W)),
             nn.PReLU(256),
             nn.Conv2d(in_channels=256, out_channels=512,
@@ -33,11 +36,11 @@ class Conv2DEncoder(nn.Module):
             nn.LayerNorm((512, H//2, W//2)),
             nn.PReLU(512),
             nn.Conv2d(in_channels=512, out_channels=256,
-                      kernel_size=3, padding=1),
+                      kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((256, H//2, W//2)),
             nn.PReLU(256),
             nn.Conv2d(
-                in_channels=256, out_channels=input_channels, kernel_size=3, padding=1),
+                in_channels=256, out_channels=input_channels, kernel_size=kernel_size, padding=padding),
             nn.Sigmoid())  # ,
         # nn.PReLU(512) ,
         # nn.MaxPool2d(2, 2))  # ,
@@ -54,9 +57,10 @@ class Conv2DEncoder(nn.Module):
 
 class Conv2DDecoder(nn.Module):
 
-    def __init__(self, output_channels: int, H: int, W: int) -> None:
+    def __init__(self, output_channels: int, H: int, W: int, kernel_size: int) -> None:
         super().__init__()
         self.H, self.W = H, W
+        padding = (kernel_size-1)//2
         # self.linear = nn.Linear(128*H*W, 512*H*W)
         self.decoder = nn.Sequential(
             # nn.PReLU(512*H*W),
@@ -64,19 +68,23 @@ class Conv2DDecoder(nn.Module):
             # nn.PReLU(512),
             # nn.ConvTranspose2d(512, 512, kernel_size=2, stride=2),
             # nn.PReLU(output_channels),
-            nn.ConvTranspose2d(output_channels, 256, kernel_size=3, padding=1),
+            nn.ConvTranspose2d(output_channels, 256,
+                               kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((256, H//2, W//2)),
             nn.PReLU(256),
-            nn.ConvTranspose2d(256, 512, kernel_size=3, padding=1),
+            nn.ConvTranspose2d(
+                256, 512, kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((512, H//2, W//2)),
             nn.PReLU(512),
             nn.ConvTranspose2d(512, 256, kernel_size=2, stride=2),
             nn.LayerNorm((256, H, W)),
             nn.PReLU(256),
-            nn.ConvTranspose2d(256, 256, kernel_size=3, padding=1),
+            nn.ConvTranspose2d(
+                256, 256, kernel_size=kernel_size, padding=padding),
             nn.LayerNorm((256, H, W)),
             nn.PReLU(256),
-            nn.ConvTranspose2d(256, output_channels, kernel_size=3, padding=1),
+            nn.ConvTranspose2d(256, output_channels,
+                               kernel_size=kernel_size, padding=padding),
             nn.Sigmoid())
 
     def forward(self, x):

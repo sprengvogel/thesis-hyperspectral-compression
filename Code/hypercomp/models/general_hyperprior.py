@@ -8,7 +8,7 @@ class GeneralHyperprior(JointAutoregressiveHierarchicalPriors):
     """
 
     def __init__(self, main_autoencoder, hyperprior_autoencoder, **kwargs):
-        super().__init__(N=13, M=13, **kwargs)
+        super().__init__(N=192, M=192, **kwargs)
 
         self.g_a = main_autoencoder.encoder
 

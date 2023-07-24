@@ -18,7 +18,7 @@ def load_outer_model(artifact_id):
         artifact_id, type='model')
     artifact_dir = artifact.download()
     inner_model = models.Conv1DModel(
-        nChannels=p.CHANNELS, num_poolings=3)
+        nChannels=p.CHANNELS, num_poolings=4)
     conv_model = models.LitAutoEncoder(inner_model, lr=p.LR)
     conv_model.load_from_checkpoint(
         artifact_dir+"/model.ckpt", model=inner_model)
@@ -35,9 +35,9 @@ if __name__ == "__main__":
     # Old latent 13
     # model_id = "3gm16mbp:v1"
     # New latent 13
-    # model_id = "2urbamfy:v0"
+    model_id = "2urbamfy:v0"
     # New latent 26
-    model_id = "3grh8utl:v0"
+    #model_id = "3grh8utl:v0"
     outer_model = load_outer_model(
         f"niklas-sprengel/MastersThesis/model-{model_id}")
 
