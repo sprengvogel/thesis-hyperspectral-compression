@@ -37,8 +37,8 @@ if __name__ == "__main__":
 
     model = models.LitAutoEncoder(models.CombinedModelWithAttention(
         nChannels=p.CHANNELS, innerChannels=13, outerModel=outer_model),
-        # loss=metrics.RateDistortionLoss(lmbda=p.RATE_DISTORTION_LDMBA),
-        loss=metrics.MSELossWithBPPEstimation(),
+        loss=metrics.RateDistortionLoss(lmbda=p.RATE_DISTORTION_LDMBA),
+        # loss=metrics.MSELossWithBPPEstimation(),
         lr=p.LR,
         model_type=models.ModelType.CONV_1D_AND_2D_WITH_HYPERPRIOR)
 

@@ -5,12 +5,14 @@ LR = 5e-5
 LR_HYPERPRIOR = 1e-6
 # Specific optimizer parameters
 WEIGHT_DECAY = 0
-DUAL_MSE_LOSS_LMBDA = 0.5
-RATE_DISTORTION_LDMBA = 5
+DUAL_MSE_LOSS_LMBDA = 1.0
+RATE_DISTORTION_LDMBA = 0.1
 # Early stopping is only implemented for FastCombinedModel
-USE_EARLY_STOPPING = False
+USE_EARLY_STOPPING = True
 # Kernel size for conv2d model (only odd allowed)
-KERNEL_SIZE_CONV2D = 5
+KERNEL_SIZE_CONV2D = 3
+# Use a group per channel in the spatial autoencoder
+USE_GROUPS = True
 # Shuffle Data loaders? Should be false for debugging
 SHUFFLE_DATA_LOADER = True
 # Number of workers for data loaders

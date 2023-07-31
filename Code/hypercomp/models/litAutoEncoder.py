@@ -10,13 +10,14 @@ from .modelType import ModelType
 
 class LitAutoEncoder(pl.LightningModule):
 
-    def __init__(self, model: torch.nn.Module, lr: float, loss=torch.nn.MSELoss(), model_type: ModelType = ModelType.OTHER, weight_decay=p.WEIGHT_DECAY, dual_mse_loss_lambda=p.DUAL_MSE_LOSS_LMBDA, rate_distortion_ldmba=p.RATE_DISTORTION_LDMBA, shuffle_dataloader=p.SHUFFLE_DATA_LOADER) -> None:
+    def __init__(self, model: torch.nn.Module, lr: float, loss=torch.nn.MSELoss(), model_type: ModelType = ModelType.OTHER, weight_decay=p.WEIGHT_DECAY, dual_mse_loss_lambda=p.DUAL_MSE_LOSS_LMBDA, rate_distortion_ldmba=p.RATE_DISTORTION_LDMBA, shuffle_dataloader=p.SHUFFLE_DATA_LOADER, log_all_imgs: bool = False) -> None:
         super().__init__()
         self.save_hyperparameters(ignore=['model', 'loss'])
         self.autoencoder = model
         self.loss = loss
         self.lr = lr
         self.model_type = model_type
+        self.log_all_imgs = log_all_imgs
 
     def forward(self, x):
         return self.autoencoder(x)
@@ -130,7 +131,28 @@ class LitAutoEncoder(pl.LightningModule):
         self.log(f"{prefix}_metrics/spectral angle",
                  spectral_angle_val, prog_bar=False)
         # Only log image once every epoch
-        if batch_idx > 50 and batch_idx < 55:
+        if self.log_all_imgs:
+            inner_latent = self.autoencoder.encode(x)
+            interesting_ids = [(35, 0), (87, 0), (68, 0), (7, 0), (43, 0),
+                               (8, 0), (40, 0), (100, 0), (77, 0), (5, 0), (131, 0), (147, 0)]
+            for id in range(len(x)):
+                complete_id = (batch_idx, id)
+                if complete_id in interesting_ids:
+                    img = x[id]
+                    img_hat = x_hat[id]
+                    outer_latent = latent_image[id]
+                    outer_latent_hat = x_hat_inner[id]
+                    inner_latent_img = inner_latent[id]
+                    self.logger.log_image(
+                        key=f"{prefix}_img/sample_{batch_idx}_{id}", images=[
+                            convertVNIRImageToRGB(img), convertVNIRImageToRGB(img_hat)])
+                    self.logger.log_image(
+                        key=f"{prefix}_outerlatent/sample_{batch_idx}_{id}", images=list(outer_latent.cpu().detach().numpy()))
+                    self.logger.log_image(
+                        key=f"{prefix}_outerlatent_hat/sample_{batch_idx}_{id}", images=list(outer_latent_hat.cpu().detach().numpy()))
+                    self.logger.log_image(
+                        key=f"{prefix}_innerlatent/sample_{batch_idx}_{id}", images=list(inner_latent_img.cpu().detach().numpy()))
+        elif batch_idx > 50 and batch_idx < 55:
             img = x[0]
             img_hat = x_hat[0]
             # Log rgb version of an image

@@ -26,3 +26,8 @@ class CombinedModel(torch.nn.Module):
         x_hat_inner = self.inner_autoencoder(latent_image)
         x_hat = self.outer_decoder(flatten_spacial_dims(x_hat_inner))
         return x_hat, x_hat_inner, latent_image
+
+    def encode(self, x):
+        latent_image = unflatten_and_split_apart_batches(self.outer_encoder(x))
+        inner_latent = self.inner_autoencoder.encoder(latent_image)
+        return inner_latent
