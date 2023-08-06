@@ -27,9 +27,12 @@ citestyle=numeric-comp
 % set path where images are stored
 \usepackage{csquotes}
 \usepackage{scrhack}
+\usepackage{gensymb}
 \graphicspath{{./img/}}
 \addto\extrasenglish{
   \renewcommand{\chapterautorefname}{Chapter}
+  \renewcommand{\sectionautorefname}{Section}
+  \renewcommand{\subsectionautorefname}{Subsection}
 }
 \usepackage{tikz}
 \usepackage{pgfplots}
@@ -50,7 +53,7 @@ citestyle=numeric-comp
 \fancyhead[LO,RE]{\nouppercase{\leftmark}}
 \renewcommand{\footrulewidth}{1pt}
 \usepackage{acro}
-\acsetup{pages/display=all, uppercase/list, barriers/use=true, barriers/reset=true}
+\acsetup{uppercase/list, barriers/use=true, barriers/reset=true}
 \input{./misc/acronyms}
 \begin{document}
 % ---------------------------------------------------------------

@@ -4,7 +4,7 @@
 \begin{figure}[t]
 \centering
 \includegraphics[scale=0.8]{CNN.pdf}
-\caption{Example of a \ac{twod} convolutional layer computing a feature pixel.}
+\caption[Example of convolutional layer]{Example of a \ac{twod} convolutional layer computing a feature pixel.}
 \label{fig:cnn}
 \end{figure}
 
@@ -45,7 +45,7 @@ The hyperprior architecture was first proposed in Ballé et.al. \citep{balle_var
 \begin{figure}
 \centering
 \includegraphics[scale=0.16]{Hyperprior.pdf}
-\caption{Architecture of the variational scale hyperprior model proposed in \citep{balle_variational_2018}.}
+\caption[Scale hyperprior architecture]{Architecture of the variational scale hyperprior model proposed in \citep{balle_variational_2018}.}
 \label{fig:hyperprior}
 \end{figure}
 
@@ -54,7 +54,7 @@ The hyperprior architecture attempts to solve this problem by transmitting infor
 \begin{figure}
 \centering
 \includegraphics[scale=1]{MaskedConv.pdf}
-\caption{Example of a kernel for a \ac{twod} masked convolutional layer. The pixels to the bottom and right of the current pixel are not used. The current pixel is marked bold.}
+\caption[Example of masked convolutional layer]{Example of a kernel for a \ac{twod} masked convolutional layer. The pixels to the bottom and right of the current pixel are not used. The current pixel is marked bold.}
 \label{fig:maskedconv}
 \end{figure}
 
@@ -63,6 +63,6 @@ A further improvement to the hyperprior model was proposed in Minnen et.al. \cit
 \begin{figure}
 \centering
 \includegraphics[scale=0.16]{Hyperprior_CM.pdf}
-\caption{Hyperprior model using an autoregressive context model proposed in \citep{minnen_joint_2018}}
+\caption[Joint hyperprior architecture]{Hyperprior model using an autoregressive context model proposed in \citep{minnen_joint_2018}}
 \label{fig:hyperpriorcm}
 \end{figure}
