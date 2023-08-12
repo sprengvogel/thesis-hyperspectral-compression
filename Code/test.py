@@ -12,7 +12,8 @@ def createFastCombinedModel(bottleneck_size: int):
     onedmodel = models.Fast1DConvModel(
         nChannels=p.CHANNELS, bottleneck_size=bottleneck_size, H=128, W=128)
     return models.FastCombinedModel(
-        nChannels=p.CHANNELS, bottleneck_size=bottleneck_size, H=128, W=128, kernel_size=p.KERNEL_SIZE_CONV2D, outerModel=onedmodel)
+        nChannels=p.CHANNELS, bottleneck_size=bottleneck_size, H=128, W=128, kernel_size=p.KERNEL_SIZE_CONV2D,
+        outerModel=onedmodel, use_groups=p.USE_GROUPS)
 
 
 def createCombinedModel(num_poolings: int, inner_channels: int):
@@ -27,9 +28,9 @@ dataset = data.HySpecNet11k(
 dataloader = data.dataLoader(dataset, shuffle=False)
 run = wandb.init(project="MastersThesis")
 artifact = run.use_artifact(
-    "niklas-sprengel/MastersThesis/model-10amsm19:v0", type='model')
+    "niklas-sprengel/MastersThesis/model-hr5kb3vh:v0", type='model')
 artifact_dir = artifact.download()
-model = createFastCombinedModel(6)
+model = createFastCombinedModel(13)
 # model = createCombinedModel(4, 13)
 loaded_model = models.LitAutoEncoder.load_from_checkpoint(
     artifact_dir+"/model.ckpt", model=model, loss=metrics.DualMSELoss(lmbda=p.DUAL_MSE_LOSS_LMBDA), log_all_imgs=True)

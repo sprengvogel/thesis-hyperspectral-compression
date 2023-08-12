@@ -70,10 +70,10 @@ class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
         self.h_a = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
-            conv3x3(N, N, stride=2),  # Extra
-            nn.LeakyReLU(inplace=True),  # Extra
+            # conv3x3(N, N, stride=2),  # Extra
+            # nn.LeakyReLU(inplace=True),  # Extra
             # conv3x3(N, N),
-            conv3x3(N, N, stride=2),  # Extra
+            conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
             conv3x3(N, N, stride=2),
             nn.LeakyReLU(inplace=True),
@@ -86,12 +86,12 @@ class Cheng2020Anchor(JointAutoregressiveHierarchicalPriors):
         self.h_s = nn.Sequential(
             conv3x3(N, N),
             nn.LeakyReLU(inplace=True),
-            subpel_conv3x3(N, N, 2),  # Extra
-            nn.LeakyReLU(inplace=True),  # Extra
+            # subpel_conv3x3(N, N, 2),  # Extra
+            # nn.LeakyReLU(inplace=True),  # Extra
             subpel_conv3x3(N, N, 2),
             nn.LeakyReLU(inplace=True),
             # conv3x3(N, N * 3 // 2),
-            subpel_conv3x3(N, N * 3 // 2, 2),  # Extra
+            subpel_conv3x3(N, N * 3 // 2),
             nn.LeakyReLU(inplace=True),
             subpel_conv3x3(N * 3 // 2, N * 3 // 2, 2),
             nn.LeakyReLU(inplace=True),
@@ -136,32 +136,34 @@ class Cheng2020Attention(Cheng2020Anchor):
         super().__init__(N=N, **kwargs)
 
         self.g_a = nn.Sequential(
-            ResidualBlock(in_channels, N),  # Extra
-            # ResidualBlockWithStride(in_channels, N, stride=2),
+            # ResidualBlock(in_channels, N),  # Extra
+            ResidualBlockWithStride(in_channels, N, stride=2),
             ResidualBlock(N, N),  # Extra
             # ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
             AttentionBlock(N),
-            ResidualBlock(N, N),  # Extra
-            # ResidualBlockWithStride(N, N, stride=2),
+            # ResidualBlock(N, N),  # Extra
+            ResidualBlockWithStride(N, N, stride=2),
             ResidualBlock(N, N),
             ResidualBlock(N, N),
             conv3x3(N, N, stride=2),
+            # conv3x3(N, N),
             AttentionBlock(N),
         )
 
         self.g_s = nn.Sequential(
             AttentionBlock(N),
             ResidualBlock(N, N),
-            ResidualBlock(N, N),  # Extra
-            # ResidualBlockUpsample(N, N, 2),
+            # ResidualBlock(N, N),  # Extra
+            ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),  # Extra
             # ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
             AttentionBlock(N),
-            ResidualBlock(N, N),  # Extra
-            # ResidualBlockUpsample(N, N, 2),
+            # ResidualBlock(N, N),  # Extra
+            ResidualBlockUpsample(N, N, 2),
             ResidualBlock(N, N),
             ResidualBlock(N, N),
             subpel_conv3x3(N, in_channels, 2),
+            # subpel_conv3x3(N, in_channels),
         )
