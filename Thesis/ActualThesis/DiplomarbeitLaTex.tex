@@ -39,6 +39,8 @@ citestyle=numeric-comp
 \usepackage{pgfplotstable}
 \pgfplotsset{compat=1.9}
 \usepackage{subcaption}
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 %\input{./misc/hyphenation} 					% use this file to set explicit hyphenations (doesn't seem to work correctly)
 \addbibresource{./bib/references.bib}
 
@@ -54,6 +56,7 @@ citestyle=numeric-comp
 \renewcommand{\footrulewidth}{1pt}
 \usepackage{acro}
 \acsetup{uppercase/list, barriers/use=true, barriers/reset=true}
+\usepackage{microtype} % Macht Umbrechungen in references besser
 \input{./misc/acronyms}
 \begin{document}
 % ---------------------------------------------------------------
@@ -64,7 +67,11 @@ citestyle=numeric-comp
     
     \input{./misc/self-assertion_de} 
     \thispagestyle{fancy}
+    \clearpage
     
+    \input{./misc/abstract_de}
+    \thispagestyle{fancy}
+    \clearpage
     \input{./misc/abstract}
     \thispagestyle{fancy}
     \clearpage
@@ -108,7 +115,7 @@ citestyle=numeric-comp
     \thispagestyle{fancy}
 
 % ---------------------------------------------------------------
-\backmatter % no page numbering from here
+%\backmatter % no page numbering from here
     
 		
 		% if you want to provide a glossary with explanations of important terms put it in here
