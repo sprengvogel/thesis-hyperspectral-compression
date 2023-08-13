@@ -55,7 +55,7 @@ citestyle=numeric-comp
 \fancyhead[LO,RE]{\nouppercase{\leftmark}}
 \renewcommand{\footrulewidth}{1pt}
 \usepackage{acro}
-\acsetup{uppercase/list, barriers/use=true, barriers/reset=true}
+\acsetup{uppercase/list, barriers/use=true, barriers/reset=false}
 \usepackage{microtype} % Macht Umbrechungen in references besser
 \input{./misc/acronyms}
 \begin{document}
@@ -69,10 +69,10 @@ citestyle=numeric-comp
     \thispagestyle{fancy}
     \clearpage
     
-    \input{./misc/abstract_de}
+    \input{./misc/abstract}
     \thispagestyle{fancy}
     \clearpage
-    \input{./misc/abstract}
+    \input{./misc/abstract_de}
     \thispagestyle{fancy}
     \clearpage
     
