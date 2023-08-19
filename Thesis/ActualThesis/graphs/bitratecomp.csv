@@ -43,9 +43,11 @@ JPEG2000;49.242;;1.77;;;;8;
 FastCombinedLatent3-AF;38.982;3;0.118811881;FastCombined;;;9;
 FastCombinedLatent6-AF;42.352;6;0.237623763;FastCombined;;;9;
 FastCombinedLatent13-AF;44.59;13;0.514851485;FastCombined;;;9;
+FastCombinedLatent26-AF;43.738;26;1.02970297;FastCombined;;;9;
 FastCombinedLatent3-EF;39.573;3;0.118811881;FastCombined;;;10;
 FastCombinedLatent6-EF;42.159;6;0.237623763;FastCombined;;;10;
 FastCombinedLatent13-EF;44.413;13;0.514851485;FastCombined;;;10;
+FastCombinedLatent26-EF;44.083;26;1.02970297;FastCombined;;;10;
 CombinedWithAttentionSingleDatapoint;43.645;;0.0176;;;;11;0.05
 Conv2D;35.734;13;0.514851485;Conv2D;;;12;
 VAE;20.26947975;26;1.02970297;VAE;;;13;
