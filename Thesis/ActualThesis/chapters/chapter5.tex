@@ -26,8 +26,8 @@ We parametrize the rate-distortion trade-off with the Lagrange multiplier $\varp
 However, this formulation does not include the hyperprior network that learns and transmits side information about the entropy model $p_{\hat{y}}$. In order to incorporate the hyperprior into the \ac{rd} loss function, we need to add an additional term to capture the bitrate for the transmitted side information. The final loss function is then defined as follows:
 \begin{align}
 R + \varphi \cdot D &= \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\lfloor f(x)\rceil)]}_\text{rate (main latents)} + 
-\underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{z}}(\lfloor f_h(f(x))\rceil)]}_\text{rate (hyper-latents)}\\ 
-&\qquad\qquad\qquad\qquad\qquad\quad\:\: + \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [\Vert x - g(\lfloor f(x)\rceil))\Vert^2_2]}_\text{distortion}.\\
+\underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{z}}(\lfloor f_h(f(x))\rceil)]}_\text{rate (hyper-latents)} \nonumber\\
+&\qquad\qquad\qquad\qquad\qquad\quad\:\: + \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [\Vert x - g(\lfloor f(x)\rceil))\Vert^2_2]}_\text{distortion}.\nonumber\\
 &=\underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\hat{y})]}_\text{rate (main latents)} + 
 \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{z}}(\hat{z})]}_\text{rate (hyper-latents)} + \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [\Vert x - \hat{x}\Vert^2_2]}_\text{distortion}
 \end{align}
@@ -59,6 +59,7 @@ While \ac{psnr} is a commonly used metric in lossy learning-based hyperspectral 
 For this we use the spectral angle. It is computed by calculating the angle between the spectra of the input image and the reconstruction for each pixel using the \ac{sam} algorithm \citep{kruse_spectral_1993}. The computed angles are then averaged to compute the metric for a given input image and reconstruction. Using the combination of \ac{psnr} and spectral angle we can compare different models with regard to spatial and spectral reconstruction accuracy.
 \begin{table}
 \centering
+\caption{Acronyms for commonly used models in this section.}
 \begin{tabularx}{\textwidth}{|L|L|}
 \hline
 Model Name & Description \\
@@ -80,7 +81,6 @@ CombinedWithAttention & Combined Model using Conv1D as the spectral part and Att
 Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
 \hline
 \end{tabularx}
-\caption{Shortnames for models}
 \label{fig:shortnames}
 \end{table}
 \section{Impact of Hughes Phenomenon \label{sec:ch5hughes}}
@@ -96,8 +96,8 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     xtick=data,
     xticklabels from table={\datatable}{dsfactor},
     legend style={at={(0.98,0.3)},anchor=south east},
-    ylabel={Psnr},
-    xlabel={Division factor for dataset}]
+    ylabel={PSNR (dB)},
+    xlabel={Division Factor for Dataset}]
     
     \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_psnr}]{\datatable};
     \addlegendentry{FastConv}
@@ -106,7 +106,7 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     \addlegendentry{FastCombined}
 \end{semilogxaxis}
 \end{tikzpicture}
-\caption{Hughes Phenomenon combined vs fast combined}
+\caption{This graph shows the PSNR for the model FastConv and FastCombined (see \autoref{fig:shortnames}) for different subsections of the dataset. Only training and validation set sizes were reduced, all models were evaluated on the full test set.}
 \label{fig:hughes}
 \end{figure}
 
@@ -122,8 +122,8 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     xtick=data,
     xticklabels from table={\datatable}{dsfactor},
     legend style={at={(0.98,0.3)},anchor=south east},
-    ylabel={Spectral Angle},
-    xlabel={Division factor for dataset}]
+    ylabel={Spectral Angle (\degree)},
+    xlabel={Division Factor for Dataset}]
     
     \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_sangle}]{\datatable};
     \addlegendentry{FastConv}
@@ -132,7 +132,7 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     \addlegendentry{FastCombined}
 \end{semilogxaxis}
 \end{tikzpicture}
-\caption{Hughes Phenomenon combined vs fast combined}
+\caption{This graph shows the spectral angle for the model FastConv and FastCombined (see \autoref{fig:shortnames}) for different subsections of the dataset. Only training and validation set sizes were reduced, all models were evaluated on the full test set.}
 \label{fig:hughesangle}
 \end{figure}
 
@@ -154,7 +154,7 @@ As seen in \autoref{fig:hughes} and \autoref{fig:hughesangle}, the models perfor
 	    %legend to name={dualmselegend},
 	    xtick={0,0.1,...,1},
 	    ytick={20,25,30,35,40,45},
-	    ylabel={Psnr (dB)},
+	    ylabel={PSNR (dB)},
 	    xlabel={Dual MSE $\lambda$}]
 	    
 	    \addplot table [x={lmbda}, y={psnr_test}, 
@@ -178,7 +178,7 @@ As seen in \autoref{fig:hughes} and \autoref{fig:hughesangle}, the models perfor
 	    \addlegendentry{FastCombined-NothingFrozen}
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Dual MSE lambda plot}
+	\caption{This graph shows the PSNR for different values of the parameter $\lambda$ for the \ac{dualmse} loss function.}
 	\label{fig:dualmselosspsnr}
 	\end{figure}
 For this experiment shown in \autoref{fig:dualmselosspsnr} we tested multiple different values for $\lambda$ in the \ac{dualmse} loss. The spectral angle values for this experiment are shown in \autoref{fig:dualmselossangle} in the appendix, as it shows similar results to \autoref{fig:dualmselosspsnr}. Multiple variations of the Combined Model were tested in this way. All models in this experiment were trained by first pretraining the spectral autoencoder for 70 epochs and then training the complete Combined Model for 50 epochs. Furthermore all models had a spectral downsampling factor of 16 and a spatial downsampling factor of 4, resulting in a total compression ratio of 64 or a bitrate of 0.5 \ac{bpppc}.
@@ -216,7 +216,7 @@ However, with the exception of $\lambda=0$ for the model where only the encoder 
 	    \addlegendentry{FastCombined-NothingFrozen}
 	\end{semilogyaxis}
 	\end{tikzpicture}
-	\caption{Inner mse plot}
+	\caption{This graph shows the Inner MSE Loss for different values of the parameter $\lambda$ for the \ac{dualmse} loss function. Inner MSE Loss is the MSE between the output of the spectral encoder and the reconstruction of that latent from the spatial autoencoder in the Combined Model.}
 	\label{fig:inner_mse}
 	\end{figure}
 
@@ -225,7 +225,7 @@ However, while the usage of the \ac{dualmse} loss does not have a strong effect 
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{img/latents_2.png}
-\caption{Latent image comparison}
+\caption{This image shows four of the 13 channels in the latent representation of an image from the HySpecNet-11k dataset for the model FastCombined-AllFrozen for the values 1 and 0.7 for the parameter $\lambda$ of the \ac{dualmse} loss function. The input is on the left. Below it is the latent produced by the spectral encoder, which is shared by both models. Following are, in order, the inner latent produced by the spectral encoder for $\lambda=1$, and for  $\lambda=0.7$, the reconstruction of the latent produced by the spatial decoder for $\lambda=1$ and for $\lambda=0.7$. The full image reconstructions are shown on the bottom.}
 \label{fig:latentcompare}
 \end{figure}
 
@@ -238,9 +238,10 @@ However, while the usage of the \ac{dualmse} loss does not have a strong effect 
 
 The best performing model for this experiment was \textbf{FastCombined-EncoderFrozen} with $\lambda=0.5$ with a \ac{psnr} of 45.50 dB and a spectral angle of $3.06 \degree$. The second best model was \textbf{FastCombined-AllFrozen} with $\lambda=0.7$ with a \ac{psnr} of 45.31 and a spectral angle of $3.22 \degree$.
 
-\section{Analysis of Models Using Hyperprior-based Spatial Compression\label{sec:ch5hyperprior}}
+\section[Analysis of Hyperprior-based Models]{Analysis of Models Using Hyperprior-based Spatial Compression\label{sec:ch5hyperprior}}
 \begin{table}
 \centering
+\caption{Comparison of hyperprior-based models. F is the spatial compression/decompression factor in the main encoder/decoder pair.}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 Model & F & Loss &$\varphi$ & bpppc & PSNR (dB) & Spectral Angle ($\degree$) \\
@@ -282,7 +283,6 @@ Attention-Based (\citep{cheng_learned_2020}) & 256 & RD & 0.1 & 0.0012 & 33.92 &
 Scale Hyperprior (\citep{balle_variational_2018}) & 256 & RD & 0.1 & 0.010 & 20.92 & 24.765 \\
 \hline
 \end{tabular}
-\caption{Comparison of hyperprior models}
 \label{fig:hyperpriorcomp}
 \end{table}
 
@@ -296,9 +296,10 @@ The results of the experiments showed that the model \textbf{CombinedWithAttenti
 
 Additionally, we performed an experiment to test the effect of the quantization step on distortion in the reconstruction in hyperprior-based compression models. \textbf{CombinedWithoutQuant} uses the same main autoencoder as the model \textbf{CombinedWithAttention}. However, it does not use an arithmetic coder or a hyperprior autoencoder in general. Additionally, it does not perform the quantization necessary for a hyperprior model. We compare this model with \textbf{CombinedWithAttention} also using F=4, trained with \ac{mse} loss. Since the model does not optimize for bitrate in this case and the arithmetic coder is lossless, the only difference between these models pertaining to distortion is the quantization step. \textbf{CombinedWithoutQuant} achieves a \ac{psnr} of 48.01 dB which is an improvement of 5.58 dB over the other model. This shows that the quantization step does increase distortion of hyperprior-based models significantly.
 
-\section{Analysis of Kernel size change in 2D CNN-based spatial autoencoder}
+\section[Analysis of Kernel Size Change]{Analysis of Kernel Size Change in 2D CNN-based Spatial Autoencoder}
 \begin{table}
 \centering
+\caption{Comparison of different kernel sizes for the spatial autoencoder and per-channel spatial autoencoder with the baseline model. For all models the spectral encoder is frozen after pretraining and $\lambda = 0.5$.}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Kernel Size & Per Channel? & PSNR (dB) & Spectral Angle ($\degree$) \\
@@ -312,13 +313,12 @@ Kernel Size & Per Channel? & PSNR (dB) & Spectral Angle ($\degree$) \\
 3 & Yes & 42.33 & 3.30 \\
 \hline
 \end{tabular}
-\caption{Comparison of different kernel sizes for the spatial autoencoder and per-channel spatial autoencoder with the baseline model. For all models the spectral encoder is frozen after pretraining and $\lambda = 0.5$}
 \label{fig:kernelgroups}
 \end{table}
 
 To improve the amount of spatial dependencies exploited by the \ac{twod} \ac{cnn}-based spatial autoencoder as part of the Combined Model, we experimented with changing the kernel sizes of the convolutional layers of the spatial autoencoder from three to the higher values five and seven. These experiments were performed using the model \textbf{FastCombined-EncoderFrozen} with $\lambda=0.5$. However, as seen in \autoref{fig:kernelgroups}, this did not improve either \ac{psnr} or spectral angle. The highest metrics were achieved by the base model using a kernel size of three with 45.50 dB and a spectral angle of $3.06 \degree$. The model using a kernel size of five achieved a lower \ac{psnr} of 43.72 dB and a higher spectral angle of $3.30 \degree$, the model using kernel size of seven resulted in the lowest ac{psnr} of 42.59 dB and the lowest spectral angle with $3.58 \degree$. We therefore conclude that a low kernel size of three is optimal for the \ac{cnn}-based spatial autoencoder.
 
-\section{Analysis of Per-Channel 2D CNN-based spatial autoencoder}
+\section[Analysis of Per-Channel Autoencoder]{Analysis of Per-Channel 2D CNN-based Spatial Autoencoder}
 On the HySpecNet-11k dataset, the \ac{jpeg} 2000 baseline performed surprisingly well. \Ac{jpeg} 2000 is executed per channel, therefore performing only spatial compression on 202 single-channel images. However, the \ac{twod} \ac{cnn}-based spatial autoencoder uses the same filters to compress all channels in the bottleneck of the spectral autoencoder. We theorized that the differences between the latent channels might be too large to be appropriately captured using the same filters. 
 
 To test this thesis, we modified the \ac{twod} \ac{cnn}-based spatial autoencoder to use a separate set of filters for each channel in the latent. Since this multiplies the number of parameters by the number of latent channels, we reduced the number of filters per channel. For the layers which originally had 256 filters, the modified model only uses 32 filters. For the layers that originally had 512 filters, the modified model uses 64 filters. The reduction in the number of filters is not only appropriate to reduce the number of parameters for the model, it follows also from the fact that less parameters are required for a convolutional layer that captures dependencies for a single channel than a convolutional layer that captures dependencies for multiple channel simultaneously. In total, the number of parameters in the spatial encoder after the reduction in the number of filters rises by 49.3 \% from 50,849,818 to 75,928,346 parameters. We tested the modified model using the model \textbf{FastCombined-EncoderFrozen} with $\lambda=0.5$. However, the modification did not significantly change the performance of the Combined Model with regard to the metrics \ac{psnr} or the spectral angle as seen in \autoref{fig:kernelgroups}. 
@@ -341,11 +341,11 @@ To test this thesis, we modified the \ac{twod} \ac{cnn}-based spatial autoencode
     legend columns=3,
     legend style={at={(0.5,-0.2)},anchor=north},
     %legend to name={bitratecomplegend},
-    ylabel={Psnr},
-    xlabel={Bits per pixel per channel},
+    ylabel={PSNR (dB)},
+    xlabel={Bits per Pixel per Channel},
 	cycle list name=color list,
 	log basis x = 10,
-	every axis plot/.append style={mark=o, very thick} % set options for all plots]
+	every axis plot/.append style={mark=o} % set options for all plots]
 	]
     
     \addplot+ table [x={bpppc}, y={psnr}, 
@@ -400,7 +400,7 @@ To test this thesis, we modified the \ac{twod} \ac{cnn}-based spatial autoencode
 \end{semilogxaxis}
 \end{tikzpicture}
 %\ref{bitratecomplegend}
-\caption{Rate distortion plot}
+\caption{Rate distortion plot showing PSNR for different bitrates for multiple model types.}
 \label{fig:ratedistortion}
 \end{figure}
 

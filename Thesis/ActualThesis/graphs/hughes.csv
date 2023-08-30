@@ -1,4 +1,4 @@
-﻿dsfactor;dssize;fastconv_psnr;fastconv_sangle;fastcombined_psnr;fastcombined_sangle
+dsfactor;dssize;fastconv_psnr;fastconv_sangle;fastcombined_psnr;fastcombined_sangle
 1;11483;44.821;3.108;41.492;3.699
 2;5742;41.173;4.456;41.527;4.633
 4;2871;41.017;5.112;39.427;5.279
@@ -9,3 +9,4 @@
 128;90;29.002;19.995;28.179;20.097
 256;45;27.782;20.962;27.408;20.787
 512;21;25.607;21.222;24.57;20.982
+
