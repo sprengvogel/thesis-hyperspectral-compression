@@ -1,14 +1,14 @@
 \chapter{Theoretical Foundations\label{cha:chapter3}}
-This thesis employs multiple different types of machine learning and compression methods, such as \acp{cnn}, self-attention modules, arithmetic coders and the hyperprior architecture. The following sections briefly explain the foundations of these topics in order to aid the understanding of the models proposed in this thesis.
+This thesis employs multiple different types of deep learning and compression methods, such as \acp{cnn}, self-attention modules, arithmetic coders and the hyperprior architecture. The following sections briefly explain the foundations of these topics in order to aid the understanding of the models proposed in this thesis.
 \section{Convolutional Neural Networks}
 \begin{figure}[t]
 \centering
 \includegraphics[scale=0.8]{CNN.pdf}
-\caption[Example of convolutional layer]{Example of a \ac{twod} convolutional layer computing a feature pixel.}
+\caption[Example of Convolutional Layer]{Example of a \ac{twod} convolutional layer computing a feature pixel.}
 \label{fig:cnn}
 \end{figure}
 
-\Acp{cnn} are a type of \ac{ann}, distinguished from other \acp{ann} by the fact that they use convolutional layers as part of their architecture \citep{oshea_introduction_2015}. They were originally designed for image classification, which remains one of the main applications for \acp{cnn} \citep{gu_recent_2018}. However, \acp{cnn} are also used in other fields of machine learning such as \ac{nlp}. The most common type of \ac{cnn} in the field of computer vision uses \ac{twod} convolutional layers in combination with subsampling or pooling layers and activation functions to learn features of an input image. 
+\Acp{cnn} are a type of \ac{ann}, distinguished from other \acp{ann} by the fact that they use convolutional layers as part of their architecture \citep{oshea_introduction_2015}. They were originally designed for image classification, which remains one of the main applications for \acp{cnn} \citep{gu_recent_2018}. However, \acp{cnn} are also used in other fields of machine learning such as \ac{nlp}. The most common type of \ac{cnn} in the field of computer vision uses \ac{twod} convolutional layers in combination with downsampling or pooling layers and activation functions to learn features of an input image. 
 
 A \ac{twod} convolutional layer takes a \ac{twod} image-like input and produces a given number of features each represented as a \ac{twod} matrix \citep{gu_recent_2018}. These features are computed for a given pixel by convolving the neighbourhood of this pixel with a kernel, which is shown in \autoref{fig:cnn}. These kernels are comprised of the weights of the convolutional layer and are therefore learned using gradient descent. A pooling layer is then used to reduce the spatial dimensionality of the input. Such a combination of a convolutional and a pooling layer can be repeated multiple times since the output of both the convolutional layer and most pooling layers are again image-like and can be used as input to additional such layers. Between sets of convolutional and pooling layers nonlinear activation functions are applied in order for the network to be able to learn nonlinear features. The combination of multiple sets of convolutional and pooling layers is central to learning-based image compression and is used in a multitude of the proposed models \citep{balle_end--end_2017,balle_variational_2018,kuester_1d-convolutional_2021,kuester_transferability_2022,guo_learned_2021}.
 
@@ -16,7 +16,7 @@ Compared to other neural network architectures such as \acp{mlp}, \acp{cnn} have
 
 In addition to the \ac{twod} convolutional layer, there are other variations of convolutional layers that are useful, in particular for analysing hyperspectral image data. Firstly, one can define a \ac{oned} convolutional layer, which differs from the \ac{twod} layer in that the kernel moves only in a single dimension. In hyperspectral image analysis, this can be used to learn spectral information, since this information is \ac{oned} \citep{kuester_1d-convolutional_2021,kuester_transferability_2022}. Similarly, \ac{threed} convolutional layers can be defined by using a \ac{threed} cube-shaped kernel. In hyperspectral image processing, this type of layer can be used to learn features of the spatial and spectral domain within a single layer \citep{guo_learned_2021}.
 
-\section{Self-Attention modules}
+\section{Self-Attention Modules}
 The self-attention mechanism is a technique that is widely used in the field of \ac{nlp}. For example, Vaswani et.al. \citep{vaswani_attention_2017} used it as the main part of their proposed transformer architecture which outperformed other machine-learning approaches in various \ac{nlp} tasks at the time, such as language translation. The mechanism aims to compute a latent representation of an input sequence by learning to relate the elements of the input sequence to each other. While a \ac{cnn} can also achieve this, in a \ac{cnn} only elements close to one another are used to compute the latent representation. Using self-attention, the relation of all elements with all other elements can be incorporated, enabling learning of long-distance dependencies \citep{vaswani_attention_2017}.
 
 In recent years, self-attention modules have also been used in computer vision. In image compression for example, self-attention modules can be used in order to enable the neural network to focus on the more complex parts of the input image and subsequently use fewer bits for the compression of the less complex parts of the input, improving the overall compression\citep{cheng_learned_2020, liu_non-local_2019}. 
@@ -28,7 +28,7 @@ Arithmetic coding is an algorithm used for entropy coding, that being a techniqu
 \begin{figure}
 \centering
 \includegraphics[scale=1]{ArithmeticCoding.pdf}
-\caption{Arithmetic coding process of the character sequence "ABAC".}
+\caption{Arithmetic Coding Process of the Character Sequence "ABAC".}
 \label{fig:arithmetic}
 \end{figure}
 
@@ -45,7 +45,7 @@ The hyperprior architecture was first proposed by Ballé et al. \citep{balle_var
 \begin{figure}
 \centering
 \includegraphics[scale=0.16]{Hyperprior.pdf}
-\caption[Scale hyperprior architecture]{Architecture of the variational scale hyperprior model proposed in \citep{balle_variational_2018}.}
+\caption[Scale Hyperprior Architecture]{Architecture of the variational scale hyperprior model proposed in \citep{balle_variational_2018}.}
 \label{fig:hyperprior}
 \end{figure}
 
@@ -54,7 +54,7 @@ The hyperprior architecture attempts to solve this problem by transmitting infor
 \begin{figure}
 \centering
 \includegraphics[scale=1]{MaskedConv.pdf}
-\caption[Example of masked convolutional layer]{Example of a kernel for a \ac{twod} masked convolutional layer. The pixels to the bottom and right of the current pixel are not used. The current pixel is marked bold.}
+\caption[Example of Masked Convolutional Layer]{Example of a kernel for a \ac{twod} masked convolutional layer. The pixels to the bottom and right of the current pixel are not used. The current pixel is marked bold.}
 \label{fig:maskedconv}
 \end{figure}
 
@@ -63,6 +63,6 @@ A further improvement to the hyperprior model was proposed by Minnen et al. \cit
 \begin{figure}
 \centering
 \includegraphics[scale=0.16]{Hyperprior_CM.pdf}
-\caption[Joint hyperprior architecture]{Hyperprior model using an autoregressive context model proposed in \citep{minnen_joint_2018}.}
+\caption[Joint Hyperprior Architecture]{Hyperprior model using an autoregressive context model proposed in \citep{minnen_joint_2018}.}
 \label{fig:hyperpriorcm}
 \end{figure}

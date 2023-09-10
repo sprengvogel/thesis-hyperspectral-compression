@@ -1,11 +1,11 @@
 \chapter{Experiments\label{cha:chapter5}}
 The chapter provides a detailed analysis of the models proposed in \autoref{cha:chapter4}. It also introduces a novel loss function, \ac{dualmse} loss, as well as a training procedure optimized for the \ac{mymodel} architecture. All learning-based compression methods explored in this thesis use a set of hyper-parameters to determine different aspects of the model and its training process. Most of these hyper-parameters are specific to a model or an experiment and are therefore noted in the experiments they employed in. However, some hyper-parameters are equal for all experiments. In all experiments, the chosen optimizer is the Adam optimizer with $\beta_1=0.9$ and $\beta_2=0.999$. The learning rate is set to $0.5 \cdot 10^{-5}$ for most experiments. If a different learning rate is used for an experiment, it is noted explicitly.
 
-\section{Description of the Data Set\label{sec:dataset}}
-The dataset used in this thesis is the HySpecNet-11k dataset proposed by Fuchs et al. \citep{fuchs_hyspecnet-11k_2023}. HySpecNet-11k is a hyperspectral benchmark dataset that consists of 11,483 image patches containing large-scale views of the surface of the earth. The image patches do not overlap which is advantageous for use in learning-based approaches as there are no duplicated image parts in the training set. The source data for the dataset uses 224 spectral bands and $128\times 128$ pixels spatially with a \ac{gsd} of 30 meters. However, we use the preprocessed version of the dataset which removes 20 spectral bands due to high water vapor absorption in those bands. We therefore only use 202 spectral bands. The image patches are of high quality because the tiles they were obtained from contain less than 10\% snow and cloud cover and were radiometrically, geometrically and atmospherically corrected \citep{fuchs_hyspecnet-11k_2023}. Furthermore, cropped patches at the borders of tiles were discarded, so each image patch contains information in all $128\times 128$ pixels. For splitting the dataset into training, validation and test sets we used the provided patch-wise splitting set. In this splitting set patches from the same tile can be present in different sets, unlike in the tile-wise splitting set. We did not perform experiments with the tile-wise splitting set as it is outside of the scope of this thesis. It is however a potential future research direction.
+\section{Description of the Dataset\label{sec:dataset}}
+The dataset used in this thesis is the HySpecNet-11k dataset proposed by Fuchs et al. \citep{fuchs_hyspecnet-11k_2023}. HySpecNet-11k is a hyperspectral benchmark dataset that consists of 11,483 image patches containing large-scale views of the surface of the earth. The patches were obtained from image tiles from the \ac{enmap} satellite mission \citep{guanter_enmap_2015}. The image patches do not overlap which is advantageous for use in learning-based approaches as there are no duplicated image parts in the training set. The source data for the dataset uses 224 spectral bands and $128\times 128$ pixels spatially with a \ac{gsd} of 30 meters. However, we use the preprocessed version of the dataset which removes spectral bands due to high water vapor absorption in those bands. We therefore only use 202 spectral bands. The image patches are of high quality because the tiles they were obtained from contain less than 10\% snow and cloud cover and were radiometrically, geometrically and atmospherically corrected \citep{fuchs_hyspecnet-11k_2023}. Furthermore, cropped patches at the borders of tiles were discarded, so each image patch contains information in all $128\times 128$ pixels. For splitting the dataset into training, validation and test sets we used the provided patch-wise splitting set. In this splitting set patches from the same tile can be present in different sets, unlike in the tile-wise splitting set. We did not perform experiments with the tile-wise splitting set as it is outside of the scope of this thesis. It is however a potential future research direction.
 
 \section{Loss Functions and Metrics}
-
+We use three different loss functions for the models in this thesis. Some models use the \ac{mse} loss function, which is commonly used in the domain of machine learning. However, to optimize the training process for the \ac{mymodel} architecture, we developed a novel loss function based on \ac{mse} loss named \ac{dualmse} loss for these models. In addition to this, the hyperprior-based models are designed to be trained using a \acf{rd} loss function which allows for changing the target bitrate by varying a hyperparameter.
 \subsection{MSE Loss}
 The \ac{mse} function is a common loss function used for training \acp{ann}. For the task of compressing a hyperspectral image it can be defined as follows:
 \begin{align}
@@ -19,13 +19,13 @@ In contrast to the purely \ac{cnn}-based models with a fixed compression rate fo
 
 To train a model using an arithmetic coder in the bottleneck with both a low distortion and a low bitrate, a different loss function is needed. The type of problem that arises is a rate-distortion optimization problem \citep{balle_variational_2018}. This problem can be parametrized in the following way \citep{minnen_joint_2018}:
 \begin{align}
-R + \varphi \cdot D = \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\lfloor f(x)\rceil)]}_\text{rate}+ \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [d(x,g(\lfloor f(x)\rceil))]}_\text{distortion}.
+L_{RD} = R + \varphi \cdot D = \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\lfloor f(x)\rceil)]}_\text{rate}+ \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [d(x,g(\lfloor f(x)\rceil))]}_\text{distortion}.
 \end{align}
 We parametrize the rate-distortion trade-off with the Lagrange multiplier $\varphi$. (We use $\varphi$ instead of the commonly used $\lambda$ to avoid confusion with the $\lambda$ of the \ac{dualmse} loss described in \autoref{sec:ch5dualmse}). $p_x$ is the unknown distribution of input images, $\lfloor\cdot\rceil$ refers to quantization and $f$ is the main encoder. Accordingly, $y=f(x)$ is the output of the main encoder applied to the input $x$, $\hat{y} = \lfloor y\rceil$ are the quantized latents of the main encoder, $p_{\hat{y}}$ is a discrete entropy model and $\hat{x}=g(\hat{y})$ is the reconstruction of $x$ obtained from applying the main decoder $g$ to the quantized latents $\hat{y}$. As the metric for computing the distortion, we use \ac{mse}, because Ballé et al. showed that the rate-distortion problem is equivalent to minimizing the \ac{kl} divergence over $p_x$ \citep{balle_variational_2018}. Using this equivalence they showed that using \ac{mse} as the distortion metric is equivalent to assuming a Gaussian distribution for $p_{x|\hat{y}}(x|\hat{y})$. While there are approaches assuming different probability distributions like the Student's T distribution, this was not a focus of this thesis and the Gaussian often provides a good estimate for unknown probability distributions. For this reason, we also assumed a Gaussian distribution for the probability distribution.
 
 However, this formulation does not include the hyperprior network that learns and transmits side information about the entropy model $p_{\hat{y}}$. In order to incorporate the hyperprior into the \ac{rd} loss function, we need to add an additional term to capture the bitrate for the transmitted side information. The final loss function is then defined as follows:
 \begin{align}
-R + \varphi \cdot D &= \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\lfloor f(x)\rceil)]}_\text{rate (main latents)} + 
+L_{RD}=R + \varphi \cdot D &= \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\lfloor f(x)\rceil)]}_\text{rate (main latents)} + 
 \underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{z}}(\lfloor f_h(f(x))\rceil)]}_\text{rate (hyper-latents)} \nonumber\\
 &\qquad\qquad\qquad\qquad\qquad\quad\:\: + \underbrace{\varphi \cdot\mathbf{E}_{x\sim p_x} [\Vert x - g(\lfloor f(x)\rceil))\Vert^2_2]}_\text{distortion}.\nonumber\\
 &=\underbrace{\mathbf{E}_{x\sim p_x} [ -\log_2 p_{\hat{y}}(\hat{y})]}_\text{rate (main latents)} + 
@@ -44,22 +44,9 @@ With regard to the quantization operation, care has to be taken. When executing 
 The \ac{dualmse} loss is therefore a linear interpolation between the \ac{mse} loss of the complete model and the \ac{mse} loss of the inner model. This allows for fine-grained control over the weight of the loss of the inner model in the overall loss. Of note are also the two edge cases of $\lambda = 1$, where the \ac{dualmse} loss function becomes equivalent to \ac{mse} loss and $\lambda = 0$, where only the loss of the inner model is used. The \ac{dualmse} loss was used for \ac{mymodel} models using the \ac{cnn}-based spatial autoencoder. Results regarding the use of \ac{dualmse} loss for these models can be seen in \autoref{sec:ch5dualmse}. While the use of a Dual Rate-Distortion loss would be possible for \ac{mymodel} using a hyperprior-based spatial autoencoder, this was not done because the results in \autoref{sec:ch5dualmse} did not show a clear and significant improvement when using a dual loss function.
 
 \subsection{Metrics}
-We use two different metrics to evaluate our experiments. The first metric is \ac{psnr}, which is a common metric to quantify reconstruction accuracy for lossy learning-based image compression \citep{balle_end--end_2017,balle_variational_2018,minnen_joint_2018,kuester_1d-convolutional_2021,kuester_transferability_2022,la_grassa_hyperspectral_2022}. \Ac{psnr}  is defined in general as follows:
-\begin{align}
-\text{PSNR}(x,\hat{x}) &= 10*\log_{10}\frac{\text{MAX}}{\text{MSE}(x,\hat{x})}
-&= 20 * \log_{10}(\text{MAX}) - 10*\log_{10}(\text{MSE}(x,\hat{x})).
-\end{align}
-Here MAX is the maximum possible pixel value in the used dataset and $\text{MSE}(x,\hat{x})$ refers to the Mean Squared Error between $x$ and $\hat{x}$. However, since the data range for the HySpecNet-11k dataset used in this thesis is the interval $[0,1]$, the equation simplifies to:
-\begin{align}
-\text{PSNR}(x,\hat{x}) = - 10*\log_{10}(\text{MSE}(x,\hat{x})).
-\end{align}
-It is therefore directly correlated with the log of the \ac{mse}.
-While \ac{psnr} is a commonly used metric in lossy learning-based hyperspectral compression, it is computed as an average over all channels. We therefore want to employ another metric to more accurately evaluate the reconstruction of the spectral signatures which are important for lossy reconstructions of hyperspectral images.
-
-For this, we use the spectral angle. It is computed by calculating the angle between the spectra of the input image and the reconstruction for each pixel using the \ac{sam} algorithm \citep{kruse_spectral_1993}. The computed angles are then averaged to compute the metric for a given input image and reconstruction. Using the combination of \ac{psnr} and spectral angle we can compare different models with regard to spatial and spectral reconstruction accuracy.
 \begin{table}
 \centering
-\caption{Acronyms for commonly used models in this section.}
+\caption[Acronyms for Commonly Used Models]{Acronyms for commonly used models in this section.}
 \begin{tabularx}{\textwidth}{|L|L|}
 \hline
 Model Name & Description \\
@@ -83,6 +70,19 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
 \end{tabularx}
 \label{fig:shortnames}
 \end{table}
+We use two different metrics to evaluate our experiments. The first metric is \ac{psnr}, which is a common metric to quantify reconstruction accuracy for lossy learning-based image compression \citep{balle_end--end_2017,balle_variational_2018,minnen_joint_2018,kuester_1d-convolutional_2021,kuester_transferability_2022,la_grassa_hyperspectral_2022}. \Ac{psnr}  is defined in general as follows:
+\begin{align}
+\text{PSNR}(x,\hat{x}) &= 10*\log_{10}\frac{\text{MAX}}{\text{MSE}(x,\hat{x})}
+&= 20 * \log_{10}(\text{MAX}) - 10*\log_{10}(\text{MSE}(x,\hat{x})).
+\end{align}
+Here MAX is the maximum possible pixel value in the used dataset and $\text{MSE}(x,\hat{x})$ refers to the Mean Squared Error between $x$ and $\hat{x}$. However, since the data range for the HySpecNet-11k dataset used in this thesis is the interval $[0,1]$, the equation simplifies to:
+\begin{align}
+\text{PSNR}(x,\hat{x}) = - 10*\log_{10}(\text{MSE}(x,\hat{x})).
+\end{align}
+It is therefore directly correlated with the log of the \ac{mse}.
+While \ac{psnr} is a commonly used metric in lossy learning-based hyperspectral compression, it is computed as an average over all channels. We therefore want to employ another metric to more accurately evaluate the reconstruction of the spectral signatures which are important for lossy reconstructions of hyperspectral images.
+
+For this, we use the spectral angle. It is computed by calculating the angle between the spectra of the input image and the reconstruction for each pixel using the \ac{sam} algorithm \citep{kruse_spectral_1993}. The computed angles are then averaged to compute the metric for a given input image and reconstruction. Using the combination of \ac{psnr} and spectral angle we can compare different models with regard to spatial and spectral reconstruction accuracy.
 \section{Impact of Hughes Phenomenon \label{sec:ch5hughes}}
 \begin{figure}[!ht]
     \centering
@@ -106,7 +106,7 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     \addlegendentry{\ac{mymodel}-Fast}
 \end{semilogxaxis}
 \end{tikzpicture}
-\caption{This graph shows the PSNR for the model FastConv and \ac{mymodel}-Fast (see \autoref{fig:shortnames}) for different subsections of the dataset. Only training and validation set sizes were reduced, and all models were evaluated on the full test set.}
+\caption[Comparison for Different Dataset Sizes (PSNR)]{PSNR for the model FastConv and \ac{mymodel}-Fast for different subsections of the dataset. Only training and validation set sizes were reduced, and all models were evaluated on the full test set.}
 \label{fig:hughes}
 \end{figure}
 
@@ -132,7 +132,7 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
     \addlegendentry{\ac{mymodel}-Fast}
 \end{semilogxaxis}
 \end{tikzpicture}
-\caption{This graph shows the spectral angle for the model FastConv and \ac{mymodel}-Fast (see \autoref{fig:shortnames}) for different subsections of the dataset. Only training and validation set sizes were reduced, and all models were evaluated on the full test set.}
+\caption[Comparison for Different Dataset Sizes (Spectral Angle)]{Spectral angle for the model FastConv and \ac{mymodel}-Fast for different subsections of the dataset. Only training and validation set sizes were reduced, and all models were evaluated on the full test set.}
 \label{fig:hughesangle}
 \end{figure}
 
@@ -178,7 +178,7 @@ As seen in \autoref{fig:hughes} and \autoref{fig:hughesangle}, the models perfor
 	    \addlegendentry{\ac{mymodel}-Fast-NothingFrozen}
 	\end{axis}
 	\end{tikzpicture}
-	\caption{This graph shows the PSNR for different values of the parameter $\lambda$ for the \ac{dualmse} loss function.}
+	\caption[Dual MSE Loss Analysis]{PSNR for different values of the parameter $\lambda$ for the \ac{dualmse} loss function.}
 	\label{fig:dualmselosspsnr}
 	\end{figure}
 For this experiment shown in \autoref{fig:dualmselosspsnr}, we tested multiple different values for $\lambda$ in the \ac{dualmse} loss. The spectral angle values for this experiment are shown in \autoref{fig:dualmselossangle} in the appendix, as it shows similar results to \autoref{fig:dualmselosspsnr}. Multiple variations of \ac{mymodel} were tested in this way. All models in this experiment were trained by first pretraining the spectral autoencoder for 70 epochs and then training the complete \ac{mymodel} for 50 epochs. Furthermore, all models had a spectral downsampling factor of 16 and a spatial downsampling factor of 4, resulting in a total compression ratio of 64 or a bitrate of 0.5 \ac{bpppc}.
@@ -216,7 +216,7 @@ However, with the exception of $\lambda=0$ for the model where only the encoder 
 	    \addlegendentry{\ac{mymodel}-Fast-NothingFrozen}
 	\end{semilogyaxis}
 	\end{tikzpicture}
-	\caption{This graph shows the Inner MSE Loss for different values of the parameter $\lambda$ for the \ac{dualmse} loss function. Inner MSE Loss is the MSE between the output of the spectral encoder and the reconstruction of that latent from the spatial autoencoder in \ac{mymodel}.}
+	\caption[Inner Loss Analysis]{Inner MSE Loss for different values of the parameter $\lambda$ for the \ac{dualmse} loss function. Inner MSE Loss is the MSE between the output of the spectral encoder and the reconstruction of that latent from the spatial autoencoder in \ac{mymodel}.}
 	\label{fig:inner_mse}
 	\end{figure}
 
@@ -225,23 +225,23 @@ However, while the usage of the \ac{dualmse} loss does not have a strong effect 
 \begin{figure}
 \centering
 \includegraphics[scale=0.6]{img/latents_2.png}
-\caption{This image shows four of the 13 channels in the latent representation of an image from the HySpecNet-11k dataset for the model \ac{mymodel}-Fast-AllFrozen for the values 1 and 0.7 for the parameter $\lambda$ of the \ac{dualmse} loss function. The input is on the left. Below it is the latent produced by the spectral encoder, which is shared by both models. Following are, in order, the inner latent produced by the spectral encoder for $\lambda=1$, and for  $\lambda=0.7$, the reconstruction of the latent produced by the spatial decoder for $\lambda=1$ and for $\lambda=0.7$. The full image reconstructions are shown at the bottom.}
+\caption[Latent Representations]{This image shows four of the 13 channels in the latent representation of an image from the HySpecNet-11k dataset for the model \ac{mymodel}-Fast-AllFrozen for the values 1 and 0.7 for the parameter $\lambda$ of the \ac{dualmse} loss function. The input is on the left. Below it is the latent produced by the spectral encoder, which is shared by both models. Following are, in order, the inner latent produced by the spectral encoder for $\lambda=1$, and for  $\lambda=0.7$, the reconstruction of the latent produced by the spatial decoder for $\lambda=1$ and for $\lambda=0.7$. The full image reconstructions are shown at the bottom.}
 \label{fig:latentcompare}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[scale=0.85]{img/innerlatent.png}
-\caption{Inner latent comparison}
+\caption[Inner Latent Representations]{Comparison of inner latents for \ac{mymodel}-Fast-AllFrozen with $\lambda=1$ showing partial exploitation of spatial dependencies, especially in the bottom latent. Original image on the left, followed by two latent channels, the corresponding inner latents, and the full image reconstruction.}
 \label{fig:innerlatent}
 \end{figure}
 
-The best-performing model for this experiment was \textbf{\ac{mymodel}-Fast-EncoderFrozen} with $\lambda=0.5$ with a \ac{psnr} of 45.50 dB and a spectral angle of $3.06 \degree$. The second best model was \textbf{\ac{mymodel}-Fast-AllFrozen} with $\lambda=0.7$ with a \ac{psnr} of 45.31 and a spectral angle of $3.22 \degree$.
+The best-performing model for this experiment was \textbf{\ac{mymodel}-Fast-EncoderFrozen} with $\lambda=0.5$ with a \ac{psnr} of 45.50 dB and a spectral angle of $3.06 \degree$. The second best model was \textbf{\ac{mymodel}-Fast-AllFrozen} with $\lambda=0.7$ with a \ac{psnr} of 45.31 dB and a spectral angle of $3.22 \degree$.
 
 \section[Analysis of Hyperprior-based Models]{Analysis of Models Using Hyperprior-based Spatial Compression\label{sec:ch5hyperprior}}
 \begin{table}
 \centering
-\caption{Comparison of hyperprior-based models. F is the spatial compression/decompression factor in the main encoder/decoder pair.}
+\caption[Comparison of Hyperprior-based Models]{Comparison of hyperprior-based models. F is the spatial compression/decompression factor in the main encoder/decoder pair.}
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
 Model & F & Loss &$\varphi$ & bpppc & PSNR (dB) & Spectral Angle ($\degree$) \\
@@ -299,7 +299,7 @@ Additionally, we performed an experiment to test the effect of the quantization 
 \section[Analysis of Kernel Size Change]{Analysis of Kernel Size Change in 2D CNN-based Spatial Autoencoder}
 \begin{table}
 \centering
-\caption{Comparison of different kernel sizes for the spatial autoencoder and per-channel spatial autoencoder with the baseline model. For all models, the spectral encoder is frozen after pretraining and $\lambda = 0.5$.}
+\caption[Kernel Size Comparison For Spatial Autoencoder]{Comparison of different kernel sizes for the spatial autoencoder and per-channel spatial autoencoder with the baseline model. For all models, the spectral encoder is frozen after pretraining and $\lambda = 0.5$.}
 \begin{tabular}{|c|c|c|c|}
 \hline
 Kernel Size & Per Channel? & PSNR (dB) & Spectral Angle ($\degree$) \\
@@ -316,7 +316,7 @@ Kernel Size & Per Channel? & PSNR (dB) & Spectral Angle ($\degree$) \\
 \label{fig:kernelgroups}
 \end{table}
 
-To improve the number of spatial dependencies exploited by the \ac{twod} \ac{cnn}-based spatial autoencoder as part of \ac{mymodel}, we experimented with changing the kernel sizes of the convolutional layers of the spatial autoencoder from three to the higher values five and seven. These experiments were performed using the model \textbf{\ac{mymodel}-Fast-EncoderFrozen} with $\lambda=0.5$. However, as seen in \autoref{fig:kernelgroups}, this did not improve either \ac{psnr} or spectral angle. The highest metrics were achieved by the base model using a kernel size of three with 45.50 dB and a spectral angle of $3.06 \degree$. The model using a kernel size of five achieved a lower \ac{psnr} of 43.72 dB and a higher spectral angle of $3.30 \degree$, the model using a kernel size of seven resulted in the lowest ac{psnr} of 42.59 dB and the lowest spectral angle with $3.58 \degree$. We therefore conclude that a low kernel size of three is optimal for the \ac{cnn}-based spatial autoencoder.
+To improve the number of spatial dependencies exploited by the \ac{twod} \ac{cnn}-based spatial autoencoder as part of \ac{mymodel}, we experimented with changing the kernel sizes of the convolutional layers of the spatial autoencoder from three to the higher values five and seven. These experiments were performed using the model \textbf{\ac{mymodel}-Fast-EncoderFrozen} with $\lambda=0.5$. However, as seen in \autoref{fig:kernelgroups}, this did not improve either \ac{psnr} or spectral angle. The highest metrics were achieved by the base model using a kernel size of three with 45.50 dB and a spectral angle of $3.06 \degree$. The model using a kernel size of five achieved a lower \ac{psnr} of 43.72 dB and a higher spectral angle of $3.30 \degree$, the model using a kernel size of seven resulted in the lowest \ac{psnr} of 42.59 dB and the lowest spectral angle with $3.58 \degree$. We therefore conclude that a low kernel size of three is optimal for the \ac{cnn}-based spatial autoencoder.
 
 \section[Analysis of Per-Channel Autoencoder]{Analysis of Per-Channel 2D CNN-based Spatial Autoencoder}
 On the HySpecNet-11k dataset, the \ac{jpeg} 2000 baseline performed surprisingly well. \Ac{jpeg} 2000 is executed per channel, therefore performing only spatial compression on 202 single-channel images. However, the \ac{twod} \ac{cnn}-based spatial autoencoder uses the same filters to compress all channels in the bottleneck of the spectral autoencoder. We theorized that the differences between the latent channels might be too large to be appropriately captured using the same filters. 
@@ -342,7 +342,7 @@ To test this thesis, we modified the \ac{twod} \ac{cnn}-based spatial autoencode
     legend style={at={(0.5,-0.2)},anchor=north},
     %legend to name={bitratecomplegend},
     ylabel={PSNR (dB)},
-    xlabel={Bits per Pixel per Channel},
+    xlabel={Bits per Pixel per Channel (bpppc)},
 	cycle list name=color list,
 	log basis x = 10,
 	every axis plot/.append style={mark=o} % set options for all plots]
@@ -400,11 +400,11 @@ To test this thesis, we modified the \ac{twod} \ac{cnn}-based spatial autoencode
 \end{semilogxaxis}
 \end{tikzpicture}
 %\ref{bitratecomplegend}
-\caption{Rate distortion plot showing PSNR for different bitrates for multiple model types.}
+\caption[Rate Distortion Plot]{Rate distortion plot showing PSNR for different bitrates for multiple model types.}
 \label{fig:ratedistortion}
 \end{figure}
 
-Since the distortion produced by a lossy compression method depends on the compression rate \citep{berger_rate-distortion_2003}, we compared the different model architectures used in this thesis for multiple bitrates. We compare all model types listed in \autoref{fig:shortnames} as well as multiple baselines. The models \textbf{Conv1D}, \textbf{FastConv1D} and \textbf{Spectral-VAE} were trained for 70 epochs. The models \textbf{\ac{mymodel}}, \textbf{\ac{mymodel}-Fast} and \textbf{\ac{mymodel}-Attention} were trained for 50 epochs using the corresponding pre-trained spectral autoencoder. The model \textbf{Conv2D} was also trained for 50 epochs. For the model \textbf{\ac{mymodel}-Fast}, three variations were compared. For \textbf{\ac{mymodel}-Fast-NF}, the model is trained without freezing either the spectral encoder or decoder after pretraining, for \textbf{\ac{mymodel}-Fast-EF}, the spectral encoder is frozen after pretraining and for \textbf{\ac{mymodel}-Fast-AF}, the spectral encoder and decoder are frozen after pretraining. While the differences between these options were already discussed for a fixed bitrate of 0.5 bpppc in \autoref{sec:ch5dualmse}, they are also included in this experiment because of the surprising result that freezing the spectral encoder becomes significantly more important for lower bitrates, as discussed below in this section. The model \textbf{\ac{mymodel}-Fast-NF} uses \ac{dualmse} loss with $\lambda=0.5$, the models \textbf{\ac{mymodel}-Fast-EF} and \textbf{\ac{mymodel}-Fast-AF} use $\lambda=1$. For the models \textbf{\ac{mymodel}} and \textbf{\ac{mymodel}-Attention}, the best-performing options were used. For \textbf{\ac{mymodel}}, this is \textbf{EncoderFrozen} with $\lambda=0.5$ and for \textbf{\ac{mymodel}-Attention} this is \textbf{AllFrozen} with $\lambda=1$. The models \textbf{\ac{mymodel}} and \textbf{\ac{mymodel}-Fast} use a spatial compression factor of 4. The highest tested bitrate for such a model is therefore $\frac{1}{4}$ of the highest tested bitrate for the models \textbf{Conv1D} and \textbf{FastConv1D}.
+Since the distortion produced by a lossy compression method depends on the compression rate \citep{berger_rate-distortion_2003}, we compared the different model architectures used in this thesis for multiple bitrates. We compare all model types listed in \autoref{fig:shortnames} as well as multiple baselines. The models \textbf{Conv1D}, \textbf{FastConv1D} and \textbf{Spectral-VAE} were trained for 70 epochs. The models \textbf{\ac{mymodel}}, \textbf{\ac{mymodel}-Fast} and \textbf{\ac{mymodel}-Attention} were trained for 50 epochs using the corresponding pre-trained spectral autoencoder. The model \textbf{Conv2D} was also trained for 50 epochs. For the model \textbf{\ac{mymodel}-Fast}, three variations were compared. For \textbf{\ac{mymodel}-Fast-NF}, the model is trained without freezing either the spectral encoder or decoder after pretraining, for \textbf{\ac{mymodel}-Fast-EF}, the spectral encoder is frozen after pretraining and for \textbf{\ac{mymodel}-Fast-AF}, the spectral encoder and decoder are frozen after pretraining. While the differences between these options were already discussed for a fixed bitrate of 0.5 bpppc in \autoref{sec:ch5dualmse}, they are also included in this experiment because of the surprising result that freezing the spectral encoder becomes significantly more important for lower bitrates, as discussed below in this section. The model \textbf{\ac{mymodel}-Fast-NF} uses \ac{dualmse} loss with $\lambda=0.5$, the models \textbf{\ac{mymodel}-Fast-EF} and \textbf{\ac{mymodel}-Fast-AF} use $\lambda=1$. For the models \textbf{\ac{mymodel}} and \textbf{\ac{mymodel}-Attention}, the best-performing options were used. For \textbf{\ac{mymodel}}, this is \textbf{EncoderFrozen} with $\lambda=0.5$ and for \textbf{\ac{mymodel}-Attention} this is \textbf{AllFrozen} with $\lambda=1$. The models \textbf{\ac{mymodel}} and \textbf{\ac{mymodel}-Fast} use a spatial compression factor of 4. The highest tested bitrate for such a model is therefore $1/4$ of the highest tested bitrate for the models \textbf{Conv1D} and \textbf{FastConv1D}.
 
 Multiple baselines were used to quantify the performance of the models. The first two baselines, \textbf{Linear Interpolation} and \textbf{Cubic Interpolation} perform simple spectral interpolation. For compression using these methods, a given number of equidistant spectral channels are retained and all others are discarded. For decompression, the original channels are then restored using either linear or cubic interpolation. The first and last channels are always retained, since otherwise restoration of all channels would be impossible without extrapolating values. These methods were used as baselines because of the assumption that nearby spectral channels have similar values for the same pixel since they capture wavelengths that are close together. The third baseline used was \ac{jpeg} 2000, which was applied per channel. The tested quality settings for \ac{jpeg} 2000 were 1, 2, 3, 4, 5, 10, 15 and 20. We also consider \textbf{Conv1D} a baseline, since it is based on the model proposed in Kuester et al. \citep{kuester_1d-convolutional_2021,kuester_transferability_2022}.
 
@@ -412,7 +412,7 @@ The results show that the model \textbf{Spectral-VAE} is not successful in perfo
 
 In comparison with the \ac{jpeg} 2000 baseline and the models using the \ac{mymodel} architecture, the purely spectral compression methods \textbf{Conv1D} and \textbf{FastConv1D} perform best for bitrates close to 0.5 \ac{bpppc}. The model \textbf{Conv1D} outperforms \ac{jpeg} 2000 for the bitrate 0.63 \ac{bpppc}. Note that different model types can be tested for slightly different bitrates because of different padding strategies. Additionally, \ac{jpeg} 2000 can only be set to a fixed number of different quality settings and therefore does not allow for setting a specific bitrate. The model \textbf{FastConv1D} has a higher \ac{psnr} than \ac{jpeg} 2000 for bitrates from 0.31 to 0.47 \ac{bpppc}. These correspond to two and respectively three channels in the latent representation. For higher bitrates, \ac{jpeg} 2000 outperforms the spectral encoding methods. Further, the model \textbf{Conv1D} has a lower limit on the number of spectral channels in the latent dimensions, below which distortion strongly increases. This point is at 2 latent channels, which corresponds to a bitrate of 0.31 \ac{bpppc}, where it achieves a \ac{psnr} of 20.40 dB, while for 4 latent channels, the model achieves 43.63 dB for a bitrate of 0.63 \ac{bpppc}.
 
-The \ac{mymodel} architecture outperforms all baselines and other compared models for bitrates at or below 0.5 \ac{bpppc}. The model \textbf{\ac{mymodel}} has a \ac{psnr} of 43.48 when using 13 latent channels which results in a bitrate of 0.51 \ac{bpppc}. For 26 latent channels, the model does not significantly improve, achieving a \ac{psnr} of 43.85 dB with a bitrate of 1.03 \ac{bpppc}, which is worse than \textbf{Conv1D}, \textbf{FastConv1D} and \ac{jpeg} 2000 for similar bitrates. This is expected since the idea of the \ac{mymodel} architecture is to first reduce the number of spectral channels in order to be able to use spatial compression methods that work best for images with a low number of spectral channels such as \ac{rgb} or multispectral images. This is also illustrated by the model \textbf{Conv2D}, which shows the \ac{twod} \ac{cnn}-based spatial autoencoder directly applied to the hyperspectral data. This model only achieves a \ac{psnr} of 35.734 dB for a bitrate of 0.51 \ac{bpppc}, which shows that a reduction in the number of channels can strongly improve the performance of spatial compression methods. The effect is further shown by the model \textbf{AttentionHyperprior}, which uses the spatial autoencoder of the \textbf{\ac{mymodel}-Attention} model without first reducing the number of spectral channels, achieving a much lower \ac{psnr} of 33.92 dB. The model \textbf{\ac{mymodel}-Fast-AF} achieves the highest \ac{psnr} of all compared models, 44.59 dB, for the bitrate 0.51. For the bitrates 0.23 \ac{bpppc} and 0.12 \ac{bpppc}, it is the second best model behind \textbf{\ac{mymodel}-Attention} with \acp{psnr} of 42.35 and 38.98 respectively. However, the model \textbf{\ac{mymodel}-Fast-NF} performs much worse for the bitrate $0.12$ with only a \ac{psnr} of 20.44 dB. It follows that freezing the spectral encoder is important when training for very low bitrates.
+The \ac{mymodel} architecture outperforms all baselines and other compared models for bitrates at or below 0.5 \ac{bpppc}. The model \textbf{\ac{mymodel}} has a \ac{psnr} of 43.48 dB when using 13 latent channels which results in a bitrate of 0.51 \ac{bpppc}. For 26 latent channels, the model does not significantly improve, achieving a \ac{psnr} of 43.85 dB with a bitrate of 1.03 \ac{bpppc}, which is worse than \textbf{Conv1D}, \textbf{FastConv1D} and \ac{jpeg} 2000 for similar bitrates. This is expected since the idea of the \ac{mymodel} architecture is to first reduce the number of spectral channels in order to be able to use spatial compression methods that work best for images with a low number of spectral channels such as \ac{rgb} or multispectral images. This is also illustrated by the model \textbf{Conv2D}, which shows the \ac{twod} \ac{cnn}-based spatial autoencoder directly applied to the hyperspectral data. This model only achieves a \ac{psnr} of 35.734 dB for a bitrate of 0.51 \ac{bpppc}, which shows that a reduction in the number of channels can strongly improve the performance of spatial compression methods. The effect is further shown by the model \textbf{AttentionHyperprior}, which uses the spatial autoencoder of the \textbf{\ac{mymodel}-Attention} model without first reducing the number of spectral channels, achieving a much lower \ac{psnr} of 33.92 dB. The model \textbf{\ac{mymodel}-Fast-AF} achieves the highest \ac{psnr} of all compared models, 44.59 dB, for the bitrate 0.51. For the bitrates 0.23 \ac{bpppc} and 0.12 \ac{bpppc}, it is the second best model behind \textbf{\ac{mymodel}-Attention} with \acp{psnr} of 42.35 and 38.98 respectively. However, the model \textbf{\ac{mymodel}-Fast-NF} performs much worse for the bitrate $0.12$ with only a \ac{psnr} of 20.44 dB. It follows that freezing the spectral encoder is important when training for very low bitrates.
 
 For all bitrates below 0.25, the highest \ac{psnr} is achieved by the model \textbf{\ac{mymodel}-Attention}. Additionally, this distortion is achieved with a much lower bitrate than in other models with similar \ac{psnr} values. In comparison with the second model with the second lowest bitrate for similar distortion, \textbf{\ac{mymodel}-Fast-AF}, the compression rate differs by a factor of $0.24/0.017=14.11$. We conclude that for the HySpecNet-11k the \textbf{\ac{mymodel}-Attention} model is optimal in order to achieve bitrates $<0.25$ \ac{bpppc}, while the \textbf{\ac{mymodel}-Fast} model can achieve slightly lower distortion for bitrates $\approx 0.5$ \ac{bpppc}. Additionally, the results show that the \ac{mymodel} approach improves upon the purely spectral compression methods and purely spatial compression for bitrates lower than 1 \ac{bpppc}. 
 
