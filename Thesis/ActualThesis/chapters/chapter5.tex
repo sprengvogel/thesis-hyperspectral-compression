@@ -9,7 +9,7 @@ We use three different loss functions for the models in this thesis. Some models
 \subsection{MSE Loss}
 The \ac{mse} function is a common loss function used for training \acp{ann}. For the task of compressing a hyperspectral image it can be defined as follows:
 \begin{align}
-\text{MSE}(X,\hat{X}) = \frac{1}{B*C*H*W} \sum_{b=1}^{B}\sum_{c=1}^{C}\sum_{h=1}^H\sum_{w=1}^W (x_{bchw} - \hat{x}_{bchw})^2
+\text{MSE}(X,\hat{X}) = \frac{1}{B\cdot C\cdot H\cdot W} \sum_{b=1}^{B}\sum_{c=1}^{C}\sum_{h=1}^H\sum_{w=1}^W (x_{bchw} - \hat{x}_{bchw})^2
 \end{align}
 Here $X$ is defined as a batch of hyperspectral input images, $\hat{X}$ the reconstruction of the images in $X$ obtained from the compression model, $B$ the number of images per batch and $C$,$H$ and $W$ the number of spectral channels, height and width of the hyperspectral images respectively.
 We use \ac{mse} loss for pre-training the spectral autoencoder models as well as for training the \ac{cnn}-based spatial autoencoder outside of \ac{mymodel}.
@@ -39,7 +39,7 @@ With regard to the quantization operation, care has to be taken. When executing 
 \subsection{Dual MSE Loss}
 \ac{mymodel} consists of an outer autoencoder model and an inner autoencoder model. However, applying a loss function such as \ac{mse} loss in the standard way results in the inner autoencoder being trained through a layer of distortion at both the input and the output, as the input to the loss function is the input to outer encoder $x$ and the output of the outer decoder $\hat{x}$. The input to the inner encoder, $y=f_o(x)$, where $f_o$ is the outer encoder and the output of the inner decoder, $\hat{y}=g_i(f_i(y))$, where $f_i$ and $g_i$ are the inner encoder and decoder respectively, are not direct inputs to the loss functions. To alleviate that, we designed an experimental loss function called \ac{dualmse} loss. It is defined as follows:
 \begin{align}
-\text{DualMSE}(x,\hat{x},y,\hat{y}) = \lambda * \text{MSE}(x,\hat{x}) + (1-\lambda) *  \text{MSE}(y,\hat{y}).
+\text{DualMSE}(x,\hat{x},y,\hat{y}) = \lambda \cdot \text{MSE}(x,\hat{x}) + (1-\lambda) \cdot  \text{MSE}(y,\hat{y}).
 \end{align}
 The \ac{dualmse} loss is therefore a linear interpolation between the \ac{mse} loss of the complete model and the \ac{mse} loss of the inner model. This allows for fine-grained control over the weight of the loss of the inner model in the overall loss. Of note are also the two edge cases of $\lambda = 1$, where the \ac{dualmse} loss function becomes equivalent to \ac{mse} loss and $\lambda = 0$, where only the loss of the inner model is used. The \ac{dualmse} loss was used for \ac{mymodel} models using the \ac{cnn}-based spatial autoencoder. Results regarding the use of \ac{dualmse} loss for these models can be seen in \autoref{sec:ch5dualmse}. While the use of a Dual Rate-Distortion loss would be possible for \ac{mymodel} using a hyperprior-based spatial autoencoder, this was not done because the results in \autoref{sec:ch5dualmse} did not show a clear and significant improvement when using a dual loss function.
 
@@ -72,12 +72,12 @@ Spectral-VAE & Spectral \ac{vae}-based autoencoder (\autoref{sec:vae}) \\
 \end{table}
 We use two different metrics to evaluate our experiments. The first metric is \ac{psnr}, which is a common metric to quantify reconstruction accuracy for lossy learning-based image compression \citep{balle_end--end_2017,balle_variational_2018,minnen_joint_2018,kuester_1d-convolutional_2021,kuester_transferability_2022,la_grassa_hyperspectral_2022}. \Ac{psnr}  is defined in general as follows:
 \begin{align}
-\text{PSNR}(x,\hat{x}) &= 10*\log_{10}\frac{\text{MAX}}{\text{MSE}(x,\hat{x})}
-&= 20 * \log_{10}(\text{MAX}) - 10*\log_{10}(\text{MSE}(x,\hat{x})).
+\text{PSNR}(x,\hat{x}) &= 10\cdot \log_{10}\frac{\text{MAX}}{\text{MSE}(x,\hat{x})}
+&= 20 \cdot \log_{10}(\text{MAX}) - 10\cdot \log_{10}(\text{MSE}(x,\hat{x})).
 \end{align}
 Here MAX is the maximum possible pixel value in the used dataset and $\text{MSE}(x,\hat{x})$ refers to the Mean Squared Error between $x$ and $\hat{x}$. However, since the data range for the HySpecNet-11k dataset used in this thesis is the interval $[0,1]$, the equation simplifies to:
 \begin{align}
-\text{PSNR}(x,\hat{x}) = - 10*\log_{10}(\text{MSE}(x,\hat{x})).
+\text{PSNR}(x,\hat{x}) = - 10\cdot \log_{10}(\text{MSE}(x,\hat{x})).
 \end{align}
 It is therefore directly correlated with the log of the \ac{mse}.
 While \ac{psnr} is a commonly used metric in lossy learning-based hyperspectral compression, it is computed as an average over all channels. We therefore want to employ another metric to more accurately evaluate the reconstruction of the spectral signatures which are important for lossy reconstructions of hyperspectral images.
@@ -94,15 +94,15 @@ For this, we use the spectral angle. It is computed by calculating the angle bet
     width=\textwidth,
     height=10cm,
     xtick=data,
-    xticklabels from table={\datatable}{dsfactor},
+    xticklabels from table={\datatable}{dspercent},
     legend style={at={(0.98,0.3)},anchor=south east},
     ylabel={PSNR (dB)},
-    xlabel={Division Factor for Dataset}]
+    xlabel={Fraction of dataset used (\%)}]
     
-    \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_psnr}]{\datatable};
+    \addplot [mark=o, blue!80 ] table [x={dspercent}, y={fastconv_psnr}]{\datatable};
     \addlegendentry{FastConv}
     
-    \addplot [mark=o, red!80] table [x={dsfactor}, y={fastcombined_psnr}]{\datatable};
+    \addplot [mark=o, red!80] table [x={dspercent}, y={fastcombined_psnr}]{\datatable};
     \addlegendentry{\ac{mymodel}-Fast}
 \end{semilogxaxis}
 \end{tikzpicture}
@@ -120,15 +120,15 @@ For this, we use the spectral angle. It is computed by calculating the angle bet
     width=\textwidth,
     height=10cm,
     xtick=data,
-    xticklabels from table={\datatable}{dsfactor},
+    xticklabels from table={\datatable}{dspercent},
     legend style={at={(0.98,0.3)},anchor=south east},
     ylabel={Spectral Angle (\degree)},
-    xlabel={Division Factor for Dataset}]
+    xlabel={Fraction of dataset used (\%)}]
     
-    \addplot [mark=o, blue!80 ] table [x={dsfactor}, y={fastconv_sangle}]{\datatable};
+    \addplot [mark=o, blue!80 ] table [x={dspercent}, y={fastconv_sangle}]{\datatable};
     \addlegendentry{FastConv}
     
-    \addplot [mark=o, red!80] table [x={dsfactor}, y={fastcombined_sangle}]{\datatable};
+    \addplot [mark=o, red!80] table [x={dspercent}, y={fastcombined_sangle}]{\datatable};
     \addlegendentry{\ac{mymodel}-Fast}
 \end{semilogxaxis}
 \end{tikzpicture}
