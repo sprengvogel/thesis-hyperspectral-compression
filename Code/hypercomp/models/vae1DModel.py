@@ -1,7 +1,5 @@
 import torch
 import torch.nn as nn
-import numpy as np
-from .. import params as p
 from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 

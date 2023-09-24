@@ -1,10 +1,8 @@
 import torch
 import pytorch_lightning as pl
-from torchvision.utils import make_grid
-import wandb
 import numpy as np
 from .. import params as p
-from ..metrics import psnr, ssim, spectral_angle
+from ..metrics import psnr, spectral_angle
 from .modelType import ModelType
 
 

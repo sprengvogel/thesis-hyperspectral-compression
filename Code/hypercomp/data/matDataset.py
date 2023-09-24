@@ -1,5 +1,4 @@
-import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset
 import scipy.io
 import os
 import numpy as np

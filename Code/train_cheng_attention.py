@@ -1,15 +1,7 @@
 import hypercomp.data as data
 import hypercomp.models as models
 import hypercomp.metrics as metrics
-import pytorch_lightning as pl
 from hypercomp import params as p
-from torchinfo import summary
-from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.callbacks import ModelCheckpoint
-import torch
-from torch.utils.data import random_split
-import math
-import numpy as np
 
 if __name__ == "__main__":
     model = models.LitAutoEncoder(models.ChengAttentionModel(in_channels=202,

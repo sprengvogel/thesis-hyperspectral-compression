@@ -1,10 +1,7 @@
 import hypercomp.data as data
 import hypercomp.models as models
-import pytorch_lightning as pl
 from hypercomp import params as p
 from hypercomp.models.utils import unflatten_and_split_apart_batches, flatten_spacial_dims
-from torchinfo import summary
-from pytorch_lightning.loggers import WandbLogger
 import torch
 import numpy as np
 import wandb

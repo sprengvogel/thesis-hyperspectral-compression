@@ -1,9 +1,6 @@
-from compressai.entropy_models import EntropyBottleneck, GaussianConditional
-from compressai.layers import GDN, MaskedConv2d
-from compressai.registry import register_model
-from .utils import update_registered_buffers, conv, deconv
+from compressai.layers import GDN
+from .utils import conv, deconv
 from .entropyBottleneckCompressionModel import EntropyBottleneckCompressionModel
-import torch
 import torch.nn as nn
 
 

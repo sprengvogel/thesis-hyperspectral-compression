@@ -1,6 +1,5 @@
 import torch
 from .fast1DconvModel import Fast1DConvModel, Fast1DConvEncoder, Fast1DConvDecoder
-from .conv2DModel import Conv2DModel
 
 
 class FastCombinedGeneralHyperprior(torch.nn.Module):

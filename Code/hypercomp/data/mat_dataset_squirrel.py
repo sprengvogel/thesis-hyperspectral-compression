@@ -1,7 +1,4 @@
-import os
 
-import numpy as np
-from scipy.io import loadmat
 
 from squirrel.iterstream.torch_composables import TorchIterable
 

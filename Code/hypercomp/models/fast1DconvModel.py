@@ -1,7 +1,4 @@
-import torch
 import torch.nn as nn
-import math
-from .. import params as p
 
 
 class Fast1DConvModel(nn.Module):

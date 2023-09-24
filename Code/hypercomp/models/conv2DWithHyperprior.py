@@ -1,10 +1,7 @@
 import math
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-from compressai.entropy_models import EntropyBottleneck, GaussianConditional
-from compressai.layers import GDN, MaskedConv2d
-from compressai.registry import register_model
+from compressai.entropy_models import GaussianConditional
 from .utils import update_registered_buffers, conv, deconv
 from .entropyBottleneckCompressionModel import EntropyBottleneckCompressionModel
 

@@ -1,12 +1,10 @@
 import torch
-import numpy as np
 import pytorch_lightning as pl
 from ..models import LitAutoEncoder
 from .hySpecNet11k import HySpecNet11k
 from torchinfo import summary
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-from pytorch_lightning.utilities.model_summary.model_summary import ModelSummary
 from torch.utils.data import Dataset, DataLoader
 from .. import params as p
 

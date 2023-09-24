@@ -1,6 +1,6 @@
 import torch
 from .conv1DModel import Conv1DModel, Conv1DEncoder, Conv1DDecoder
-from .cheng_attention import ChengAttentionModel
+from .cheng_attention_wrapper import ChengAttentionModel
 from .utils import unflatten_and_split_apart_batches, flatten_spacial_dims
 
 

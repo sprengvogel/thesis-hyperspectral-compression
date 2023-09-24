@@ -16,11 +16,10 @@ from itertools import starmap
 from PIL import Image
 from compressai.utils.bench.codecs import filesize, read_image
 from pytorch_msssim import ms_ssim
-from scipy.io import loadmat
 from tempfile import mkstemp
 
 from torch_utils import AverageMeter
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
 from hypercomp import params as p
 from hypercomp import data
 
